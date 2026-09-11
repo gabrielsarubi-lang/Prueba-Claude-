@@ -1,0 +1,201 @@
+{
+  "_comentario": "Los textos de una semana. Para armar otra semana, copiá este archivo con otro nombre y cambiá los textos. El diseño no se toca.",
+  "_como_escribir": {
+    "salto de linea": "Usá \\n donde quieras que corte el renglón del título.",
+    "resaltado": "Poné *asteriscos* alrededor de la palabra que va en verde.",
+    "fondo": "\"oscuro\" o \"claro\". Alterná entre posts para que la grilla del perfil quede en damero.",
+    "escala": "\"xl\" título corto, \"l\" medio, \"m\" título largo o placa con mucho contenido.",
+    "tipo": "declaracion | oferta | pasos | mito | lista | pregunta",
+    "pie_marca": "\"sitio\" o \"handle\": qué se muestra abajo a la derecha en el post."
+  },
+
+  "semana": "Semana 1",
+  "posts": [
+    {
+      "dia": "Lunes",
+      "archivo": "1-lunes-enfoque",
+      "tipo": "declaracion",
+      "fondo": "oscuro",
+      "eyebrow": "Enfoque",
+      "pie_marca": "sitio",
+      "objetivo": "Posicionamiento. Abrís la semana con la tesis que te diferencia.",
+      "post": {
+        "escala": "xl",
+        "titulo": "La IA no funciona\ncopiando lo que\nhace *otro*.",
+        "sub": "Funciona cuando entiende el problema puntual de tu negocio. Ahí empieza el trabajo.",
+        "sub_ancho": true
+      },
+      "historia": {
+        "escala": "xl",
+        "titulo": "La IA no\nfunciona\ncopiando lo\nque hace\n*otro*.",
+        "sub": "Funciona cuando entiende el problema puntual de tu negocio."
+      },
+      "pie": "Todas las semanas alguien nos escribe con la misma frase: \"quiero lo que implementó fulano\".\n\nY casi siempre la respuesta es que eso no te sirve.\n\nLa automatización que le funciona a una distribuidora no le sirve a un consultorio. No porque una sea mejor, sino porque resuelven problemas distintos.\n\nPor eso empezamos siempre igual: entendiendo qué tarea te está comiendo el día. Recién después hablamos de tecnología.\n\n¿Cuál es la tuya? 👇",
+      "hashtags": "#InteligenciaArtificial #AutomatizacionDeProcesos #IAparaEmpresas #TransformacionDigital #Pymes #Argentina #ConsultoriaIA #Sarubia"
+    },
+
+    {
+      "dia": "Martes",
+      "archivo": "2-martes-whatsapp",
+      "tipo": "oferta",
+      "fondo": "claro",
+      "eyebrow": "Oferta de lanzamiento",
+      "pie_marca": "handle",
+      "objetivo": "Venta directa. El único post con precio de la semana.",
+      "post": {
+        "escala": "l",
+        "titulo": "Tu WhatsApp\natendiendo *24/7*",
+        "precio": "AR$ 49.000",
+        "precio_nota": "Por tiempo limitado",
+        "checks": [
+          "IA entrenada con tu negocio",
+          "Entrega en 24–48 hs",
+          "Sin conocimientos técnicos",
+          "Sin contratos"
+        ]
+      },
+      "historia": {
+        "escala": "l",
+        "titulo": "Tu WhatsApp\natendiendo\n*24/7*",
+        "precio": "AR$ 49.000",
+        "precio_nota": "Por tiempo limitado",
+        "checks": [
+          "Entrega en 24–48 hs",
+          "Sin conocimientos técnicos",
+          "Sin contratos"
+        ],
+        "cta": "Lo quiero →"
+      },
+      "pie": "Tu WhatsApp no descansa. Vos sí.\n\nUn agente de IA entrenado con la información de tu negocio responde consultas, califica interesados y deriva solo lo que realmente necesita tu atención.\n\nQué incluye:\n✓ Integración completa con WhatsApp\n✓ IA entrenada con tu negocio\n✓ Primer flujo conversacional armado\n✓ Pruebas de funcionamiento\n✓ Soporte durante toda la configuración\n\nEntrega en 24–48 hs. Sin contratos. Sin que toques una línea de código.\n\nAR$ 49.000 — oferta de lanzamiento por tiempo limitado.\n\nEscribinos por WhatsApp y lo dejamos andando esta semana. 💬",
+      "hashtags": "#ChatbotWhatsApp #AutomatizacionWhatsApp #AgenteDeIA #AtencionAlCliente #IAparaNegocios #Emprendedores #Pymes #Sarubia"
+    },
+
+    {
+      "dia": "Miércoles",
+      "archivo": "3-miercoles-metodo",
+      "tipo": "pasos",
+      "fondo": "oscuro",
+      "eyebrow": "Cómo trabajamos",
+      "pie_marca": "sitio",
+      "objetivo": "Confianza. Mostrás el método antes de que te lo pregunten.",
+      "post": {
+        "escala": "m",
+        "titulo": "Cuatro etapas.\nSin intermediarios.",
+        "pasos": ["Diagnóstico", "Diseño", "Implementación", "Soporte continuo"]
+      },
+      "historia": {
+        "escala": "m",
+        "titulo": "Cuatro etapas.\nSin\nintermediarios.",
+        "pasos": ["Diagnóstico", "Diseño", "Implementación", "Soporte continuo"]
+      },
+      "pie": "\"¿Y esto cómo sería?\" — la pregunta que más nos hacen.\n\nAsí trabajamos:\n\n01 · DIAGNÓSTICO\nMiramos tu operación y detectamos qué se repite. Si no hay nada para automatizar, te lo decimos.\n\n02 · DISEÑO\nDefinimos la solución concreta para ese problema. Nada genérico.\n\n03 · IMPLEMENTACIÓN\nLa ponemos a funcionar y la probamos con casos reales de tu negocio.\n\n04 · SOPORTE CONTINUO\nAjustamos sobre la marcha. Una automatización se afina con el uso.\n\nHablás siempre con la misma persona: la que construye tu solución.",
+      "hashtags": "#ConsultoriaIA #TransformacionDigital #AutomatizacionDeProcesos #Metodologia #IAaplicada #Pymes #Sarubia"
+    },
+
+    {
+      "dia": "Jueves",
+      "archivo": "4-jueves-mito",
+      "tipo": "mito",
+      "fondo": "claro",
+      "eyebrow": "Mito & realidad",
+      "pie_marca": "handle",
+      "objetivo": "Romper la objeción que más frena a tu cliente ideal.",
+      "post": {
+        "mito": "“La inteligencia artificial es para empresas grandes.”",
+        "realidad": "Es para cualquier negocio que repita la misma tarea todos los días."
+      },
+      "historia": {
+        "mito": "“La inteligencia artificial es para empresas grandes.”",
+        "realidad": "Es para cualquier negocio que repita la misma tarea todos los días."
+      },
+      "pie": "\"Esto debe ser para empresas grandes.\"\n\nEs la objeción número uno. Y es al revés.\n\nCuanto más chico el equipo, más pesa cada hora que se va en tareas repetitivas. En una empresa de 200 personas, alguien absorbe esa carga. En una de 3, la absorbés vos.\n\nLa IA aplicada no requiere un departamento de sistemas ni un presupuesto corporativo. Requiere una tarea que se repita todos los días — y casi todos los negocios tienen varias.\n\nCargar datos a mano. Responder las mismas cinco preguntas. Armar el mismo informe cada lunes.\n\nAhí es donde empieza.",
+      "hashtags": "#IAparaPymes #MitosDeLaIA #AutomatizacionDeProcesos #Emprendedores #NegociosDigitales #InteligenciaArtificial #Sarubia"
+    },
+
+    {
+      "dia": "Viernes",
+      "archivo": "5-viernes-servicios",
+      "tipo": "lista",
+      "fondo": "oscuro",
+      "eyebrow": "Servicios",
+      "pie_marca": "sitio",
+      "objetivo": "Catálogo. El post que se guarda. Buen candidato para fijar en el perfil.",
+      "post": {
+        "escala": "m",
+        "titulo": "Seis módulos,\nun mismo objetivo.",
+        "columnas": 2,
+        "items": [
+          "Automatización\nde procesos",
+          "Chatbots y\nasistentes virtuales",
+          "Análisis de datos\ne IA predictiva",
+          "Consultoría\nestratégica en IA",
+          "Soluciones\na medida",
+          "Soporte y\nmejora continua"
+        ]
+      },
+      "historia": {
+        "escala": "m",
+        "titulo": "Seis módulos,\nun mismo\nobjetivo.",
+        "columnas": 1,
+        "items": [
+          "Automatización de procesos",
+          "Chatbots y asistentes virtuales",
+          "Análisis de datos e IA predictiva",
+          "Consultoría estratégica en IA",
+          "Soluciones a medida",
+          "Soporte y mejora continua"
+        ]
+      },
+      "pie": "Todo lo que hacemos, en una sola placa. Guardala. 📌\n\n01 · Automatización de procesos\nLo repetitivo deja de pasar por vos.\n\n02 · Chatbots y asistentes virtuales\nAtención 24/7 con la voz de tu negocio.\n\n03 · Análisis de datos e IA predictiva\nLos datos que ya tenés, ordenados y diciendo algo.\n\n04 · Consultoría estratégica en IA\nDónde conviene aplicarla — y dónde no.\n\n05 · Soluciones a medida\nCuando lo que necesitás no existe hecho.\n\n06 · Soporte y mejora continua\nPorque una automatización se afina con el uso.\n\nSeis módulos, un mismo objetivo: que la tecnología trabaje donde genera resultados.",
+      "hashtags": "#ServiciosDeIA #AutomatizacionDeProcesos #Chatbots #AnalisisDeDatos #ConsultoriaIA #SolucionesAMedida #Pymes #Sarubia"
+    },
+
+    {
+      "dia": "Sábado",
+      "archivo": "6-sabado-pregunta",
+      "tipo": "pregunta",
+      "fondo": "claro",
+      "eyebrow": "Pregunta del sábado",
+      "pie_marca": "handle",
+      "objetivo": "Conversación. Pide un número, no una opinión: se responde en dos segundos.",
+      "post": {
+        "escala": "l",
+        "titulo": "¿Cuántas horas\npor semana se van\nrespondiendo\n*siempre lo mismo*?",
+        "sub": "Contestá con un número en los comentarios. Te digo qué parte se puede automatizar.",
+        "sub_ancho": true
+      },
+      "historia": {
+        "escala": "l",
+        "titulo": "¿Cuántas\nhoras por\nsemana se van\nrespondiendo\n*lo mismo*?",
+        "hint": "↓ Respondé esta historia"
+      },
+      "pie": "Un número. Sin pensarlo mucho.\n\n¿Cuántas horas por semana se van en responder siempre las mismas preguntas?\n\nDejalo en los comentarios y te contesto qué parte de eso se puede automatizar y qué parte conviene que siga siendo humana. Sin vueltas y sin cotización de por medio.\n\nPista: casi siempre son más horas de las que uno calcula. 👀",
+      "hashtags": "#AutomatizacionDeProcesos #ProductividadEmpresarial #AtencionAlCliente #Emprendedores #Pymes #IAaplicada #Sarubia"
+    },
+
+    {
+      "dia": "Domingo",
+      "archivo": "7-domingo-directo",
+      "tipo": "declaracion",
+      "fondo": "oscuro",
+      "eyebrow": "Sin intermediarios",
+      "pie_marca": "sitio",
+      "objetivo": "Cierre suave. Domingo a la noche la gente planifica la semana.",
+      "post": {
+        "escala": "l",
+        "titulo": "Trabajás directo\ncon quien construye\ntu *solución*.",
+        "sub": "Comunicación clara, foco en resultados concretos y acompañamiento en cada etapa.",
+        "sub_ancho": true,
+        "cta": "Agendá tu diagnóstico →"
+      },
+      "historia": {
+        "escala": "l",
+        "titulo": "Trabajás\ndirecto con\nquien construye\ntu *solución*.",
+        "sub": "El diagnóstico es una charla, no una cotización.",
+        "cta": "Hablemos →"
+      },
+      "pie": "Sarubia nació de la práctica, no de la teoría.\n\nCada automatización que ofrecemos hoy primero se probó, se ajustó y se puso a prueba en casos reales. Ese recorrido es el que te estás llevando cuando trabajás con nosotros.\n\nNo hay ejecutivo de cuentas, ni derivaciones, ni un equipo distinto al que te vendió. Hablás con quien diseña e implementa tu proyecto.\n\nSi arrancás la semana con una tarea que ya no querés hacer más a mano, escribinos. El diagnóstico es una charla, no una cotización.\n\n🔗 sarubi-ia.com",
+      "hashtags": "#IAaplicada #ConsultoriaIA #TransformacionDigital #AutomatizacionDeProcesos #Emprendedores #Pymes #Argentina #Sarubia"
+    }
+  ]
+}

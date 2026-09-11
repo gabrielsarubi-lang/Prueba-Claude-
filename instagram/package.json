@@ -1,0 +1,14 @@
+{
+  "name": "sarubia-instagram",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Generador de placas de Instagram con la identidad visual de SARUBIA",
+  "scripts": {
+    "generar": "node generar.js",
+    "posts": "node generar.js semana-01.json post",
+    "historias": "node generar.js semana-01.json historia"
+  },
+  "dependencies": {
+    "playwright-core": "^1.56.0"
+  }
+}
