@@ -2,14 +2,15 @@
 'use strict';
 
 /**
- * Genera un reel en MP4 a partir de un guion de contenido/.
+ * Genera los reels de una semana en MP4.
  *
- *   node reel.js                     -> usa contenido/reel-martes.json
- *   node reel.js reel-viernes.json
+ *   node reel.js                          -> todos los de semana-01.json
+ *   node reel.js semana-01.json martes    -> solo el que diga "martes"
+ *   node reel.js semana-02.json           -> otra semana
  *
- * Dibuja cada cuadro con el navegador y los pega con ffmpeg. El video sale
- * mudo a propósito: la música se pone dentro de Instagram, que es gratis,
- * está licenciada y el algoritmo la favorece.
+ * Toma los mismos textos que las placas quietas, así una placa y su reel
+ * nunca discrepan. El video sale mudo a propósito: la música se pone dentro
+ * de Instagram, donde está licenciada y el algoritmo la favorece.
  */
 
 const fs = require('fs');
@@ -18,6 +19,8 @@ const { execFileSync } = require('child_process');
 const reel = require('./lib/reel');
 
 const RAIZ = __dirname;
+const DURACION = 8;   // segundos
+const FPS = 30;
 
 const CHROME = [
   process.env.CHROME_PATH,
@@ -27,16 +30,13 @@ const CHROME = [
   '/usr/bin/google-chrome'
 ].filter(Boolean);
 
-function primeroQueExista(lista) {
-  for (const p of lista) if (p && fs.existsSync(p)) return p;
-  return null;
-}
+const existe = (lista) => lista.find((p) => p && fs.existsSync(p)) || null;
 
 function buscarFfmpeg() {
   try {
     return require('ffmpeg-static');
   } catch (e) {
-    return primeroQueExista([process.env.FFMPEG_PATH, '/usr/bin/ffmpeg', '/usr/local/bin/ffmpeg']);
+    return existe([process.env.FFMPEG_PATH, '/usr/bin/ffmpeg', '/usr/local/bin/ffmpeg']);
   }
 }
 
@@ -50,29 +50,34 @@ function leerJson(p) {
 }
 
 async function main() {
-  const archivo = process.argv[2] || 'reel-martes.json';
+  const archivo = process.argv[2] || 'semana-01.json';
+  const filtro = process.argv[3];
 
   const marca = leerJson(path.join(RAIZ, 'marca.json'));
-  const guion = leerJson(path.join(RAIZ, 'contenido', archivo));
+  const contenido = leerJson(path.join(RAIZ, 'contenido', archivo));
 
-  const fps = guion.cuadros_por_segundo || 30;
-  const total = Math.round(guion.duracion * fps);
+  const posts = contenido.posts.filter(
+    (p) => p.historia && (!filtro || p.archivo.includes(filtro) || p.dia.toLowerCase().includes(filtro.toLowerCase()))
+  );
+  if (!posts.length) {
+    console.error(`\n✗ Ningún post coincide con "${filtro}".\n`);
+    process.exit(1);
+  }
 
-  const salida = path.join(RAIZ, 'salida', 'reels');
-  const cuadros = path.join(RAIZ, 'salida', '.cuadros', guion.archivo);
-  fs.rmSync(cuadros, { recursive: true, force: true });
-  fs.mkdirSync(cuadros, { recursive: true });
+  const nombreSemana = path.basename(archivo, '.json');
+  const salida = path.join(RAIZ, 'salida', 'reels', nombreSemana);
+  const trabajo = path.join(RAIZ, 'salida', '.html');
   fs.mkdirSync(salida, { recursive: true });
+  fs.mkdirSync(trabajo, { recursive: true });
 
-  // 1. La página que sabe dibujarse en cualquier instante.
-  const pagina = path.join(RAIZ, 'salida', '.html', `reel-${guion.archivo}.html`);
-  fs.mkdirSync(path.dirname(pagina), { recursive: true });
-  fs.writeFileSync(pagina, reel.documento(guion, marca), 'utf8');
-
-  // 2. Un PNG por cuadro.
-  const chrome = primeroQueExista(CHROME);
+  const chrome = existe(CHROME);
   if (!chrome) {
     console.error('\n✗ No encontré Chromium. Instalalo con:  npx playwright install chromium\n');
+    process.exit(1);
+  }
+  const ffmpeg = buscarFfmpeg();
+  if (!ffmpeg) {
+    console.error('\n✗ Falta ffmpeg. Instalalo con:  npm install\n');
     process.exit(1);
   }
 
@@ -81,50 +86,59 @@ async function main() {
     executablePath: chrome,
     args: ['--no-sandbox', '--font-render-hinting=none', '--force-color-profile=srgb']
   });
-  const p = await navegador.newPage({
-    viewport: { width: marca.medidas.historia.ancho, height: marca.medidas.historia.alto },
-    deviceScaleFactor: 1
-  });
-  await p.goto('file://' + pagina, { waitUntil: 'networkidle' });
-  await p.evaluate(() => document.fonts.ready);
-  await p.waitForTimeout(800);
 
-  const escena = p.locator('#escena');
-  process.stdout.write(`  Dibujando ${total} cuadros `);
-  for (let i = 0; i < total; i++) {
-    await p.evaluate((t) => window.__cuadro(t), i / fps);
-    await escena.screenshot({ path: path.join(cuadros, String(i).padStart(4, '0') + '.png') });
-    if (i % 30 === 0) process.stdout.write('.');
+  const hechos = [];
+
+  for (const item of posts) {
+    const dur = (item.reel && item.reel.duracion) || DURACION;
+    const cuadrosN = Math.round(dur * FPS);
+
+    const pagina = path.join(trabajo, `reel-${item.archivo}.html`);
+    fs.writeFileSync(pagina, reel.documento(item, marca, { duracion: dur }), 'utf8');
+
+    const cuadros = path.join(RAIZ, 'salida', '.cuadros', item.archivo);
+    fs.rmSync(cuadros, { recursive: true, force: true });
+    fs.mkdirSync(cuadros, { recursive: true });
+
+    const p = await navegador.newPage({
+      viewport: { width: marca.medidas.historia.ancho, height: marca.medidas.historia.alto },
+      deviceScaleFactor: 1
+    });
+    await p.goto('file://' + pagina, { waitUntil: 'networkidle' });
+    await p.evaluate(() => document.fonts.ready);
+    await p.waitForTimeout(700);
+
+    const escena = p.locator('.placa');
+    process.stdout.write(`  ${item.dia.padEnd(10)} `);
+    for (let i = 0; i < cuadrosN; i++) {
+      await p.evaluate((t) => window.__cuadro(t), i / FPS);
+      await escena.screenshot({ path: path.join(cuadros, String(i).padStart(4, '0') + '.png') });
+      if (i % 40 === 0) process.stdout.write('.');
+    }
+    await p.close();
+
+    const destino = path.join(salida, `sarubia-reel-${item.archivo}.mp4`);
+    execFileSync(ffmpeg, [
+      '-y',
+      '-framerate', String(FPS),
+      '-i', path.join(cuadros, '%04d.png'),
+      '-c:v', 'libx264',
+      '-profile:v', 'high',
+      '-pix_fmt', 'yuv420p',      // sin esto, muchos reproductores no lo abren
+      '-crf', '18',
+      '-preset', 'slow',
+      '-movflags', '+faststart',
+      destino
+    ], { stdio: ['ignore', 'ignore', 'pipe'] });
+
+    fs.rmSync(cuadros, { recursive: true, force: true });
+    const mb = (fs.statSync(destino).size / 1048576).toFixed(1);
+    console.log(` ${dur}s, ${mb} MB`);
+    hechos.push(destino);
   }
-  process.stdout.write(' listo\n');
+
   await navegador.close();
-
-  // 3. Pegarlos en un MP4 que Instagram acepte.
-  const ffmpeg = buscarFfmpeg();
-  if (!ffmpeg) {
-    console.error('\n✗ Falta ffmpeg. Instalalo con:  npm install ffmpeg-static');
-    console.error(`  Los cuadros quedaron en ${path.relative(RAIZ, cuadros)}/\n`);
-    process.exit(1);
-  }
-
-  const destino = path.join(salida, `sarubia-reel-${guion.archivo}.mp4`);
-  execFileSync(ffmpeg, [
-    '-y',
-    '-framerate', String(fps),
-    '-i', path.join(cuadros, '%04d.png'),
-    '-c:v', 'libx264',
-    '-profile:v', 'high',
-    '-pix_fmt', 'yuv420p',   // sin esto, muchos reproductores no lo abren
-    '-crf', '18',
-    '-preset', 'slow',
-    '-movflags', '+faststart',
-    destino
-  ], { stdio: ['ignore', 'ignore', 'pipe'] });
-
-  fs.rmSync(cuadros, { recursive: true, force: true });
-
-  const mb = (fs.statSync(destino).size / 1048576).toFixed(1);
-  console.log(`\n  ✓ ${path.relative(RAIZ, destino)}  —  ${guion.duracion}s, ${mb} MB, sin audio\n`);
+  console.log(`\n${hechos.length} reels en ${path.relative(RAIZ, salida)}/ — sin audio\n`);
 }
 
 main().catch((e) => {

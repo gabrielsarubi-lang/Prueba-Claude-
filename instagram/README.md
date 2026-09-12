@@ -127,28 +127,49 @@ apretado sobre la imagen y "Guardar imagen".
 
 ## Reels animados
 
-Además de las placas quietas, `reel.js` arma un video vertical animado:
+`reel.js` anima las mismas placas y las exporta como video:
 
 ```bash
-node reel.js                    # usa contenido/reel-martes.json
-node reel.js reel-viernes.json  # otro guión
+node reel.js                        # los 7 reels de semana-01
+node reel.js semana-01.json martes  # solo uno
+node reel.js semana-02.json         # otra semana
 ```
 
-Sale un **MP4 de 1080 × 1920, H.264**, que es lo que Instagram acepta para Reels e
-historias. Queda en `salida/reels/`.
+Salen **MP4 de 1080 x 1920, H.264, 8 segundos**, que es lo que Instagram acepta para
+Reels e historias. Quedan en `salida/reels/<semana>/`.
 
-### Cómo funciona
+### No hay un guion aparte
 
-La animación no usa transiciones de CSS: la página expone una función
-`__cuadro(t)` que dibuja el estado exacto del segundo `t`. El generador la llama 180
-veces (6 segundos a 30 cuadros por segundo), captura cada cuadro y los pega con
-ffmpeg. Es determinista: el cuadro 47 sale siempre igual, sin saltos ni tirones.
+El reel se arma con **los mismos textos** de `contenido/semana-*.json` que las placas
+quietas, y reutiliza el diseño de `lib/plantilla.js`. Por eso una placa y su reel no
+pueden discrepar: si cambias un titulo, cambian los dos.
 
-Los tiempos están en el guión, en segundos. Para que algo entre antes, bajale el
-número de `entra`.
+`lib/reel.js` recorre la placa ya armada y le asigna a cada elemento su entrada,
+siguiendo el orden en que esta escrito. Cada tipo de placa se mueve como pide su
+contenido:
 
-### El video sale mudo, y es a propósito
+| Elemento | Como entra |
+|---|---|
+| Titulo | Renglon por renglon, subiendo tapado por su propia mascara |
+| Precio | Aparece y el numero sube desde cero hasta el valor final |
+| Beneficios, pasos, servicios | Uno detras de otro, desde la izquierda |
+| Mito y realidad | Los dos paneles, con un respiro entre uno y otro |
+| Boton | Salta a escena, con rebote |
 
-La música se pone **dentro de Instagram**, desde su biblioteca: es gratis, está
-licenciada y el algoritmo favorece los videos que usan audio de su catálogo. Una
-pista incrustada acá arriesgaría un reclamo de derechos y no sumaría alcance.
+El ultimo segundo y pico queda quieto a proposito: los Reels se repiten en loop y sin
+esa pausa se hacen mareadores.
+
+### Como funciona por dentro
+
+La animacion no usa transiciones de CSS. La pagina expone una funcion `__cuadro(t)`
+que dibuja el estado exacto del segundo `t`; el generador la llama 240 veces
+(8 segundos a 30 cuadros por segundo), captura cada cuadro y los pega con ffmpeg.
+
+Es deterministico: el cuadro 47 sale siempre igual, sin importar cuanto tardo el
+navegador en capturarlo. Con transiciones de CSS el video saldria con tirones.
+
+### El video sale mudo, y es a proposito
+
+La musica se pone **dentro de Instagram**, desde su biblioteca: es gratis, esta
+licenciada y el algoritmo favorece los videos que usan audio de su catalogo. Una pista
+incrustada aca arriesgaria un reclamo de derechos y no sumaria alcance.

@@ -1,202 +1,213 @@
 'use strict';
 
 /**
- * Arma la página que se anima cuadro por cuadro para el reel.
+ * Arma la página que se anima cuadro por cuadro para un reel.
  *
- * La animación no usa CSS animations a propósito: expone una función
- * window.__cuadro(t) que dibuja el estado exacto del segundo t. Así el
- * render es determinista — el cuadro 47 siempre sale igual — que es lo que
- * hace falta para exportar video sin saltos.
+ * No redibuja el diseño: toma la placa vertical que ya genera plantilla.js y le
+ * pone el movimiento encima. Así una placa y su reel no pueden discrepar, y un
+ * cambio de diseño llega a los dos a la vez.
+ *
+ * La animación tampoco usa transiciones de CSS: la página expone una función
+ * window.__cuadro(t) que dibuja el estado exacto del segundo t. El render queda
+ * determinista — el cuadro 47 sale siempre igual — que es lo que hace falta para
+ * exportar video parejo.
  */
 
-const { esc } = require('./plantilla');
+const plantilla = require('./plantilla');
 
-function documento(guion, marca) {
-  const c = marca.colores;
+/** Estilos que solo necesita la versión animada. */
+const ESTILOS_REEL = `
+  body{background:#000;display:block;padding:0;}
+  .placa{margin:0;}
+  /* Cada renglón del título sube tapado por su propia máscara. */
+  .mascara{overflow:hidden;padding-bottom:.09em;margin-bottom:-.09em;}
+  .mascara > span{display:inline-block;will-change:transform,opacity;}
+  .anim{will-change:transform,opacity;}
+`;
+
+function documento(item, marca, opciones) {
+  const dur = (opciones && opciones.duracion) || 8;
   const t = marca.tipografia;
-  const m = marca.medidas.historia;
-  const claro = guion.fondo !== 'oscuro';
-
-  const lineas = guion.titulo
-    .map((l, i) => `<div class="linea" data-i="${i}"><span${l.verde ? ' class="ac"' : ''}>${esc(l.texto)}</span></div>`)
-    .join('');
-
-  const checks = guion.checks.items
-    .map((x, i) => `<div class="check" data-i="${i}"><span class="tick">✓</span><span>${esc(x)}</span></div>`)
-    .join('');
-
-  const firma = `${esc(marca.nombre.slice(0, marca.nombre_corte))}<span>${esc(marca.nombre.slice(marca.nombre_corte))}</span>`;
 
   return `<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Reel — ${esc(guion.archivo)}</title>
+<title>Reel — ${plantilla.esc(item.archivo)}</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=${encodeURIComponent(t.familia)}:wght@${t.pesos}&display=swap" rel="stylesheet">
-<style>
-  *{box-sizing:border-box;margin:0;padding:0;}
-  body{background:#000;}
-
-  #escena{
-    width:${m.ancho}px;height:${m.alto}px;position:relative;overflow:hidden;
-    padding:${m.margen_arriba}px ${m.margen}px ${m.margen_abajo}px;
-    display:flex;flex-direction:column;
-    font-family:'${t.familia}',${t.respaldo};
-    -webkit-font-smoothing:antialiased;
-    background:${claro ? '#FFFFFF' : c.tinta};
-    color:${claro ? c.texto : c.tinta_texto};
-  }
-
-  /* Fondo ambiente: respira lento durante todo el reel. */
-  #halo{
-    position:absolute;right:-330px;top:80px;width:940px;height:940px;
-    pointer-events:none;transform-origin:center;
-    background:radial-gradient(circle,
-      ${claro ? 'rgba(14,158,122,.13)' : 'rgba(47,224,174,.19)'} 0%,
-      ${claro ? 'rgba(14,158,122,0)' : 'rgba(47,224,174,0)'} 64%);
-  }
-
-  .capa{position:relative;z-index:2;}
-
-  #cabeza{display:flex;align-items:center;gap:18px;}
-  #eyebrow{
-    font-size:24px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
-    color:${claro ? c.verde : c.verde_sobre_oscuro};white-space:nowrap;
-  }
-  #raya{flex:1;height:1px;background:${claro ? c.linea : c.linea_oscura};transform-origin:left center;}
-
-  #cuerpo{flex:1;display:flex;flex-direction:column;justify-content:center;gap:44px;}
-
-  #titulo{font-weight:800;letter-spacing:-.028em;line-height:1.03;font-size:88px;}
-  /* Cada línea entra desde abajo tapada por su propia máscara. */
-  .linea{overflow:hidden;padding-bottom:.08em;margin-bottom:-.08em;}
-  .linea span{display:inline-block;will-change:transform,opacity;}
-  .ac{color:${claro ? c.verde : c.verde_sobre_oscuro};}
-
-  #precio{
-    font-size:128px;font-weight:800;letter-spacing:-.03em;line-height:1;
-    color:${claro ? c.verde : c.verde_sobre_oscuro};
-    font-variant-numeric:tabular-nums;transform-origin:left center;will-change:transform,opacity;
-  }
-  #nota{
-    font-size:26px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;
-    color:${c.apagado};margin-top:16px;
-  }
-
-  #checks{display:flex;flex-direction:column;gap:22px;}
-  .check{display:flex;align-items:center;gap:20px;font-size:34px;font-weight:500;will-change:transform,opacity;}
-  .tick{
-    width:38px;height:38px;border-radius:10px;flex-shrink:0;
-    display:flex;align-items:center;justify-content:center;font-size:23px;font-weight:700;
-    background:${claro ? c.verde_claro : 'rgba(47,224,174,.14)'};
-    color:${claro ? c.verde_fuerte : c.verde_sobre_oscuro};
-  }
-
-  #pie{display:flex;align-items:center;justify-content:space-between;gap:24px;}
-  #marca{font-size:34px;font-weight:700;color:${claro ? c.texto : c.tinta_texto};will-change:transform,opacity;}
-  #marca span{color:${claro ? c.verde : c.verde_sobre_oscuro};}
-  #cta{
-    display:inline-flex;align-items:center;gap:14px;white-space:nowrap;
-    font-size:30px;font-weight:700;padding:24px 38px;border-radius:12px;letter-spacing:-.005em;
-    background:${claro ? c.verde : c.verde_sobre_oscuro};
-    color:${claro ? '#FFFFFF' : '#05231B'};
-    transform-origin:center;will-change:transform,opacity;
-  }
-</style>
+<style>${plantilla.estilos(marca)}${ESTILOS_REEL}</style>
 </head>
 <body>
-<div id="escena">
-  <div id="halo"></div>
-  <div id="cabeza" class="capa">
-    <span id="eyebrow">${esc(guion.eyebrow)}</span>
-    <span id="raya"></span>
-  </div>
-  <div id="cuerpo" class="capa">
-    <div id="titulo">${lineas}</div>
-    <div id="bloque-precio">
-      <div id="precio">${esc(guion.precio.moneda)} 0</div>
-      <div id="nota">${esc(guion.precio.nota)}</div>
-    </div>
-    <div id="checks">${checks}</div>
-  </div>
-  <div id="pie" class="capa">
-    <span id="marca">${firma}</span>
-    <span id="cta">${esc(guion.cta.texto)}</span>
-  </div>
-</div>
-
+${plantilla.placa(item, marca, 'historia')}
 <script>
-const G = ${JSON.stringify(guion)};
+const DURACION = ${dur};
 
-/* ---- curvas ---- */
-const paso  = (t,a,b) => Math.max(0, Math.min(1, (t-a)/(b-a)));
-const suave = p => 1 - Math.pow(1-p, 3);                 // frena al llegar
-const rebote = p => {                                    // se pasa y vuelve
+/* ---------------------------------------------------------------- curvas */
+const paso   = (t,a,b) => b <= a ? (t >= b ? 1 : 0) : Math.max(0, Math.min(1, (t-a)/(b-a)));
+const suave  = p => 1 - Math.pow(1-p, 3);            // frena al llegar
+const rebote = p => {                                 // se pasa y vuelve
   const c1 = 1.70158, c3 = c1 + 1;
   return 1 + c3*Math.pow(p-1,3) + c1*Math.pow(p-1,2);
 };
 
-const $  = s => document.querySelector(s);
-const $$ = s => Array.from(document.querySelectorAll(s));
+const placa  = document.querySelector('.placa');
+const cuerpo = placa.querySelector('.cuerpo');
+const pie    = placa.querySelector('.pie');
 
-const eEyebrow = $('#eyebrow');
-const eRaya    = $('#raya');
-const eHalo    = $('#halo');
-const ePrecio  = $('#precio');
-const eNota    = $('#nota');
-const eCta     = $('#cta');
-const eMarca   = $('#marca');
-const eLineas  = $$('.linea span');
-const eChecks  = $$('.check');
-
-/** Aparece subiendo. */
-function entrar(el, t, desde, dur, alto, curva) {
-  const p = (curva || suave)(paso(t, desde, desde + dur));
-  el.style.opacity = String(Math.min(1, paso(t, desde, desde + dur * 0.55)));
-  el.style.transform = 'translateY(' + ((1 - p) * alto).toFixed(2) + 'px)';
+/* ------------------------------------------- partir el título en renglones */
+const h1 = cuerpo.querySelector('h1');
+let renglones = [];
+if (h1) {
+  const partes = h1.innerHTML.split(/<br\\s*\\/?>/i);
+  h1.innerHTML = partes.map(p => '<div class="mascara"><span>' + p + '</span></div>').join('');
+  renglones = Array.from(h1.querySelectorAll('.mascara > span'));
 }
 
-window.__cuadro = function (t) {
-  // Ambiente: una respiración lenta de punta a punta.
-  eHalo.style.transform = 'scale(' + (1 + 0.09 * (t / G.duracion)).toFixed(4) + ')';
+/* --------------------------------------------------- inventario de entradas
+   Se recorre el cuerpo en el orden en que está escrito, para que el
+   movimiento siga la lectura y no un orden inventado aparte. */
+const grupos = [];
 
-  entrar(eEyebrow, t, 0.10, 0.50, 18);
-  eRaya.style.transform = 'scaleX(' + suave(paso(t, 0.22, 0.95)).toFixed(4) + ')';
+for (const hijo of Array.from(cuerpo.children)) {
+  if (hijo === h1) {
+    renglones.forEach(el => grupos.push({ k:'sube', els:[el], alto:110, d:0.62, paso:0.18 }));
+    continue;
+  }
 
-  // Título: cada línea sube tapada por su máscara.
-  eLineas.forEach((el, i) => {
-    const L = G.titulo[i];
-    entrar(el, t, L.entra, L.rebote ? 0.70 : 0.60, 110, L.rebote ? rebote : suave);
-  });
+  const precio = hijo.querySelector ? hijo.querySelector('.precio') : null;
+  if (precio) {
+    grupos.push({ k:'precio', els:[precio], d:0.5, paso:0.5 });
+    const nota = hijo.querySelector('.precio-nota');
+    if (nota) grupos.push({ k:'fade', els:[nota], alto:12, d:0.4, paso:0.3 });
+    continue;
+  }
 
-  // Precio: entra y el número sube hasta el valor final.
-  const P = G.precio;
-  const pe = suave(paso(t, P.entra, P.entra + 0.45));
-  ePrecio.style.opacity = String(pe);
-  ePrecio.style.transform = 'scale(' + (0.88 + 0.12 * pe).toFixed(4) + ')';
+  const sueltos = hijo.querySelectorAll ? hijo.querySelectorAll('.check, .paso') : [];
+  if (sueltos.length) {
+    sueltos.forEach(el => grupos.push({ k:'lateral', els:[el], d:0.48, paso:0.15 }));
+    continue;
+  }
 
-  const cuenta = suave(paso(t, P.cuenta_desde, P.cuenta_hasta));
-  const valor = Math.round(P.hasta * cuenta);
-  ePrecio.textContent = P.moneda + ' ' + valor.toLocaleString('es-AR');
+  // La lista es una grilla con líneas: si se desvanece celda por celda se ven
+  // las juntas, así que entra el bloque entero y escalona el texto de adentro.
+  if (hijo.classList && hijo.classList.contains('lista')) {
+    grupos.push({ k:'fade', els:[hijo], alto:0, d:0.4, paso:0.12 });
+    hijo.querySelectorAll('.celda').forEach(c => {
+      grupos.push({ k:'lateral', els:Array.from(c.children), d:0.45, paso:0.13 });
+    });
+    continue;
+  }
 
-  eNota.style.opacity = String(suave(paso(t, P.nota_entra, P.nota_entra + 0.4)));
+  if (hijo.classList && hijo.classList.contains('panel')) {
+    grupos.push({ k:'escala', els:[hijo], d:0.55, paso:0.5 });
+    continue;
+  }
 
-  // Checks: uno detrás de otro, entrando desde la izquierda.
-  eChecks.forEach((el, i) => {
-    const desde = G.checks.entra + i * G.checks.escalonado;
-    const p = suave(paso(t, desde, desde + 0.45));
+  if (hijo.classList && hijo.classList.contains('regla')) {
+    grupos.push({ k:'raya', els:[hijo], d:0.5, paso:0.18 });
+    continue;
+  }
+
+  grupos.push({ k:'fade', els:[hijo], alto:22, d:0.55, paso:0.25 });
+}
+
+/* ----------------------------------------------------------- línea de tiempo */
+const guion = [];
+const eyebrow = placa.querySelector('.eyebrow');
+const raya    = placa.querySelector('.raya');
+const marca   = pie.querySelector('.mark');
+const cierre  = pie.querySelector('.cta') || pie.querySelector('.handle');
+
+guion.push({ k:'fade',  els:[eyebrow], t:0.12, d:0.50, alto:18 });
+guion.push({ k:'raya',  els:[raya],    t:0.25, d:0.75 });
+
+let reloj = 0.55;
+for (const g of grupos) {
+  guion.push(Object.assign({}, g, { t: reloj }));
+  reloj += g.paso;
+}
+const finCuerpo = reloj + 0.4;
+
+// El cierre espera a que el cuerpo termine, pero nunca tan tarde que no quede
+// un segundo de descanso: los reels se repiten, y sin pausa se hace mareador.
+const tCierre = Math.min(Math.max(finCuerpo, DURACION - 1.9), DURACION - 1.25);
+if (cierre) {
+  guion.push({ k: cierre.classList.contains('cta') ? 'pop' : 'fade', els:[cierre], t:tCierre, d:0.55, alto:16 });
+}
+guion.push({ k:'fade', els:[marca], t:tCierre + 0.18, d:0.45, alto:16 });
+
+/* -------------------------------------------------- el precio cuenta hacia arriba */
+const elPrecio = cuerpo.querySelector('.precio');
+let cuenta = null;
+if (elPrecio) {
+  const crudo = elPrecio.textContent;
+  const digitos = crudo.replace(/[^0-9]/g, '');
+  const inicio = (guion.find(g => g.k === 'precio') || { t: 0 }).t;
+  cuenta = {
+    prefijo: crudo.slice(0, crudo.search(/[0-9]/)),
+    hasta: parseInt(digitos, 10) || 0,
+    desde: inicio + 0.18,
+    fin: inicio + 1.15
+  };
+}
+
+/* ---------------------------------------------------------------- dibujar */
+const pinturas = {
+  fade(el, p, g) {
     el.style.opacity = String(p);
-    el.style.transform = 'translateX(' + ((1 - p) * -34).toFixed(2) + 'px)';
-  });
+    if (g.alto) el.style.transform = 'translateY(' + ((1 - suave(p)) * g.alto).toFixed(2) + 'px)';
+  },
+  sube(el, p, g) {
+    el.style.opacity = String(Math.min(1, p * 1.8));
+    el.style.transform = 'translateY(' + ((1 - suave(p)) * g.alto).toFixed(2) + 'px)';
+  },
+  lateral(el, p) {
+    el.style.opacity = String(p);
+    el.style.transform = 'translateX(' + ((1 - suave(p)) * -34).toFixed(2) + 'px)';
+  },
+  escala(el, p) {
+    el.style.opacity = String(p);
+    el.style.transform = 'scale(' + (0.94 + 0.06 * suave(p)).toFixed(4) + ')';
+  },
+  precio(el, p) {
+    el.style.opacity = String(p);
+    el.style.transform = 'scale(' + (0.88 + 0.12 * suave(p)).toFixed(4) + ')';
+  },
+  pop(el, p) {
+    el.style.opacity = String(Math.min(1, p * 2));
+    el.style.transform = 'scale(' + (0.70 + 0.30 * rebote(p)).toFixed(4) + ')';
+  },
+  raya(el, p) {
+    el.style.opacity = '1';
+    el.style.transform = 'scaleX(' + suave(p).toFixed(4) + ')';
+  }
+};
 
-  // Cierre.
-  const pc = rebote(paso(t, G.cta.entra, G.cta.entra + 0.55));
-  eCta.style.opacity = String(Math.min(1, paso(t, G.cta.entra, G.cta.entra + 0.3)));
-  eCta.style.transform = 'scale(' + (0.7 + 0.3 * pc).toFixed(4) + ')';
+// Todo arranca invisible y con su origen de transformación puesto.
+for (const g of guion) {
+  for (const el of g.els) {
+    el.classList.add('anim');
+    el.style.opacity = '0';
+    if (g.k === 'raya') el.style.transformOrigin = 'left center';
+    if (g.k === 'precio' || g.k === 'escala') el.style.transformOrigin = 'left center';
+  }
+}
 
-  entrar(eMarca, t, G.marca_entra, 0.45, 16);
+const halo = document.createElement('style');
+halo.textContent = '.placa::after{transform-origin:center;}';
+document.head.appendChild(halo);
+
+window.__cuadro = function (t) {
+  for (const g of guion) {
+    const p = paso(t, g.t, g.t + g.d);
+    for (const el of g.els) pinturas[g.k](el, p, g);
+  }
+  if (cuenta) {
+    const v = Math.round(cuenta.hasta * suave(paso(t, cuenta.desde, cuenta.fin)));
+    elPrecio.textContent = cuenta.prefijo + v.toLocaleString('es-AR');
+  }
 };
 
 window.__cuadro(0);
