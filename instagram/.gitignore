@@ -1,2 +1,7 @@
 node_modules/
-salida/
+
+# El HTML intermedio se regenera en cada corrida, no hace falta guardarlo.
+salida/.html/
+
+# Las imágenes SÍ se guardan (salida/semana-*/), así se pueden descargar
+# desde GitHub sin tener que correr el generador.

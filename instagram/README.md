@@ -109,3 +109,16 @@ npx playwright install chromium    # si falta el navegador
 - **Un solo post con precio por semana.** Repetir la oferta la desgasta.
 - **Nada de métricas inventadas.** Ningún texto acá afirma un resultado que no pasó.
   Cuando haya un caso real de un cliente, ese va a ser el mejor post de todos.
+
+---
+
+## Las imágenes ya generadas
+
+Las 14 placas de la semana 1 están guardadas en [`salida/semana-01/`](salida/semana-01/),
+así se pueden descargar sin correr el generador.
+
+Para bajarlas **todas juntas**: en la página principal del repositorio, botón verde
+**Code** → **Download ZIP**.
+
+Para bajar **una sola**: abrila desde la carpeta y usá el botón de descarga, o mantené
+apretado sobre la imagen y "Guardar imagen".
