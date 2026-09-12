@@ -1,0 +1,44 @@
+{
+  "_comentario": "Reel de venta del agente de WhatsApp, con demostración. A diferencia de los reels de marca, este tiene escenas: el contenido cambia, no solo entra.",
+
+  "_importante": "La conversación de la escena 2 es un EJEMPLO ilustrativo, no una charla real de un cliente. Cambiala por una consulta típica de tu rubro: cuanto más se parezca a lo que te preguntan todos los días, mejor va a funcionar el anuncio.",
+
+  "_corte_a_los_15": "Las escenas están cortadas para que el segundo 15 caiga justo entre dos. Si lo subís como historia e Instagram lo parte en dos tramos, el corte queda limpio y cada tramo se entiende solo.",
+
+  "archivo": "agente-whatsapp",
+  "duracion": 20,
+  "eyebrow": "Agente de IA para WhatsApp",
+
+  "hook": {
+    "hora": "23:47",
+    "titulo": "Un cliente\npregunta el\n*precio*.",
+    "sub": "Vos ya cerraste. Tu WhatsApp no."
+  },
+
+  "chat": {
+    "titulo": "Así contesta",
+    "mensajes": [
+      { "de": "cliente", "texto": "Hola! Hacen envíos a Córdoba?", "hora": "23:47" },
+      { "de": "agente",  "texto": "Sí, enviamos a todo el país. ¿Qué producto estás buscando?", "hora": "23:47", "tipeo": 0.9 },
+      { "de": "cliente", "texto": "El plan mensual. Cuánto sale?", "hora": "23:48" },
+      { "de": "agente",  "texto": "Te paso el detalle y los tiempos de entrega. Mañana a primera hora te llama un asesor.", "hora": "23:48", "tipeo": 1.1 }
+    ],
+    "remate": "Cuatro segundos. Vos dormías."
+  },
+
+  "como": {
+    "titulo": "Cómo funciona",
+    "pasos": [
+      { "t": "Conectamos tu WhatsApp", "d": "El mismo número, el mismo teléfono." },
+      { "t": "Entrenamos la IA con tu negocio", "d": "Tus productos, tus precios, tu forma de responder." },
+      { "t": "Queda respondiendo sola", "d": "Y te deriva solo lo que necesita tu atención." }
+    ]
+  },
+
+  "oferta": {
+    "etiqueta": "Oferta de lanzamiento",
+    "precio": "AR$ 49.000",
+    "checks": ["Entrega en 24–48 hs", "Sin conocimientos técnicos", "Sin contratos"],
+    "cta": "Escribinos →"
+  }
+}

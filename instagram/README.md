@@ -173,3 +173,42 @@ navegador en capturarlo. Con transiciones de CSS el video saldria con tirones.
 La musica se pone **dentro de Instagram**, desde su biblioteca: es gratis, esta
 licenciada y el algoritmo favorece los videos que usan audio de su catalogo. Una pista
 incrustada aca arriesgaria un reclamo de derechos y no sumaria alcance.
+
+---
+
+## Reel del agente de WhatsApp
+
+Pieza aparte, para historia destacada o publicidad paga:
+
+```bash
+node reel-agente.js
+```
+
+Sale en `salida/reels/sarubia-reel-agente-whatsapp.mp4`. Dura 20 segundos y, a
+diferencia de los reels de marca, tiene **escenas**: el contenido cambia en vez de
+entrar sobre una placa fija. Por eso vive en `lib/reel-agente.js` y no encima de
+`plantilla.js` — forzar una cosa dentro de la otra habria complicado las dos.
+
+| Escena | Segundos | Que muestra |
+|---|---|---|
+| El problema | 0 – 3 | Son las 23:47 y un cliente pregunta el precio |
+| La demostracion | 3 – 11,6 | El agente contestando, con indicador de "escribiendo" |
+| Como funciona | 11,4 – 15 | Los tres pasos de la implementacion |
+| La oferta | 15 – 20 | Precio, condiciones y boton |
+
+### El corte de los 15 segundos
+
+Las escenas estan cortadas para que el segundo 15 caiga **justo entre dos**. Si lo
+subis como historia e Instagram lo parte en dos tramos, el corte queda limpio: el
+primer tramo cuenta el problema, la demostracion y como funciona; el segundo, la
+oferta. Cada uno se entiende solo.
+
+Como reel o como anuncio pago va entero, sin cortes.
+
+### La conversacion es un ejemplo
+
+Los mensajes de la escena 2 son ilustrativos, no una charla real de un cliente.
+**Cambialos por una consulta tipica de tu rubro**: cuanto mas se parezca a lo que te
+preguntan todos los dias, mejor va a funcionar el anuncio. Se editan en
+`contenido/reel-agente.json`, junto con los tiempos de "escribiendo" de cada
+respuesta.
