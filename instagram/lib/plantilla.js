@@ -103,16 +103,20 @@ function placa(item, marca, formato) {
   const fondo = item.fondo === 'claro' ? 'claro' : 'oscuro';
   const id = `${formato}-${item.archivo}`;
 
-  const pieDerecha = formato === 'post'
-    ? `<span class="handle">${esc(item.pie_marca === 'handle' ? marca.handle : marca.sitio)}</span>`
-    : (d.cta ? `<span class="cta">${texto(d.cta)}</span>` : '');
+  // En historia el pie lleva siempre el sitio: Instagram ya muestra el usuario
+  // arriba de la pantalla, así que repetir el @ no suma, y el sitio es el único
+  // destino para quien ve la pieza suelta. En post alterna, porque ahí no hay
+  // ningún dato de contacto alrededor.
+  const pieDerecha = formato === 'historia'
+    ? marca.sitio
+    : (item.pie_marca === 'handle' ? marca.handle : marca.sitio);
 
-  const ctaPost = formato === 'post' && d.cta ? `<span class="cta">${texto(d.cta)}</span>` : '';
+  const cta = d.cta ? `<span class="cta">${texto(d.cta)}</span>` : '';
 
   return `<div class="placa f-${formato} ${fondo}" id="${esc(id)}" data-archivo="${esc(item.archivo)}">
   <div class="cabeza"><span class="eyebrow">${esc(item.eyebrow)}</span><span class="raya"></span></div>
-  <div class="cuerpo">${armar(d)}${ctaPost}</div>
-  <div class="pie">${firma(marca)}${pieDerecha}</div>
+  <div class="cuerpo">${armar(d)}${cta}</div>
+  <div class="pie">${firma(marca)}<span class="handle">${esc(pieDerecha)}</span></div>
 </div>`;
 }
 
@@ -211,7 +215,9 @@ function estilos(marca) {
   .claro .mark{color:var(--texto);}
   .mark span{color:var(--verde);}
   .oscuro .mark span{color:var(--verde-osc);}
-  .handle{font-size:24px;font-weight:500;letter-spacing:.02em;}
+  .handle{font-weight:500;letter-spacing:.02em;}
+  .f-post .handle{font-size:24px;}
+  .f-historia .handle{font-size:26px;}
   .oscuro .handle{color:var(--apagado-osc);}
   .claro .handle{color:var(--apagado);}
 

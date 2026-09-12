@@ -51,7 +51,7 @@ Las imágenes quedan en `salida/semana-02/`.
 | `*palabra*` | Pinta esa palabra de verde |
 | `"fondo": "oscuro"` / `"claro"` | Alterná entre posts para que la grilla del perfil quede en damero |
 | `"escala": "xl"` / `"l"` / `"m"` | Tamaño del título: `xl` corto, `m` largo |
-| `"pie_marca": "sitio"` / `"handle"` | Qué se muestra abajo a la derecha |
+| `"pie_marca": "sitio"` / `"handle"` | Qué se muestra abajo a la derecha **en el post**. La historia y el reel llevan siempre el sitio: Instagram ya muestra el usuario arriba de la pantalla, así que repetirlo no suma |
 
 ### Los seis tipos de placa
 

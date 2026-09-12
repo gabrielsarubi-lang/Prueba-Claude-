@@ -71,6 +71,9 @@ if (h1) {
 const grupos = [];
 
 for (const hijo of Array.from(cuerpo.children)) {
+  // El botón cierra la pieza: se programa aparte, al final.
+  if (hijo.classList && hijo.classList.contains('cta')) continue;
+
   if (hijo === h1) {
     renglones.forEach(el => grupos.push({ k:'sube', els:[el], alto:110, d:0.62, paso:0.18 }));
     continue;
@@ -118,12 +121,15 @@ const guion = [];
 const eyebrow = placa.querySelector('.eyebrow');
 const raya    = placa.querySelector('.raya');
 const marca   = pie.querySelector('.mark');
-const cierre  = pie.querySelector('.cta') || pie.querySelector('.handle');
+const sitio   = pie.querySelector('.handle');
+const boton   = cuerpo.querySelector('.cta');
 
-// La firma entra al principio, junto con el encabezado. En un feed casi nadie
-// llega al final: si la marca aparece recién ahí, el video no la construye.
+// La firma y el sitio entran al principio, junto con el encabezado. En un feed
+// casi nadie llega al final: si la marca aparece recién ahí, el video no la
+// construye, y quien abandona a los dos segundos no sabe adónde ir.
 guion.push({ k:'fade',  els:[eyebrow], t:0.12, d:0.50, alto:18 });
 guion.push({ k:'fade',  els:[marca],   t:0.20, d:0.55, alto:16 });
+if (sitio) guion.push({ k:'fade', els:[sitio], t:0.30, d:0.55, alto:16 });
 guion.push({ k:'raya',  els:[raya],    t:0.25, d:0.75 });
 
 let reloj = 0.55;
@@ -136,8 +142,8 @@ const finCuerpo = reloj + 0.4;
 // El cierre espera a que el cuerpo termine, pero nunca tan tarde que no quede
 // un segundo de descanso: los reels se repiten, y sin pausa se hace mareador.
 const tCierre = Math.min(Math.max(finCuerpo, DURACION - 1.9), DURACION - 1.25);
-if (cierre) {
-  guion.push({ k: cierre.classList.contains('cta') ? 'pop' : 'fade', els:[cierre], t:tCierre, d:0.55, alto:16 });
+if (boton) {
+  guion.push({ k:'pop', els:[boton], t:tCierre, d:0.55 });
 }
 
 /* -------------------------------------------------- el precio cuenta hacia arriba */
