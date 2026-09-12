@@ -120,7 +120,10 @@ const raya    = placa.querySelector('.raya');
 const marca   = pie.querySelector('.mark');
 const cierre  = pie.querySelector('.cta') || pie.querySelector('.handle');
 
+// La firma entra al principio, junto con el encabezado. En un feed casi nadie
+// llega al final: si la marca aparece recién ahí, el video no la construye.
 guion.push({ k:'fade',  els:[eyebrow], t:0.12, d:0.50, alto:18 });
+guion.push({ k:'fade',  els:[marca],   t:0.20, d:0.55, alto:16 });
 guion.push({ k:'raya',  els:[raya],    t:0.25, d:0.75 });
 
 let reloj = 0.55;
@@ -136,7 +139,6 @@ const tCierre = Math.min(Math.max(finCuerpo, DURACION - 1.9), DURACION - 1.25);
 if (cierre) {
   guion.push({ k: cierre.classList.contains('cta') ? 'pop' : 'fade', els:[cierre], t:tCierre, d:0.55, alto:16 });
 }
-guion.push({ k:'fade', els:[marca], t:tCierre + 0.18, d:0.45, alto:16 });
 
 /* -------------------------------------------------- el precio cuenta hacia arriba */
 const elPrecio = cuerpo.querySelector('.precio');
