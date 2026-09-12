@@ -1,7 +1,8 @@
 node_modules/
 
-# El HTML intermedio se regenera en cada corrida, no hace falta guardarlo.
+# Archivos intermedios de cada corrida: se regeneran solos.
 salida/.html/
+salida/.cuadros/
 
-# Las imágenes SÍ se guardan (salida/semana-*/), así se pueden descargar
-# desde GitHub sin tener que correr el generador.
+# Las imágenes y los videos SÍ se guardan (salida/semana-*/, salida/reels/),
+# así se pueden descargar desde GitHub sin correr el generador.

@@ -122,3 +122,33 @@ Para bajarlas **todas juntas**: en la página principal del repositorio, botón 
 
 Para bajar **una sola**: abrila desde la carpeta y usá el botón de descarga, o mantené
 apretado sobre la imagen y "Guardar imagen".
+
+---
+
+## Reels animados
+
+Además de las placas quietas, `reel.js` arma un video vertical animado:
+
+```bash
+node reel.js                    # usa contenido/reel-martes.json
+node reel.js reel-viernes.json  # otro guión
+```
+
+Sale un **MP4 de 1080 × 1920, H.264**, que es lo que Instagram acepta para Reels e
+historias. Queda en `salida/reels/`.
+
+### Cómo funciona
+
+La animación no usa transiciones de CSS: la página expone una función
+`__cuadro(t)` que dibuja el estado exacto del segundo `t`. El generador la llama 180
+veces (6 segundos a 30 cuadros por segundo), captura cada cuadro y los pega con
+ffmpeg. Es determinista: el cuadro 47 sale siempre igual, sin saltos ni tirones.
+
+Los tiempos están en el guión, en segundos. Para que algo entre antes, bajale el
+número de `entra`.
+
+### El video sale mudo, y es a propósito
+
+La música se pone **dentro de Instagram**, desde su biblioteca: es gratis, está
+licenciada y el algoritmo favorece los videos que usan audio de su catálogo. Una
+pista incrustada acá arriesgaría un reclamo de derechos y no sumaría alcance.

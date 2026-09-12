@@ -1,0 +1,39 @@
+{
+  "_comentario": "Guion del reel. Los tiempos están en segundos desde el arranque. Para cambiar el ritmo, tocá los números; para cambiar lo que dice, tocá los textos.",
+
+  "archivo": "martes-whatsapp",
+  "fondo": "claro",
+  "duracion": 6,
+  "cuadros_por_segundo": 30,
+
+  "eyebrow": "Oferta de lanzamiento",
+
+  "titulo": [
+    { "texto": "Tu WhatsApp", "entra": 0.45 },
+    { "texto": "atendiendo", "entra": 0.62 },
+    { "texto": "24/7", "entra": 0.80, "verde": true, "rebote": true }
+  ],
+
+  "precio": {
+    "moneda": "AR$",
+    "hasta": 49000,
+    "entra": 1.75,
+    "cuenta_desde": 1.95,
+    "cuenta_hasta": 2.95,
+    "nota": "Por tiempo limitado",
+    "nota_entra": 3.0
+  },
+
+  "checks": {
+    "entra": 3.35,
+    "escalonado": 0.16,
+    "items": [
+      "Entrega en 24–48 hs",
+      "Sin conocimientos técnicos",
+      "Sin contratos"
+    ]
+  },
+
+  "cta": { "texto": "Lo quiero →", "entra": 4.5 },
+  "marca_entra": 4.85
+}
