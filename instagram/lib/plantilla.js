@@ -33,6 +33,7 @@ const bloques = {
   declaracion(d) {
     let h = `<h1 class="e-${d.escala || 'xl'}">${texto(d.titulo)}</h1>`;
     if (d.sub) h += `<p class="sub${d.sub_ancho ? ' ancho' : ''}">${texto(d.sub)}</p>`;
+    if (d.hint) h += `<span class="hint">${texto(d.hint)}</span>`;
     return h;
   },
 
@@ -77,6 +78,47 @@ const bloques = {
     return h;
   },
 
+  // Una sola cifra ocupando la lámina. Es el bloque de comparar precios: un
+  // número por lámina, porque dos números juntos se leen como una tabla y
+  // nadie compara tablas pasando el dedo.
+  cifra(d) {
+    let h = `<div class="cifra-et">${texto(d.etiqueta)}</div>`;
+    h += `<div class="cifra-m">${texto(d.monto)}</div>`;
+    if (d.nota) h += `<div class="cifra-n">${texto(d.nota)}</div>`;
+    return h;
+  },
+
+  // Punto numerado de una serie: el número es grande porque en el carrusel
+  // indica cuánto falta.
+  punto(d) {
+    let h = `<div class="punto-n">${esc(d.numero)}</div>`;
+    h += `<h1 class="e-${d.escala || 'm'}">${texto(d.titulo)}</h1>`;
+    if (d.sub) h += `<p class="sub${d.sub_ancho ? ' ancho' : ''}">${texto(d.sub)}</p>`;
+    return h;
+  },
+
+  // Puede / no puede. El veredicto va en una etiqueta y pinta la lámina: verde
+  // cuando suma, neutro cuando no. Sin colorear, las dos mitades se confunden.
+  capacidad(d) {
+    const no = /^no/i.test(String(d.veredicto || ''));
+    let h = `<div class="ver ${no ? 'ver-no' : 'ver-si'}">${texto(d.veredicto)}</div>`;
+    h += `<h1 class="e-${d.escala || 'm'}">${texto(d.titulo)}</h1>`;
+    if (d.sub) h += `<p class="sub${d.sub_ancho ? ' ancho' : ''}">${texto(d.sub)}</p>`;
+    return h;
+  },
+
+  // Concepto a la izquierda, importe a la derecha. Para mostrar los dos
+  // numeros juntos, que es justamente lo que el rubro no muestra.
+  tabla(d) {
+    let h = '';
+    if (d.titulo) h += `<h1 class="e-${d.escala || 'm'}">${texto(d.titulo)}</h1>`;
+    h += `<div class="tabla">` + d.filas
+      .map((f) => `<div class="fila"><span class="fila-k">${texto(f.k)}</span><span class="fila-v">${texto(f.v)}</span></div>`)
+      .join('') + `</div>`;
+    if (d.nota) h += `<p class="tabla-n">${texto(d.nota)}</p>`;
+    return h;
+  },
+
   pregunta(d) {
     let h = `<div class="regla"></div>`;
     h += `<h1 class="e-${d.escala || 'l'}">${texto(d.titulo)}</h1>`;
@@ -93,7 +135,8 @@ const bloques = {
  * @param {object} marca  marca.json
  * @param {'post'|'historia'} formato
  */
-function placa(item, marca, formato) {
+function placa(item, marca, formato, opciones) {
+  const o = opciones || {};
   const d = item[formato];
   if (!d) throw new Error(`El post "${item.archivo}" no tiene datos para el formato "${formato}".`);
 
@@ -107,17 +150,72 @@ function placa(item, marca, formato) {
   // arriba de la pantalla, así que repetir el @ no suma, y el sitio es el único
   // destino para quien ve la pieza suelta. En post alterna, porque ahí no hay
   // ningún dato de contacto alrededor.
-  const pieDerecha = formato === 'historia'
-    ? marca.sitio
-    : (item.pie_marca === 'handle' ? marca.handle : marca.sitio);
+  const pieDerecha = o.pie_derecha != null
+    ? o.pie_derecha
+    : (formato === 'historia'
+      ? marca.sitio
+      : (item.pie_marca === 'handle' ? marca.handle : marca.sitio));
 
   const cta = d.cta ? `<span class="cta">${texto(d.cta)}</span>` : '';
+  const extra = [o.clase, d.hueco ? 'hueco' : ''].filter(Boolean).join(' ');
 
-  return `<div class="placa f-${formato} ${fondo}" id="${esc(id)}" data-archivo="${esc(item.archivo)}">
+  return `<div class="placa f-${formato} ${fondo}${extra ? ' ' + extra : ''}" id="${esc(id)}" data-archivo="${esc(item.archivo)}">
   <div class="cabeza"><span class="eyebrow">${esc(item.eyebrow)}</span><span class="raya"></span></div>
   <div class="cuerpo">${armar(d)}${cta}</div>
   <div class="pie">${firma(marca)}<span class="handle">${esc(pieDerecha)}</span></div>
 </div>`;
+}
+
+// ---------------------------------------------------------------- carrusel
+
+/**
+ * Una lámina de carrusel: es una placa cuadrada, con dos diferencias.
+ *
+ * El pie no repite el sitio en las diez láminas — a la derecha lleva el
+ * contador (03/08), que es lo único que le falta saber a quien está pasando el
+ * dedo: cuánto queda. La última sí lleva el sitio, porque es la lámina donde
+ * alguien decide ir.
+ *
+ * @param {object} lam      una entrada de laminas[]
+ * @param {object} carrusel el carrusel que la contiene (aporta el eyebrow)
+ */
+function lamina(lam, carrusel, marca, i, total) {
+  const n = String(i + 1).padStart(2, '0');
+  const item = {
+    archivo: `${carrusel.archivo}-${n}`,
+    tipo: lam.tipo,
+    fondo: lam.fondo,
+    eyebrow: lam.eyebrow || carrusel.eyebrow,
+    post: lam
+  };
+  const ultima = i === total - 1;
+  return placa(item, marca, 'post', {
+    clase: 'lamina',
+    pie_derecha: ultima ? marca.sitio : `${n}/${String(total).padStart(2, '0')}`
+  });
+}
+
+/** Documento con todas las láminas de todos los carruseles de un archivo. */
+function documentoCarrusel(contenido, marca) {
+  const t = marca.tipografia;
+  const placas = (contenido.carruseles || [])
+    .map((c) => c.laminas.map((l, i) => lamina(l, c, marca, i, c.laminas.length)).join('\n'))
+    .join('\n');
+
+  return `<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>${esc(marca.nombre)} — carruseles</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=${encodeURIComponent(t.familia)}:wght@${t.pesos}&display=swap" rel="stylesheet">
+<style>${estilos(marca)}</style>
+</head>
+<body>
+${placas}
+</body>
+</html>`;
 }
 
 // ---------------------------------------------------------------- estilos
@@ -313,6 +411,89 @@ function estilos(marca) {
   .lista.col-2 .celda-t{font-size:28px;}
   .lista.col-1 .celda-t{font-size:42px;letter-spacing:-.015em;line-height:1.15;}
 
+  /* --- cifra --- */
+  .cifra-et{font-weight:600;letter-spacing:.14em;text-transform:uppercase;}
+  .f-post .cifra-et{font-size:26px;}
+  .f-historia .cifra-et{font-size:28px;}
+  .oscuro .cifra-et{color:var(--verde-osc);}
+  .claro .cifra-et{color:var(--verde);}
+  .cifra-m{
+    font-weight:800;letter-spacing:-.035em;line-height:.98;
+    font-variant-numeric:tabular-nums;text-wrap:balance;
+  }
+  .f-post .cifra-m{font-size:104px;}
+  .f-historia .cifra-m{font-size:118px;}
+  .cifra-n{font-weight:500;letter-spacing:.11em;text-transform:uppercase;}
+  .f-post .cifra-n{font-size:24px;}
+  .f-historia .cifra-n{font-size:27px;}
+  .oscuro .cifra-n{color:var(--apagado-osc);}
+  .claro .cifra-n{color:var(--apagado);}
+
+  /* --- punto numerado --- */
+  .punto-n{
+    font-weight:800;letter-spacing:-.02em;line-height:1;
+    font-variant-numeric:tabular-nums;
+  }
+  .f-post .punto-n{font-size:78px;}
+  .f-historia .punto-n{font-size:90px;}
+  .oscuro .punto-n{color:var(--verde-osc);}
+  .claro .punto-n{color:var(--verde);}
+
+  /* --- puede / no puede --- */
+  .ver{
+    align-self:flex-start;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+    border-radius:99px;
+  }
+  .f-post .ver{font-size:24px;padding:14px 26px;}
+  .f-historia .ver{font-size:27px;padding:16px 30px;}
+  .ver-si{background:var(--verde-claro);color:var(--verde-fuerte);}
+  .oscuro .ver-si{background:rgba(47,224,174,.14);color:var(--verde-osc);}
+  .ver-no{background:var(--suave);color:var(--apagado);}
+  .oscuro .ver-no{background:#1A1F27;color:var(--apagado-osc);}
+  /* En una lámina "no puede", la palabra resaltada no va en verde: el verde
+     dice "esto suma" en todas las demás piezas y acá diría lo contrario del
+     cartel. Queda en la tinta del título, que igual pesa por el tamaño. */
+  .ver-no ~ h1 .ac{color:inherit;}
+
+  /* --- tabla de dos columnas --- */
+  .tabla{display:flex;flex-direction:column;}
+  .fila{
+    display:flex;align-items:baseline;justify-content:space-between;gap:24px;
+    border-top:1px solid var(--linea-osc);
+  }
+  .claro .fila{border-top-color:var(--linea);}
+  .fila:last-child{border-bottom:1px solid var(--linea-osc);}
+  .claro .fila:last-child{border-bottom-color:var(--linea);}
+  .f-post .fila{padding:26px 0;}
+  .f-historia .fila{padding:34px 0;}
+  .fila-k{font-weight:500;}
+  .f-post .fila-k{font-size:32px;}
+  .f-historia .fila-k{font-size:38px;}
+  .oscuro .fila-k{color:var(--texto-osc);}
+  .claro .fila-k{color:var(--apagado);}
+  .fila-v{
+    font-weight:800;letter-spacing:-.025em;font-variant-numeric:tabular-nums;
+    white-space:nowrap;color:var(--verde);
+  }
+  .oscuro .fila-v{color:var(--verde-osc);}
+  .f-post .fila-v{font-size:54px;}
+  .f-historia .fila-v{font-size:62px;}
+  .tabla-n{font-weight:400;line-height:1.4;max-width:26ch;}
+  .f-post .tabla-n{font-size:27px;}
+  .f-historia .tabla-n{font-size:32px;}
+  .oscuro .tabla-n{color:var(--texto-osc);}
+  .claro .tabla-n{color:var(--apagado);}
+
+  /* El contador del carrusel: mismos números de ancho fijo, así no baila de
+     lámina en lámina. */
+  .lamina .handle{font-variant-numeric:tabular-nums;letter-spacing:.06em;}
+
+  /* Historia con hueco: deja libre la franja donde va el sticker de encuesta,
+     de preguntas o de enlace. Sin esto el texto queda tapado. */
+  .f-historia.hueco .cuerpo{justify-content:flex-start;padding-top:72px;}
+  .f-historia.hueco .pie{margin-top:auto;}
+  .f-historia.hueco{padding-bottom:620px;}
+
   /* --- pregunta --- */
   .regla{border-radius:3px;background:var(--verde);}
   .f-post .regla{width:76px;height:5px;}
@@ -346,4 +527,4 @@ ${placas}
 </html>`;
 }
 
-module.exports = { documento, placa, estilos, texto, esc };
+module.exports = { documento, documentoCarrusel, placa, lamina, estilos, texto, esc };

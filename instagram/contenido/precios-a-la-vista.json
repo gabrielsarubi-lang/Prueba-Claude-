@@ -1,0 +1,263 @@
+{
+  "_comentario": "Tanda de contenido sobre precios publicados. Tres carruseles y tres historias de imagen. Los dos videos de historia y el reel 23:47 se arman recortando piezas que ya existen — están explicados en el plan, no acá.",
+
+  "_como_escribir": {
+    "salto de linea": "Usá \\n donde quieras que corte el renglón.",
+    "resaltado": "Poné *asteriscos* alrededor de la palabra que va en verde.",
+    "fondo": "\"oscuro\" o \"claro\".",
+    "tipos de lamina": "declaracion | cifra | punto | capacidad | tabla | pregunta | oferta | pasos | mito | lista",
+    "hueco": "Solo en historias: reserva la franja de abajo para el sticker de encuesta, preguntas o enlace."
+  },
+
+  "tanda": "Precios a la vista",
+
+  "carruseles": [
+    {
+      "archivo": "1-cuanto-cuesta",
+      "eyebrow": "Precios a la vista",
+      "objetivo": "Alcance. Es el más compartible: pone números donde el rubro pone 'consultanos'.",
+      "laminas": [
+        {
+          "tipo": "declaracion",
+          "fondo": "oscuro",
+          "escala": "l",
+          "titulo": "¿Cuánto cuesta\nun *chatbot con IA*\nen Argentina?",
+          "sub": "Precios publicados por agencias argentinas, 2026.",
+          "sub_ancho": true,
+          "hint": "Deslizá →"
+        },
+        {
+          "tipo": "cifra",
+          "fondo": "claro",
+          "etiqueta": "Freelance junior",
+          "monto": "$300.000\na $600.000",
+          "nota": "Implementación"
+        },
+        {
+          "tipo": "cifra",
+          "fondo": "claro",
+          "etiqueta": "Profesional senior",
+          "monto": "$800.000\na $1.800.000",
+          "nota": "Implementación"
+        },
+        {
+          "tipo": "cifra",
+          "fondo": "claro",
+          "etiqueta": "Agencia especializada",
+          "monto": "desde\n$2.000.000",
+          "nota": "Implementación"
+        },
+        {
+          "tipo": "declaracion",
+          "fondo": "oscuro",
+          "escala": "l",
+          "titulo": "Y arriba de eso,\nel *abono*.",
+          "sub": "La mayoría suma entre USD 200 y 400 por mes. Casi nadie lo nombra en el presupuesto.",
+          "sub_ancho": true
+        },
+        {
+          "tipo": "tabla",
+          "fondo": "claro",
+          "escala": "m",
+          "titulo": "Nosotros",
+          "filas": [
+            { "k": "Implementación", "v": "$99.000" },
+            { "k": "Abono mensual", "v": "$89.000" }
+          ],
+          "nota": "Los dos números, publicados desde el primer día."
+        },
+        {
+          "tipo": "declaracion",
+          "fondo": "oscuro",
+          "escala": "l",
+          "titulo": "¿Por qué\npodemos\ncobrar *eso*?",
+          "sub": "No hay estructura que mantener ni intermediarios. Hablás directo con quien implementa.",
+          "sub_ancho": true
+        },
+        {
+          "tipo": "declaracion",
+          "fondo": "oscuro",
+          "escala": "l",
+          "titulo": "Los tres planes\nestán *publicados*.",
+          "sub": "Con lo que incluye cada uno.",
+          "cta": "sarubi-ia.com/planes"
+        }
+      ]
+    },
+
+    {
+      "archivo": "2-nadie-te-dice",
+      "eyebrow": "Sin letra chica",
+      "objetivo": "Confianza. Argumenta en contra de la propia venta, que es lo que hace que le crean el resto.",
+      "laminas": [
+        {
+          "tipo": "declaracion",
+          "fondo": "oscuro",
+          "escala": "m",
+          "titulo": "5 cosas que nadie\nte dice antes de\ncontratar un\n*chatbot con IA*.",
+          "sub": "Las decimos nosotros.",
+          "hint": "Deslizá →"
+        },
+        {
+          "tipo": "punto",
+          "fondo": "claro",
+          "numero": "01",
+          "titulo": "No termina cuando\nte lo *entregan*.",
+          "sub": "Un agente consume servicios todos los meses, funcione mucho o poco.",
+          "sub_ancho": true
+        },
+        {
+          "tipo": "punto",
+          "fondo": "oscuro",
+          "numero": "02",
+          "titulo": "La API de WhatsApp\nla cobra *Meta*.",
+          "sub": "No tu proveedor. Es un costo que existe aunque nadie te lo nombre.",
+          "sub_ancho": true
+        },
+        {
+          "tipo": "punto",
+          "fondo": "claro",
+          "numero": "03",
+          "titulo": "“IA entrenada” no\nquiere decir que\n*sepa todo*.",
+          "sub": "Sabe lo que le cargaron. Si cambiás los precios y no avisás, contesta los viejos.",
+          "sub_ancho": true
+        },
+        {
+          "tipo": "punto",
+          "fondo": "oscuro",
+          "numero": "04",
+          "titulo": "Si nadie lo mantiene,\nse *desactualiza*.",
+          "sub": "No se rompe: envejece. Que es peor, porque no se nota hasta que un cliente se queja.",
+          "sub_ancho": true
+        },
+        {
+          "tipo": "punto",
+          "fondo": "claro",
+          "numero": "05",
+          "titulo": "Un precio sin el\nabono es *media\nverdad*.",
+          "sub": "“Desde $X” sin decir el mensual es el truco más común del rubro.",
+          "sub_ancho": true
+        },
+        {
+          "tipo": "declaracion",
+          "fondo": "oscuro",
+          "escala": "l",
+          "titulo": "Por eso publicamos\n*los dos*.",
+          "sub": "$99.000 de implementación y $89.000 por mes.",
+          "sub_ancho": true,
+          "cta": "sarubi-ia.com/planes"
+        }
+      ]
+    },
+
+    {
+      "archivo": "3-puede-y-no-puede",
+      "eyebrow": "Expectativas",
+      "objetivo": "Ordenar expectativas antes de vender. Evita la decepción que después se cobra en reseñas.",
+      "laminas": [
+        {
+          "tipo": "declaracion",
+          "fondo": "oscuro",
+          "escala": "m",
+          "titulo": "Lo que un agente de IA\n*puede* hacer en tu\nWhatsApp.\nY lo que *no*.",
+          "hint": "Deslizá →"
+        },
+        {
+          "tipo": "capacidad",
+          "fondo": "claro",
+          "veredicto": "Puede",
+          "titulo": "Contestar\nlo de *siempre*.",
+          "sub": "Horarios, precios, si hay lugar, cómo llegar. A las 3 de la mañana también.",
+          "sub_ancho": true
+        },
+        {
+          "tipo": "capacidad",
+          "fondo": "claro",
+          "veredicto": "Puede",
+          "titulo": "Calificar\ny *derivar*.",
+          "sub": "Separa la consulta de rutina de la que necesita tu atención, y te pasa la segunda.",
+          "sub_ancho": true
+        },
+        {
+          "tipo": "capacidad",
+          "fondo": "claro",
+          "veredicto": "Puede",
+          "titulo": "Conectarse con\ntu *planilla*.",
+          "sub": "Deja registrado quién preguntó qué, sin que anotes nada.",
+          "sub_ancho": true
+        },
+        {
+          "tipo": "capacidad",
+          "fondo": "oscuro",
+          "veredicto": "No puede",
+          "titulo": "Cerrar una venta\n*complicada*.",
+          "sub": "Cuando hay que negociar, escuchar y ceder, va a hacer falta una persona.",
+          "sub_ancho": true
+        },
+        {
+          "tipo": "capacidad",
+          "fondo": "oscuro",
+          "veredicto": "No puede",
+          "titulo": "Reemplazar\ntu *criterio*.",
+          "sub": "No sabe a qué cliente conviene hacerle una excepción. Vos sí.",
+          "sub_ancho": true
+        },
+        {
+          "tipo": "declaracion",
+          "fondo": "oscuro",
+          "escala": "m",
+          "titulo": "Sirve para lo\nrepetitivo.\nLo *importante*\nsigue siendo tuyo.",
+          "cta": "sarubi-ia.com/planes"
+        }
+      ]
+    }
+  ],
+
+  "posts": [
+    {
+      "dia": "Martes 1",
+      "archivo": "h1-encuesta",
+      "tipo": "pregunta",
+      "fondo": "oscuro",
+      "eyebrow": "Pregunta",
+      "objetivo": "Interacción. Va con el sticker de encuesta: Sí, más o menos / Ni idea.",
+      "historia": {
+        "escala": "l",
+        "titulo": "¿Sabés cuánto\nsale poner un\nagente de IA en\ntu *WhatsApp*?",
+        "hueco": true
+      }
+    },
+    {
+      "dia": "Jueves 1",
+      "archivo": "h2-tabla",
+      "tipo": "tabla",
+      "fondo": "claro",
+      "eyebrow": "Precios a la vista",
+      "objetivo": "Tráfico. Va con el sticker de enlace a sarubi-ia.com/planes.",
+      "historia": {
+        "escala": "m",
+        "titulo": "Esto es lo\nque *sale*.",
+        "filas": [
+          { "k": "Implementación", "v": "$99.000" },
+          { "k": "Abono", "v": "$89.000/mes" }
+        ],
+        "nota": "Incluye la API de WhatsApp, el consumo de IA y el hosting. El primer abono, recién a los 30 días.",
+        "hueco": true
+      }
+    },
+    {
+      "dia": "Miércoles 2",
+      "archivo": "h3-caja",
+      "tipo": "pregunta",
+      "fondo": "oscuro",
+      "eyebrow": "Tu turno",
+      "objetivo": "Investigación. Va con la caja de preguntas: cada respuesta es una objeción real de tu cliente.",
+      "historia": {
+        "escala": "l",
+        "titulo": "¿Qué te frena\npara *automatizar*\nla atención?",
+        "sub": "Contestá sin filtro. Lo más repetido lo contesto en un posteo.",
+        "hueco": true
+      }
+    }
+  ]
+}

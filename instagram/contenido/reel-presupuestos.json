@@ -1,0 +1,56 @@
+{
+  "_comentario": "Reel de escenas encadenadas: tres presupuestos, tres respuestas, y el nuestro al final. Cada escena dice cuánto dura; la duración total es la suma (19,2 s). Están cortadas para que el segundo 15 caiga justo en el cambio de escena: si lo subís como historia, el corte que hace Instagram queda limpio.",
+
+  "_importante": "Los montos de las escenas 2 y 3 son ilustrativos: salen del rango que publican las agencias argentinas, no de tres presupuestos que hayas pedido vos. Por eso la primera escena dice \"busqué\" y no \"pedí\". Si alguna vez pedís presupuestos reales, cambiá esa línea y los montos por los que te pasaron: el reel funciona igual y pasa a ser una anécdota tuya, que rinde más.",
+
+  "archivo": "tres-presupuestos",
+  "eyebrow": "Precios a la vista",
+
+  "escenas": [
+    {
+      "tipo": "frase",
+      "dur": 3.2,
+      "etiqueta": "La búsqueda",
+      "titulo": "Busqué tres\nprecios para un\n*chatbot con IA*.",
+      "sub": "Esto encontré."
+    },
+    {
+      "tipo": "cifra",
+      "dur": 3.0,
+      "etiqueta": "El primero",
+      "monto": "$450.000",
+      "nota": "Implementación"
+    },
+    {
+      "tipo": "cifra",
+      "dur": 3.0,
+      "etiqueta": "El segundo",
+      "monto": "$1.200.000",
+      "nota": "Implementación"
+    },
+    {
+      "tipo": "frase",
+      "dur": 3.0,
+      "etiqueta": "El tercero",
+      "titulo": "“Depende,\n*contactanos*.”",
+      "sub": "En vez de un número."
+    },
+    {
+      "tipo": "frase",
+      "dur": 2.8,
+      "titulo": "Ninguno nombraba\nel *abono mensual*.",
+      "sub": "Que se paga todos los meses, funcione mucho o poco."
+    },
+    {
+      "tipo": "cierre",
+      "dur": 4.2,
+      "etiqueta": "El nuestro",
+      "filas": [
+        { "k": "Implementación", "v": "$99.000" },
+        { "k": "Abono", "v": "$89.000/mes" }
+      ],
+      "nota": "Publicados los dos, desde el primer día.",
+      "cta": "sarubi-ia.com/planes"
+    }
+  ]
+}

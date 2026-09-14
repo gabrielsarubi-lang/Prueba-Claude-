@@ -19,11 +19,13 @@ en los dos formatos:
 instagram/
 ├── marca.json              La identidad: colores, tipografía, datos de contacto
 ├── contenido/
-│   └── semana-01.json      Los TEXTOS de una semana. Es lo único que se toca.
+│   ├── semana-01.json      Los TEXTOS de una semana. Es lo único que se toca.
+│   └── precios-a-la-vista.json   Los textos de la tanda de carruseles e historias
 ├── lib/
 │   └── plantilla.js        El DISEÑO. Se toca solo si cambia la estética.
-├── generar.js              El programa que junta las dos cosas y saca los PNG
-└── salida/                 Las imágenes generadas (no se guardan en git)
+├── generar.js              Saca los PNG de posts e historias
+├── carrusel.js             Saca los PNG de los carruseles, numerados
+└── salida/                 Las imágenes y los videos generados
 ```
 
 La idea de fondo: **los textos y el diseño viven separados.** Cambiar lo que dice una
@@ -53,19 +55,54 @@ Las imágenes quedan en `salida/semana-02/`.
 | `"escala": "xl"` / `"l"` / `"m"` | Tamaño del título: `xl` corto, `m` largo |
 | `"pie_marca": "sitio"` / `"handle"` | Qué se muestra abajo a la derecha **en el post**. La historia y el reel llevan siempre el sitio: Instagram ya muestra el usuario arriba de la pantalla, así que repetirlo no suma |
 
-### Los seis tipos de placa
+### Los diez tipos de placa
 
 | `tipo` | Qué muestra | Campos que usa |
 |---|---|---|
-| `declaracion` | Una frase grande | `titulo`, `sub`, `cta` |
+| `declaracion` | Una frase grande | `titulo`, `sub`, `hint`, `cta` |
 | `oferta` | Precio y beneficios | `titulo`, `precio`, `precio_nota`, `checks` |
 | `pasos` | Lista numerada con líneas | `titulo`, `pasos` |
 | `mito` | Dos paneles enfrentados | `mito`, `realidad` |
 | `lista` | Grilla o lista numerada | `titulo`, `items`, `columnas` |
 | `pregunta` | Pregunta con barra verde | `titulo`, `sub`, `hint` |
+| `cifra` | Un solo número, grande | `etiqueta`, `monto`, `nota` |
+| `punto` | Punto numerado de una serie | `numero`, `titulo`, `sub` |
+| `capacidad` | Puede / no puede, con cartel | `veredicto`, `titulo`, `sub` |
+| `tabla` | Concepto a la izquierda, importe a la derecha | `titulo`, `filas`, `nota` |
+
+En una lámina `capacidad` cuyo `veredicto` empieza con "no", la palabra entre
+asteriscos **no sale verde**: el verde dice "esto suma" en todas las demás piezas y
+ahí diría lo contrario del cartel.
 
 Cada post define su versión `post` y su versión `historia` por separado, porque el
 corte de renglones que funciona en un cuadrado no funciona en un vertical.
+
+---
+
+## Carruseles
+
+Un carrusel es una secuencia de láminas cuadradas. Se escriben en el mismo archivo de
+contenido, en el bloque `carruseles`:
+
+```bash
+node carrusel.js precios-a-la-vista.json                    # los tres
+node carrusel.js precios-a-la-vista.json 1-cuanto-cuesta    # solo uno
+```
+
+Cada carrusel queda en su propia carpeta, con las láminas numeradas `01.png`, `02.png`,
+`03.png`… **El número no es decorativo: Instagram sube las imágenes en orden alfabético,
+y ese orden es el del carrusel.** Si se renombra un archivo, se reordena la pieza.
+
+Cada lámina usa los mismos `tipo` que un post, así que no hay que aprender nada nuevo.
+Lo único distinto es el pie: a la derecha lleva el **contador** (`03/08`) en vez del
+sitio, porque es lo único que le falta saber a quien está pasando el dedo — cuánto
+queda. La última lámina sí lleva el sitio, porque es donde alguien decide ir.
+
+### Historias con sticker
+
+Una historia que va a llevar encuesta, caja de preguntas o sticker de enlace se marca
+con `"hueco": true`. Eso reserva la franja de abajo y sube el texto: sin eso, el
+sticker se apoya encima de lo que escribiste.
 
 ---
 
@@ -212,3 +249,40 @@ Los mensajes de la escena 2 son ilustrativos, no una charla real de un cliente.
 preguntan todos los dias, mejor va a funcionar el anuncio. Se editan en
 `contenido/reel-agente.json`, junto con los tiempos de "escribiendo" de cada
 respuesta.
+
+---
+
+## Reels por escenas
+
+`lib/reel-secuencia.js` es el hermano genérico de `reel-agente.js`: mismo marco
+(encabezado arriba, firma y sitio abajo, desde el primer cuadro hasta el último) y
+mismas escenas que se cruzan en el medio, pero acá **las escenas salen del JSON** en
+vez de estar escritas a mano.
+
+```bash
+node reel-secuencia.js reel-presupuestos.json
+```
+
+Cada escena declara cuánto dura y el módulo las encadena con un cruce de 0,35 s. **La
+duración total no se declara en ningún lado — es la suma.** Cambiar el ritmo es mover
+un número del JSON.
+
+| `tipo` de escena | Qué muestra | Campos |
+|---|---|---|
+| `frase` | Una frase grande | `etiqueta`, `titulo`, `sub` |
+| `cifra` | Un número que sube desde cero | `etiqueta`, `monto`, `nota` |
+| `cierre` | Tabla de precios y botón | `etiqueta`, `titulo`, `filas`, `nota`, `cta` |
+
+### Los montos del reel de presupuestos son ilustrativos
+
+Salen del rango que publican las agencias argentinas, no de tres presupuestos pedidos.
+Por eso la primera escena dice **"busqué"** y no "pedí". Si alguna vez pedís
+presupuestos reales, cambiá esa línea y los montos por los que te pasaron: el reel
+funciona igual y pasa a ser una anécdota propia, que rinde más.
+
+### Los precios tienen que coincidir con la web
+
+`contenido/reel-agente.json` y `contenido/reel-presupuestos.json` repiten los precios
+de [sarubi-ia.com/planes](https://sarubi-ia.com/planes). Si cambian allá, cambian acá y
+se vuelven a generar los videos: un anuncio que promete un precio que la web no tiene
+se discute en la primera factura.

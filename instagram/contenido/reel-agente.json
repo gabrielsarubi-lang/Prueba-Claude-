@@ -1,6 +1,8 @@
 {
   "_comentario": "Reel de venta del agente de WhatsApp, con demostración. A diferencia de los reels de marca, este tiene escenas: el contenido cambia, no solo entra.",
 
+  "_precios": "Tienen que coincidir con sarubi-ia.com/planes. Si cambiás los precios en la web, cambialos acá y volvé a generar el reel: un anuncio que promete un precio que la web no tiene se discute en la primera factura.",
+
   "_importante": "La conversación de la escena 2 es un EJEMPLO ilustrativo, no una charla real de un cliente. Cambiala por una consulta típica de tu rubro: cuanto más se parezca a lo que te preguntan todos los días, mejor va a funcionar el anuncio.",
 
   "_corte_a_los_15": "Las escenas están cortadas para que el segundo 15 caiga justo entre dos. Si lo subís como historia e Instagram lo parte en dos tramos, el corte queda limpio y cada tramo se entiende solo.",
@@ -36,9 +38,9 @@
   },
 
   "oferta": {
-    "etiqueta": "Oferta de lanzamiento",
-    "precio": "AR$ 49.000",
-    "checks": ["Entrega en 24–48 hs", "Sin conocimientos técnicos", "Sin contratos"],
-    "cta": "Escribinos →"
+    "etiqueta": "Plan Esencial",
+    "precio": "AR$ 99.000",
+    "checks": ["Implementación, entrega en 24–48 hs", "Abono $89.000 por mes", "El primero, recién a los 30 días"],
+    "cta": "sarubi-ia.com/planes"
   }
 }
