@@ -1,7 +1,7 @@
 {
-  "_comentario": "Semana 2 — el trabajo repetitivo que te come el día. Solo feed por ahora: dos carruseles y tres imágenes. Las historias y los reels de esta semana se agregan después, en este mismo archivo.",
+  "_comentario": "Semana 2 — el trabajo repetitivo que te come el día. Solo feed por ahora: dos carruseles y cinco imágenes, de lunes a domingo. Las historias y los reels de esta semana se agregan después, en este mismo archivo.",
 
-  "_damero": "El último posteo de la semana pasada fue oscuro, así que esta arranca en claro y alterna: lunes claro, martes oscuro, miércoles claro, jueves oscuro, viernes claro. Dentro de cada carrusel también alterna, empezando por el fondo de la portada — que es la única lámina que se ve en la grilla del perfil.",
+  "_damero": "El último posteo de la semana pasada fue oscuro, así que esta arranca en claro y alterna: lunes claro, martes oscuro, miércoles claro, jueves oscuro, viernes claro, sábado oscuro, domingo claro. La semana cierra en claro, así que la que viene arranca en oscuro. Dentro de cada carrusel también alterna, empezando por el fondo de la portada — que es la única lámina que se ve en la grilla del perfil.",
 
   "_como_escribir": {
     "salto de linea": "Usá \\n donde quieras que corte el renglón del título.",
@@ -207,6 +207,46 @@
       },
       "pie": "Muchos negocios que andan bien no tienen dónde mandar a alguien que pregunta “¿y ustedes qué hacen?”.\n\nTienen Instagram, que sirve para mostrar. Pero no tienen una página propia: una dirección que sea suya, que aparezca en Google y que explique el negocio sin que haya que scrollear seis meses de posteos.\n\nAsí lo hago: me contás de qué es el negocio, armo la página y te la muestro terminada. No un boceto ni una idea: la página andando, con tus fotos y tus textos.\n\nSi te gusta, hablamos de precio. Si no, no pagás nada y no me debés nada.\n\nEscribime por acá y arrancamos. 💬",
       "hashtags": "#PaginasWeb #DisenoWeb #LandingPage #NegociosLocales #Emprendedores #Pymes #Argentina #Sarubia"
+    },
+    {
+      "dia": "Sábado",
+      "archivo": "6-sabado-quien",
+      "tipo": "declaracion",
+      "fondo": "oscuro",
+      "eyebrow": "Quién atiende",
+      "pie_marca": "handle",
+      "objetivo": "Confianza. Nadie sabe quién está atrás de la cuenta, y esa es la diferencia real contra una agencia: no hay intermediarios.",
+      "post": {
+        "escala": "l",
+        "titulo": "Acá no hay un\n*equipo de ventas*.",
+        "sub": "Escribís y te contesto yo. El mismo que después implementa y el que te atiende cuando algo falla.",
+        "sub_ancho": true
+      },
+      "pie": "Cuando pedís un presupuesto en una agencia, te atiende alguien de ventas. Después te pasan a un project manager. Y recién en algún momento aparece el que sabe hacerlo.\n\nAcá no. Escribís y te contesto yo, que soy el que arma el agente, el que lo prueba y el que lo mantiene después.\n\nEso tiene una ventaja obvia: no hay teléfono descompuesto entre lo que necesitás y lo que se construye.\n\nY tiene una contra que prefiero decir antes que después: soy uno solo. Por eso tomo pocos clientes a la vez, y por eso los precios están publicados — no me alcanza el día para negociar cada presupuesto de cero.\n\nSi te sirve así, escribime. 💬",
+      "hashtags": "#Emprendedores #Pymes #AgenteDeIA #AutomatizacionWhatsApp #NegociosLocales #Argentina #Sarubia"
+    },
+
+    {
+      "dia": "Domingo",
+      "archivo": "7-domingo-arranque",
+      "tipo": "pasos",
+      "fondo": "claro",
+      "eyebrow": "Cómo se arranca",
+      "pie_marca": "sitio",
+      "objetivo": "Fricción. Domingo a la tarde el que tiene un negocio planifica la semana. Este posteo le dice exactamente qué pasa si escribe.",
+      "post": {
+        "escala": "m",
+        "titulo": "De la consulta\nal agente *andando*.",
+        "pasos": [
+          "Me contás qué te preguntan",
+          "Lo armo con tu información",
+          "Lo probás antes que un cliente",
+          "Queda andando en tu WhatsApp"
+        ],
+        "cta": "Escribime →"
+      },
+      "pie": "La pregunta que sigue al precio es siempre la misma: “¿y esto cuánto lío es?”.\n\nPoco, y la mayor parte no la hacés vos.\n\n1. Me contás qué te preguntan siempre. Una charla, veinte minutos. No hace falta que prepares nada.\n2. Armo el agente con tu información: tus precios, tus horarios, tus condiciones, tu forma de contestar.\n3. Lo probás vos primero. Le preguntás lo que se te ocurra y corregimos lo que no suene como vos. Ningún cliente lo ve hasta que estés conforme.\n4. Queda andando en tu WhatsApp. El mismo número, el mismo teléfono.\n\nEntre el paso 1 y el 4 pasan entre 24 y 48 horas.\n\nLa implementación sale $99.000 y el abono $89.000 por mes. El primer abono recién a los 30 días, así lo ves funcionando antes de pagar el segundo peso.\n\nSi querés empezar la semana con esto resuelto, escribime hoy. 💬",
+      "hashtags": "#AgenteDeIA #ChatbotWhatsApp #AutomatizacionWhatsApp #IAparaNegocios #Emprendedores #Pymes #Argentina #Sarubia"
     }
   ]
 }
