@@ -159,7 +159,14 @@ function placa(item, marca, formato, opciones) {
   const cta = d.cta ? `<span class="cta">${texto(d.cta)}</span>` : '';
   const extra = [o.clase, d.hueco ? 'hueco' : ''].filter(Boolean).join(' ');
 
-  return `<div class="placa f-${formato} ${fondo}${extra ? ' ' + extra : ''}" id="${esc(id)}" data-archivo="${esc(item.archivo)}">
+  // El hueco del sticker no mide siempre lo mismo: una encuesta o una caja de
+  // preguntas ocupan el doble que un sticker de enlace. "hueco": true usa la
+  // medida grande; un número la fija a medida.
+  const alto = (formato === 'historia' && typeof d.hueco === 'number')
+    ? ` style="padding-bottom:${Math.round(d.hueco)}px"`
+    : '';
+
+  return `<div class="placa f-${formato} ${fondo}${extra ? ' ' + extra : ''}" id="${esc(id)}" data-archivo="${esc(item.archivo)}"${alto}>
   <div class="cabeza"><span class="eyebrow">${esc(item.eyebrow)}</span><span class="raya"></span></div>
   <div class="cuerpo">${armar(d)}${cta}</div>
   <div class="pie">${firma(marca)}<span class="handle">${esc(pieDerecha)}</span></div>
@@ -489,7 +496,8 @@ function estilos(marca) {
   .lamina .handle{font-variant-numeric:tabular-nums;letter-spacing:.06em;}
 
   /* Historia con hueco: deja libre la franja donde va el sticker de encuesta,
-     de preguntas o de enlace. Sin esto el texto queda tapado. */
+     de preguntas o de enlace. Sin esto el texto queda tapado. Esta es la
+     medida grande; "hueco": <número> la pisa con un padding a medida. */
   .f-historia.hueco .cuerpo{justify-content:flex-start;padding-top:72px;}
   .f-historia.hueco .pie{margin-top:auto;}
   .f-historia.hueco{padding-bottom:620px;}

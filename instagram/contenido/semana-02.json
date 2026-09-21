@@ -155,7 +155,24 @@
     }
   ],
 
+  "_historias": "Una historia por día, que acompaña al posteo de ese día sin repetirlo: la que va sola aporta algo que el feed no tiene. Los días de carrusel (lunes y miércoles) tienen entrada propia acá, con historia y sin post. El campo \"hueco\" reserva la franja del sticker: 620 para encuesta o caja de preguntas, 420 para un sticker de enlace, 380 para apuntar al campo de respuesta.",
+
   "posts": [
+    {
+      "dia": "Lunes",
+      "archivo": "1-lunes-preguntas",
+      "tipo": "pregunta",
+      "fondo": "claro",
+      "eyebrow": "Tu rubro",
+      "objetivo": "Interacción. Va con la caja de preguntas. Cada respuesta es la pregunta real de un rubro real: material para el carrusel de la semana que viene.",
+      "sticker": "Caja de preguntas — \"Escribime la tuya\"",
+      "historia": {
+        "escala": "l",
+        "titulo": "¿Qué pregunta\ncontestás *veinte\nveces* por semana?",
+        "hueco": 620
+      }
+    },
+
     {
       "dia": "Martes",
       "archivo": "2-martes-mito",
@@ -164,12 +181,39 @@
       "eyebrow": "Mito y realidad",
       "pie_marca": "handle",
       "objetivo": "Objeción. Es el miedo número uno del que todavía no contrata: que la IA le hable mal a un cliente suyo.",
+      "sticker": "Encuesta — \"¿Lo creías?\" / Sí, la verdad · No",
       "post": {
         "mito": "La IA le va a\ncontestar cualquier\ncosa a mis clientes.",
         "realidad": "Contesta con lo que vos\ncargaste. Lo que no está\ncargado, te lo deriva."
       },
+      "historia": {
+        "mito": "La IA le va a contestar\ncualquier cosa a mis\nclientes.",
+        "realidad": "Contesta con lo que vos\ncargaste. Lo que no está\ncargado, te lo deriva.",
+        "hueco": 620
+      },
       "pie": "Es el miedo que más escucho, y tiene todo el sentido del mundo: tu WhatsApp es tu cara.\n\nUn agente bien armado no improvisa. Trabaja con la información que vos le cargaste — tus precios, tus horarios, tus condiciones — y cuando le preguntan algo que no está ahí, no inventa: te lo pasa a vos.\n\nEso no es una limitación. Es la parte más importante del trabajo, y es donde se nota la diferencia entre un agente configurado con cuidado y uno armado en veinte minutos.\n\nLa contra, dicha de frente: si cambiás los precios y no avisás, el agente va a seguir contestando los viejos. No es magia, es mantenimiento.\n\n¿Qué otra cosa te frena? Preguntá, que las contesto todas. 👇",
       "hashtags": "#AgenteDeIA #InteligenciaArtificial #ChatbotWhatsApp #AtencionAlCliente #Pymes #IAaplicada #Sarubia"
+    },
+
+    {
+      "dia": "Miércoles",
+      "archivo": "3-miercoles-cuenta",
+      "tipo": "tabla",
+      "fondo": "claro",
+      "eyebrow": "Hacé la cuenta",
+      "objetivo": "Tráfico. La cuenta del carrusel, en una pantalla, con el enlace a los planes abajo.",
+      "sticker": "Enlace a sarubi-ia.com/planes",
+      "historia": {
+        "escala": "m",
+        "titulo": "Lo que se te\nva *por mes*.",
+        "filas": [
+          { "k": "Consultas por día", "v": "20" },
+          { "k": "Minutos cada una", "v": "3" },
+          { "k": "Al mes", "v": "22 hs" }
+        ],
+        "nota": "Son números de ejemplo. Poné los tuyos y mirá qué te da.",
+        "hueco": 420
+      }
     },
 
     {
@@ -180,11 +224,18 @@
       "eyebrow": "Enfoque",
       "pie_marca": "sitio",
       "objetivo": "Posicionamiento. Sin precio ni oferta: es el posteo que se comparte.",
+      "sticker": "Enlace a sarubi-ia.com/integracion-ia-whatsapp",
       "post": {
         "escala": "l",
         "titulo": "El cliente no\nespera a que\n*abras*.",
         "sub": "Pregunta cuando se acuerda: un sábado, de noche, arriba del colectivo. Si nadie contesta, pregunta en otro lado.",
         "sub_ancho": true
+      },
+      "historia": {
+        "escala": "l",
+        "titulo": "El cliente no\nespera a que\n*abras*.",
+        "sub": "Si a esa hora nadie contesta, le pregunta al que sí contestó.",
+        "hueco": 420
       },
       "pie": "Tu horario de atención es tuyo. El de tus clientes, no.\n\nLa gente pregunta cuando se acuerda: un sábado a la tarde, un martes a las once de la noche, arriba del colectivo volviendo a casa. No es que sean impacientes. Es que en ese momento tenían el teléfono en la mano.\n\nY si en ese momento nadie contesta, la mayoría no vuelve al día siguiente. Le pregunta al que sí contestó.\n\nNo hace falta que estés despierto. Hace falta que alguien conteste lo de siempre mientras vos no estás, y que te deje anotado quién preguntó qué, para que a la mañana retomes con todo el contexto.\n\nEso es todo lo que hace un agente de IA en tu WhatsApp. Ni más, ni menos.",
       "hashtags": "#AtencionAlCliente #AutomatizacionWhatsApp #AgenteDeIA #Pymes #Emprendedores #Argentina #Sarubia"
@@ -198,6 +249,7 @@
       "eyebrow": "Sitios web",
       "pie_marca": "handle",
       "objetivo": "Prospección. Abre la otra pata del negocio. Ojo: es una promesa pública, hay que poder cumplirla.",
+      "sticker": "Caja de preguntas — \"Pasame el rubro\"",
       "post": {
         "escala": "l",
         "titulo": "¿Tu negocio\ntiene *página*?",
@@ -205,9 +257,16 @@
         "sub_ancho": true,
         "cta": "Escribime →"
       },
+      "historia": {
+        "escala": "l",
+        "titulo": "¿Tu negocio\ntiene *página*?",
+        "sub": "Pasame el rubro y te digo qué le pondría.",
+        "hueco": 620
+      },
       "pie": "Muchos negocios que andan bien no tienen dónde mandar a alguien que pregunta “¿y ustedes qué hacen?”.\n\nTienen Instagram, que sirve para mostrar. Pero no tienen una página propia: una dirección que sea suya, que aparezca en Google y que explique el negocio sin que haya que scrollear seis meses de posteos.\n\nAsí lo hago: me contás de qué es el negocio, armo la página y te la muestro terminada. No un boceto ni una idea: la página andando, con tus fotos y tus textos.\n\nSi te gusta, hablamos de precio. Si no, no pagás nada y no me debés nada.\n\nEscribime por acá y arrancamos. 💬",
       "hashtags": "#PaginasWeb #DisenoWeb #LandingPage #NegociosLocales #Emprendedores #Pymes #Argentina #Sarubia"
     },
+
     {
       "dia": "Sábado",
       "archivo": "6-sabado-quien",
@@ -216,11 +275,18 @@
       "eyebrow": "Quién atiende",
       "pie_marca": "handle",
       "objetivo": "Confianza. Nadie sabe quién está atrás de la cuenta, y esa es la diferencia real contra una agencia: no hay intermediarios.",
+      "sticker": "Ninguno. El hueco de abajo apunta al campo de respuesta de Instagram.",
       "post": {
         "escala": "l",
         "titulo": "Acá no hay un\n*equipo de ventas*.",
         "sub": "Escribís y te contesto yo. El mismo que después implementa y el que te atiende cuando algo falla.",
         "sub_ancho": true
+      },
+      "historia": {
+        "escala": "l",
+        "titulo": "Acá no hay\nun *equipo\nde ventas*.",
+        "sub": "Escribís y te contesto yo. Probá: respondé esta historia.",
+        "hueco": 380
       },
       "pie": "Cuando pedís un presupuesto en una agencia, te atiende alguien de ventas. Después te pasan a un project manager. Y recién en algún momento aparece el que sabe hacerlo.\n\nAcá no. Escribís y te contesto yo, que soy el que arma el agente, el que lo prueba y el que lo mantiene después.\n\nEso tiene una ventaja obvia: no hay teléfono descompuesto entre lo que necesitás y lo que se construye.\n\nY tiene una contra que prefiero decir antes que después: soy uno solo. Por eso tomo pocos clientes a la vez, y por eso los precios están publicados — no me alcanza el día para negociar cada presupuesto de cero.\n\nSi te sirve así, escribime. 💬",
       "hashtags": "#Emprendedores #Pymes #AgenteDeIA #AutomatizacionWhatsApp #NegociosLocales #Argentina #Sarubia"
@@ -234,6 +300,7 @@
       "eyebrow": "Cómo se arranca",
       "pie_marca": "sitio",
       "objetivo": "Fricción. Domingo a la tarde el que tiene un negocio planifica la semana. Este posteo le dice exactamente qué pasa si escribe.",
+      "sticker": "Enlace a sarubi-ia.com/planes",
       "post": {
         "escala": "m",
         "titulo": "De la consulta\nal agente *andando*.",
@@ -244,6 +311,17 @@
           "Queda andando en tu WhatsApp"
         ],
         "cta": "Escribime →"
+      },
+      "historia": {
+        "escala": "m",
+        "titulo": "De la consulta\nal agente\n*andando*.",
+        "pasos": [
+          "Me contás qué te preguntan",
+          "Lo armo con tu información",
+          "Lo probás antes que un cliente",
+          "Queda andando en tu WhatsApp"
+        ],
+        "hueco": 420
       },
       "pie": "La pregunta que sigue al precio es siempre la misma: “¿y esto cuánto lío es?”.\n\nPoco, y la mayor parte no la hacés vos.\n\n1. Me contás qué te preguntan siempre. Una charla, veinte minutos. No hace falta que prepares nada.\n2. Armo el agente con tu información: tus precios, tus horarios, tus condiciones, tu forma de contestar.\n3. Lo probás vos primero. Le preguntás lo que se te ocurra y corregimos lo que no suene como vos. Ningún cliente lo ve hasta que estés conforme.\n4. Queda andando en tu WhatsApp. El mismo número, el mismo teléfono.\n\nEntre el paso 1 y el 4 pasan entre 24 y 48 horas.\n\nLa implementación sale $99.000 y el abono $89.000 por mes. El primer abono recién a los 30 días, así lo ves funcionando antes de pagar el segundo peso.\n\nSi querés empezar la semana con esto resuelto, escribime hoy. 💬",
       "hashtags": "#AgenteDeIA #ChatbotWhatsApp #AutomatizacionWhatsApp #IAparaNegocios #Emprendedores #Pymes #Argentina #Sarubia"
