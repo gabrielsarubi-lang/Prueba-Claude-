@@ -72,14 +72,8 @@ function pieza(v, marca) {
   if (v.marca === 'palabra') {
     contenido = `<div class="palabra">${esc(n.slice(0, i))}<span>${esc(n.slice(i))}</span></div>`;
   } else if (v.marca === 'conjunto') {
-    // Acá el punto va adentro, colgado de la S: si se posicionara contra el
-    // borde del cuadro como en las otras versiones, con la S más chica
-    // quedaría flotando lejos, sin relación con nada.
     contenido = `<div class="conjunto">
-      <div class="letra-caja">
-        <div class="letra chica">${esc(n[0])}</div>
-        ${v.punto ? '<span class="punto junto"></span>' : ''}
-      </div>
+      <div class="letra chica">${esc(n[0])}</div>
       <div class="renglon">
         <span class="nombre">${esc(marca.avatar_nombre)}</span>
         <span class="sigla">${esc(marca.avatar_sigla)}</span>
@@ -91,7 +85,7 @@ function pieza(v, marca) {
 
   return `<div class="avatar f-${v.fondo}" id="${esc(v.id)}">
     ${contenido}
-    ${v.punto && v.marca !== 'conjunto' ? '<span class="punto"></span>' : ''}
+    ${v.punto ? `<span class="punto${v.marca === 'conjunto' ? ' alto' : ''}"></span>` : ''}
   </div>`;
 }
 
@@ -133,18 +127,12 @@ function estilos(marca) {
      si se centrara la S sola, el nombre colgaría del círculo. */
   .conjunto{
     position:relative;z-index:2;display:flex;flex-direction:column;
-    align-items:center;gap:26px;
+    align-items:center;gap:0;
   }
-  .letra-caja{position:relative;}
-  .letra.chica{font-size:460px;transform:none;}
-  /* Pegado al hombro de la S, con aire suficiente para que no se toquen. */
-  .punto.junto{
-    width:112px;height:112px;
-    top:-6px;left:auto;right:-96px;
-  }
+  .letra.chica{font-size:600px;transform:none;}
   .renglon{display:flex;align-items:center;gap:22px;}
   .nombre{
-    font-size:112px;font-weight:500;letter-spacing:-.02em;line-height:1;
+    font-size:118px;font-weight:500;letter-spacing:-.02em;line-height:1;
     color:${c.tinta_texto};
   }
   .sigla{
@@ -167,6 +155,15 @@ function estilos(marca) {
     background:${c.verde_sobre_oscuro};
     top:calc(50% - 270px - 80px);
     left:calc(50% + 270px - 80px);
+  }
+  /* En la versión con el nombre, el punto sube: va arriba y apenas a la
+     derecha, a 455 px del centro. Ahí queda como un satélite de la S en vez de
+     un adorno pegado a ella, y el borde exterior cae a 514 de 540, con 26 px
+     de aire antes del recorte circular. */
+  .punto.alto{
+    width:118px;height:118px;
+    top:calc(50% - 405px - 59px);
+    left:calc(50% + 207px - 59px);
   }
   `;
 }
