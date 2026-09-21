@@ -16,9 +16,24 @@
  * casi pegado a la esquina, que en un círculo es justo lo que se recorta.
  */
 
+const fs = require('fs');
+const path = require('path');
 const { esc } = require('./plantilla');
 
 const LADO = 1080;
+
+/**
+ * La S del logo, trazada del PNG original.
+ *
+ * No es una letra de una tipografía: es el dibujo del logo que ya existe. Los
+ * remates cortados en diagonal y el ancho angosto son de esa S y de ninguna de
+ * las candidatas obvias — poner Inter o Lato en su lugar sería cambiar el logo,
+ * no reproducirlo. La saca del bitmap herramientas/vectorizar-ese.py.
+ */
+const ESE = fs.readFileSync(path.join(__dirname, 'ese.svg'), 'utf8')
+  .replace(/<!--[\s\S]*?-->/g, '')
+  .replace(/<\?xml[^>]*\?>/g, '')
+  .trim();
 
 /** Cada versión: qué dibuja y sobre qué fondo. */
 const VERSIONES = [
@@ -73,14 +88,14 @@ function pieza(v, marca) {
     contenido = `<div class="palabra">${esc(n.slice(0, i))}<span>${esc(n.slice(i))}</span></div>`;
   } else if (v.marca === 'conjunto') {
     contenido = `<div class="conjunto">
-      <div class="letra chica">${esc(n[0])}</div>
+      <div class="letra chica">${ESE}</div>
       <div class="renglon">
         <span class="nombre">${esc(marca.avatar_nombre)}</span>
         <span class="sigla">${esc(marca.avatar_sigla)}</span>
       </div>
     </div>`;
   } else {
-    contenido = `<div class="letra">${esc(n[0])}</div>`;
+    contenido = `<div class="letra">${ESE}</div>`;
   }
 
   return `<div class="avatar f-${v.fondo}" id="${esc(v.id)}">
@@ -114,12 +129,11 @@ function estilos(marca) {
     background:radial-gradient(circle,rgba(47,224,174,.20) 0%,rgba(47,224,174,0) 62%);
   }
 
-  .letra{
-    font-size:660px;font-weight:800;line-height:1;letter-spacing:-.02em;
-    position:relative;z-index:2;
-    /* La "S" de Inter carga un poco arriba: sin esto queda alta en el círculo. */
-    transform:translateY(-14px);
-  }
+  /* Con el trazo vectorial la medida es directa: la altura de la letra, no un
+     cuerpo tipográfico del que hay que descontar el espacio muerto de arriba y
+     de abajo. */
+  .letra{position:relative;z-index:2;display:flex;}
+  .letra svg{height:480px;width:auto;display:block;}
   .f-tinta .letra{color:${c.tinta_texto};}
   .f-verde .letra{color:${c.tinta};}
 
@@ -127,9 +141,9 @@ function estilos(marca) {
      si se centrara la S sola, el nombre colgaría del círculo. */
   .conjunto{
     position:relative;z-index:2;display:flex;flex-direction:column;
-    align-items:center;gap:0;
+    align-items:center;gap:30px;
   }
-  .letra.chica{font-size:600px;transform:none;}
+  .letra.chica svg{height:436px;}
   .renglon{display:flex;align-items:center;gap:22px;}
   .nombre{
     font-size:118px;font-weight:500;letter-spacing:-.02em;line-height:1;

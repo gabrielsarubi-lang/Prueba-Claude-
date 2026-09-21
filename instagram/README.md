@@ -331,6 +331,30 @@ Sale de `marca.json`, de `avatar_nombre` y `avatar_sigla`, y no del corte
 sigla en castellano, y adentro del avatar va **sarubi AI**, igual que el usuario
 de Instagram y el dominio. Si se tomara el corte, saldría "sarub AI".
 
+### La S no es una tipografía
+
+Es el dibujo del logo que ya existe, trazado del PNG original y guardado como
+`lib/ese.svg`. Se genera con:
+
+```bash
+python3 herramientas/vectorizar-ese.py
+```
+
+No es un capricho: la S del logo tiene los **remates cortados en diagonal** y es
+más angosta (0,79 de ancho por alto) que las candidatas obvias — Inter, Lato,
+Source Sans, Open Sans y compañía cortan los remates casi en horizontal.
+Reemplazarla por la más parecida sería cambiar el logo, no reproducirlo.
+
+El trazado usa marching squares con interpolación lineal sobre el antialias del
+PNG: el borde no cae en el píxel más cercano sino donde el antialias dice que
+está, con precisión de fracción de píxel. Después limpia el temblor del borde
+**sin tocar las esquinas**, que son justamente lo que define esta S, y pasa las
+partes curvas a Bézier dejando los cuatro remates como rectas.
+
+El resultado se superpone al original casi sin corrimiento, y ahora la letra se
+dibuja nítida a cualquier tamaño en vez de ampliarse 3,5 veces desde un bitmap
+de 98 px.
+
 ### El verde
 
 El PNG viejo usa `#1DC89D`, que no está en `marca.json` — quedó de antes de que
