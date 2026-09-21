@@ -286,3 +286,45 @@ funciona igual y pasa a ser una anécdota propia, que rinde más.
 de [sarubi-ia.com/planes](https://sarubi-ia.com/planes). Si cambian allá, cambian acá y
 se vuelven a generar los videos: un anuncio que promete un precio que la web no tiene
 se discute en la primera factura.
+
+---
+
+## El avatar de Instagram
+
+```bash
+node logo.js
+```
+
+Saca las cuatro versiones en `salida/logo/`, a **1080 × 1080**, más una hoja que
+las compara a los tamaños en que Instagram las muestra de verdad.
+
+| Versión | Cuándo |
+|---|---|
+| `ese-punto` | La continuación del logo que ya está en el sitio |
+| `ese-sola` | La misma sin el punto: la que mejor aguanta los 32 px del feed |
+| `ese-verde` | Invertida. Sobre el fondo blanco de Instagram salta más |
+| `palabra` | El wordmark entero, para comparar |
+
+### Por qué no alcanza con el logo del sitio
+
+`imagenes/logo.png` mide 260 × 260 y es un cuadrado redondeado con el punto casi
+en la esquina. Instagram **recorta la foto a un círculo**, así que esa esquina —
+con el punto adentro — es justo lo que se pierde. Acá el punto va sobre la
+diagonal, a 382 px del centro: más adentro toca el brazo de la S, más afuera lo
+come el recorte.
+
+La otra razón es la resolución: Instagram pide 320 px de mínimo, pero guarda una
+copia grande y la usa cuando alguien abre la foto de perfil.
+
+### La decisión se toma mirando los 32 px
+
+`comparacion.png` muestra cada versión a 320, 110, 56 y 32 px, sobre fondo claro
+y sobre fondo oscuro. Los 32 px son el tamaño al que aparece al lado de cada
+posteo, que es donde la ve la mayoría de la gente. Una versión que se entiende a
+320 y se hace un borrón a 32 no sirve, por linda que sea.
+
+### El verde
+
+El PNG viejo usa `#1DC89D`, que no está en `marca.json` — quedó de antes de que
+la paleta estuviera definida. Estas versiones salen de `marca.json`, así que el
+verde es `#2FE0AE`, el mismo de todas las placas y del sitio.
