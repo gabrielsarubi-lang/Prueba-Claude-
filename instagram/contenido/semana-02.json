@@ -1,0 +1,212 @@
+{
+  "_comentario": "Semana 2 — el trabajo repetitivo que te come el día. Solo feed por ahora: dos carruseles y tres imágenes. Las historias y los reels de esta semana se agregan después, en este mismo archivo.",
+
+  "_damero": "El último posteo de la semana pasada fue oscuro, así que esta arranca en claro y alterna: lunes claro, martes oscuro, miércoles claro, jueves oscuro, viernes claro. Dentro de cada carrusel también alterna, empezando por el fondo de la portada — que es la única lámina que se ve en la grilla del perfil.",
+
+  "_como_escribir": {
+    "salto de linea": "Usá \\n donde quieras que corte el renglón del título.",
+    "resaltado": "Poné *asteriscos* alrededor de la palabra que va en verde.",
+    "fondo": "\"oscuro\" o \"claro\".",
+    "escala": "\"xl\" título corto, \"l\" medio, \"m\" título largo.",
+    "eyebrow por lámina": "Una lámina de carrusel puede pisar el eyebrow del carrusel. En el primero, cada lámina usa el suyo para nombrar el rubro."
+  },
+
+  "semana": "Semana 2",
+
+  "carruseles": [
+    {
+      "dia": "Lunes",
+      "archivo": "1-lunes-preguntas",
+      "eyebrow": "Tu rubro",
+      "objetivo": "Alcance y reconocimiento. El que entra tiene que ver su propio negocio nombrado. Sirve también para mandar suelto por privado cuando prospectás: 'mirá, esto es para peluquerías'.",
+      "laminas": [
+        {
+          "tipo": "declaracion",
+          "fondo": "claro",
+          "escala": "l",
+          "titulo": "Lo que te\npreguntan\n*todos los días*.",
+          "sub": "Cinco rubros, cinco mensajes que un agente contesta solo.",
+          "sub_ancho": true,
+          "hint": "Deslizá →"
+        },
+        {
+          "tipo": "declaracion",
+          "fondo": "oscuro",
+          "eyebrow": "Peluquería",
+          "escala": "l",
+          "titulo": "“¿Tenés turno\npara *hoy*?”",
+          "sub": "Responde horarios y disponibilidad, y te deja el pedido anotado.",
+          "sub_ancho": true
+        },
+        {
+          "tipo": "declaracion",
+          "fondo": "claro",
+          "eyebrow": "Consultorio",
+          "escala": "l",
+          "titulo": "“¿Atienden por\n*obra social*?”",
+          "sub": "Contesta cuáles sí y cuáles no, sin que nadie levante el teléfono.",
+          "sub_ancho": true
+        },
+        {
+          "tipo": "declaracion",
+          "fondo": "oscuro",
+          "eyebrow": "Distribuidora",
+          "escala": "l",
+          "titulo": "“¿Hacen envíos\na *Rosario*?”",
+          "sub": "Responde zonas, tiempos y mínimo de compra. También un domingo.",
+          "sub_ancho": true
+        },
+        {
+          "tipo": "declaracion",
+          "fondo": "claro",
+          "eyebrow": "Gimnasio",
+          "escala": "l",
+          "titulo": "“¿Cuánto sale\nel *mensual*?”",
+          "sub": "Da el precio, explica los planes y te deriva al que se quiere anotar.",
+          "sub_ancho": true
+        },
+        {
+          "tipo": "declaracion",
+          "fondo": "oscuro",
+          "eyebrow": "Inmobiliaria",
+          "escala": "l",
+          "titulo": "“¿Sigue\n*disponible*?”",
+          "sub": "Contesta, pide los datos del interesado y te los deja cargados.",
+          "sub_ancho": true
+        },
+        {
+          "tipo": "declaracion",
+          "fondo": "claro",
+          "escala": "m",
+          "titulo": "Son cinco preguntas.\nSe repiten *mil veces*.",
+          "sub": "Esas contesta el agente. El resto sigue siendo tuyo.",
+          "sub_ancho": true,
+          "cta": "sarubi-ia.com"
+        }
+      ],
+      "pie": "No importa el rubro: siempre hay cinco preguntas que contestás veinte veces por semana.\n\nLa peluquería, si hay turno. El consultorio, qué obra social. La distribuidora, si llega a Rosario. El gimnasio, cuánto sale. La inmobiliaria, si sigue disponible.\n\nNinguna de esas necesita que pienses. Necesita que alguien conteste, y que conteste rápido, porque el que pregunta ya está mirando otra opción.\n\nEso es lo que hace un agente de IA en tu WhatsApp: se lleva las cinco preguntas de siempre y te deja las que sí valen tu tiempo.\n\n¿Cuál es la tuya? Poné la tuya en los comentarios y te digo cómo la contestaría. 👇",
+      "hashtags": "#AgenteDeIA #ChatbotWhatsApp #AutomatizacionWhatsApp #AtencionAlCliente #Pymes #Emprendedores #Argentina #Sarubia"
+    },
+
+    {
+      "dia": "Miércoles",
+      "archivo": "3-miercoles-cuenta",
+      "eyebrow": "Hacé la cuenta",
+      "objetivo": "Conversión. Todas las cifras van marcadas como EJEMPLO: el que las lee tiene que poner las suyas, no creerse las nuestras.",
+      "laminas": [
+        {
+          "tipo": "declaracion",
+          "fondo": "claro",
+          "escala": "l",
+          "titulo": "¿Cuánto te cuesta\ncontestar\n*lo mismo*?",
+          "sub": "Hacé la cuenta con tus números. Acá va un ejemplo.",
+          "sub_ancho": true,
+          "hint": "Deslizá →"
+        },
+        {
+          "tipo": "cifra",
+          "fondo": "oscuro",
+          "etiqueta": "Ejemplo · consultas por día",
+          "monto": "20",
+          "nota": "Mensajes que se repiten"
+        },
+        {
+          "tipo": "cifra",
+          "fondo": "claro",
+          "etiqueta": "Ejemplo · minutos cada una",
+          "monto": "3",
+          "nota": "Leer, contestar, volver a lo tuyo"
+        },
+        {
+          "tipo": "cifra",
+          "fondo": "oscuro",
+          "etiqueta": "Ejemplo · por día",
+          "monto": "1 hora",
+          "nota": "Solo contestando lo de siempre"
+        },
+        {
+          "tipo": "cifra",
+          "fondo": "claro",
+          "etiqueta": "Ejemplo · por mes",
+          "monto": "22 horas",
+          "nota": "Casi tres jornadas enteras"
+        },
+        {
+          "tipo": "tabla",
+          "fondo": "oscuro",
+          "escala": "m",
+          "titulo": "Y el agente",
+          "filas": [
+            { "k": "Implementación", "v": "$99.000" },
+            { "k": "Abono mensual", "v": "$89.000" }
+          ],
+          "nota": "Poné tus números en lugar de los del ejemplo. La cuenta la hacés vos."
+        },
+        {
+          "tipo": "declaracion",
+          "fondo": "claro",
+          "escala": "m",
+          "titulo": "No es que\ntrabajes *poco*.\nEs que contestás\ndemasiado.",
+          "cta": "sarubi-ia.com/planes"
+        }
+      ],
+      "pie": "Nadie mide lo que tarda en contestar un WhatsApp. Por eso parece que no cuesta nada.\n\nHacé la cuenta con TUS números, no con los de este carrusel:\n\nConsultas repetidas por día × minutos que te lleva cada una = lo que se te va por día.\nMultiplicalo por 22 días hábiles y ahí está el mes.\n\nEn el ejemplo del carrusel dan 22 horas. Casi tres jornadas enteras contestando cosas que ya sabías de memoria.\n\nNo te estoy diciendo que trabajes poco. Al revés: el problema es que contestás demasiado, y eso tapa el trabajo que sí mueve el negocio.\n\nLa implementación sale $99.000 y el abono $89.000 por mes, que cubre la API de WhatsApp, el consumo de IA y el hosting. El primer abono recién a los 30 días.\n\nTodo publicado en la web. Link en la bio.",
+      "hashtags": "#AutomatizacionDeProcesos #AgenteDeIA #ChatbotWhatsApp #ProductividadPyme #IAparaNegocios #Emprendedores #Argentina #Sarubia"
+    }
+  ],
+
+  "posts": [
+    {
+      "dia": "Martes",
+      "archivo": "2-martes-mito",
+      "tipo": "mito",
+      "fondo": "oscuro",
+      "eyebrow": "Mito y realidad",
+      "pie_marca": "handle",
+      "objetivo": "Objeción. Es el miedo número uno del que todavía no contrata: que la IA le hable mal a un cliente suyo.",
+      "post": {
+        "mito": "La IA le va a\ncontestar cualquier\ncosa a mis clientes.",
+        "realidad": "Contesta con lo que vos\ncargaste. Lo que no está\ncargado, te lo deriva."
+      },
+      "pie": "Es el miedo que más escucho, y tiene todo el sentido del mundo: tu WhatsApp es tu cara.\n\nUn agente bien armado no improvisa. Trabaja con la información que vos le cargaste — tus precios, tus horarios, tus condiciones — y cuando le preguntan algo que no está ahí, no inventa: te lo pasa a vos.\n\nEso no es una limitación. Es la parte más importante del trabajo, y es donde se nota la diferencia entre un agente configurado con cuidado y uno armado en veinte minutos.\n\nLa contra, dicha de frente: si cambiás los precios y no avisás, el agente va a seguir contestando los viejos. No es magia, es mantenimiento.\n\n¿Qué otra cosa te frena? Preguntá, que las contesto todas. 👇",
+      "hashtags": "#AgenteDeIA #InteligenciaArtificial #ChatbotWhatsApp #AtencionAlCliente #Pymes #IAaplicada #Sarubia"
+    },
+
+    {
+      "dia": "Jueves",
+      "archivo": "4-jueves-horario",
+      "tipo": "declaracion",
+      "fondo": "oscuro",
+      "eyebrow": "Enfoque",
+      "pie_marca": "sitio",
+      "objetivo": "Posicionamiento. Sin precio ni oferta: es el posteo que se comparte.",
+      "post": {
+        "escala": "l",
+        "titulo": "El cliente no\nespera a que\n*abras*.",
+        "sub": "Pregunta cuando se acuerda: un sábado, de noche, arriba del colectivo. Si nadie contesta, pregunta en otro lado.",
+        "sub_ancho": true
+      },
+      "pie": "Tu horario de atención es tuyo. El de tus clientes, no.\n\nLa gente pregunta cuando se acuerda: un sábado a la tarde, un martes a las once de la noche, arriba del colectivo volviendo a casa. No es que sean impacientes. Es que en ese momento tenían el teléfono en la mano.\n\nY si en ese momento nadie contesta, la mayoría no vuelve al día siguiente. Le pregunta al que sí contestó.\n\nNo hace falta que estés despierto. Hace falta que alguien conteste lo de siempre mientras vos no estás, y que te deje anotado quién preguntó qué, para que a la mañana retomes con todo el contexto.\n\nEso es todo lo que hace un agente de IA en tu WhatsApp. Ni más, ni menos.",
+      "hashtags": "#AtencionAlCliente #AutomatizacionWhatsApp #AgenteDeIA #Pymes #Emprendedores #Argentina #Sarubia"
+    },
+
+    {
+      "dia": "Viernes",
+      "archivo": "5-viernes-web",
+      "tipo": "pregunta",
+      "fondo": "claro",
+      "eyebrow": "Sitios web",
+      "pie_marca": "handle",
+      "objetivo": "Prospección. Abre la otra pata del negocio. Ojo: es una promesa pública, hay que poder cumplirla.",
+      "post": {
+        "escala": "l",
+        "titulo": "¿Tu negocio\ntiene *página*?",
+        "sub": "Si no tiene, te la armo y te la muestro. Recién si te gusta, hablamos de precio.",
+        "sub_ancho": true,
+        "cta": "Escribime →"
+      },
+      "pie": "Muchos negocios que andan bien no tienen dónde mandar a alguien que pregunta “¿y ustedes qué hacen?”.\n\nTienen Instagram, que sirve para mostrar. Pero no tienen una página propia: una dirección que sea suya, que aparezca en Google y que explique el negocio sin que haya que scrollear seis meses de posteos.\n\nAsí lo hago: me contás de qué es el negocio, armo la página y te la muestro terminada. No un boceto ni una idea: la página andando, con tus fotos y tus textos.\n\nSi te gusta, hablamos de precio. Si no, no pagás nada y no me debés nada.\n\nEscribime por acá y arrancamos. 💬",
+      "hashtags": "#PaginasWeb #DisenoWeb #LandingPage #NegociosLocales #Emprendedores #Pymes #Argentina #Sarubia"
+    }
+  ]
+}
