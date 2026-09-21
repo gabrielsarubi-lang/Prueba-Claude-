@@ -5,6 +5,10 @@
   "nombre_corte": 5,
   "_nombre_corte": "A partir de qué letra se pinta de verde. 5 = SARUB|IA",
 
+  "avatar_nombre": "sarubi",
+  "avatar_sigla": "AI",
+  "_avatar": "Cómo se escribe la marca dentro del avatar: la raíz y la sigla. No sale del corte SARUB|IA porque ahí la sigla es IA en castellano, y en el avatar va AI, igual que en el usuario de Instagram y en el dominio.",
+
   "sitio": "sarubi-ia.com",
   "handle": "@sarubi_ai_solutions",
   "whatsapp": "+54 9 11 3235-1644",

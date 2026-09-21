@@ -300,6 +300,7 @@ las compara a los tamaños en que Instagram las muestra de verdad.
 
 | Versión | Cuándo |
 |---|---|
+| `sarubi-ai` | La S, el nombre abajo y la etiqueta AI |
 | `ese-punto` | La continuación del logo que ya está en el sitio |
 | `ese-sola` | La misma sin el punto: la que mejor aguanta los 32 px del feed |
 | `ese-verde` | Invertida. Sobre el fondo blanco de Instagram salta más |
@@ -322,6 +323,13 @@ copia grande y la usa cuando alguien abre la foto de perfil.
 y sobre fondo oscuro. Los 32 px son el tamaño al que aparece al lado de cada
 posteo, que es donde la ve la mayoría de la gente. Una versión que se entiende a
 320 y se hace un borrón a 32 no sirve, por linda que sea.
+
+### Cómo se escribe el nombre adentro del avatar
+
+Sale de `marca.json`, de `avatar_nombre` y `avatar_sigla`, y no del corte
+`nombre_corte`. Son dos cosas distintas: el corte parte **SARUB|IA**, que es la
+sigla en castellano, y adentro del avatar va **sarubi AI**, igual que el usuario
+de Instagram y el dominio. Si se tomara el corte, saldría "sarub AI".
 
 ### El verde
 

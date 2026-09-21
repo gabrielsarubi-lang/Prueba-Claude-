@@ -23,6 +23,14 @@ const LADO = 1080;
 /** Cada versión: qué dibuja y sobre qué fondo. */
 const VERSIONES = [
   {
+    id: 'sarubi-ai',
+    nombre: 'S con la palabra',
+    nota: 'La S, el nombre abajo y la etiqueta AI. Se lee en el perfil; en el feed queda la S.',
+    fondo: 'tinta',
+    marca: 'conjunto',
+    punto: true
+  },
+  {
     id: 'ese-punto',
     nombre: 'S con punto',
     nota: 'La continuación del logo que ya usás. Es la recomendada.',
@@ -60,13 +68,30 @@ function pieza(v, marca) {
   const n = marca.nombre;
   const i = marca.nombre_corte;
 
-  const contenido = v.marca === 'palabra'
-    ? `<div class="palabra">${esc(n.slice(0, i))}<span>${esc(n.slice(i))}</span></div>`
-    : `<div class="letra">${esc(n[0])}</div>`;
+  let contenido;
+  if (v.marca === 'palabra') {
+    contenido = `<div class="palabra">${esc(n.slice(0, i))}<span>${esc(n.slice(i))}</span></div>`;
+  } else if (v.marca === 'conjunto') {
+    // Acá el punto va adentro, colgado de la S: si se posicionara contra el
+    // borde del cuadro como en las otras versiones, con la S más chica
+    // quedaría flotando lejos, sin relación con nada.
+    contenido = `<div class="conjunto">
+      <div class="letra-caja">
+        <div class="letra chica">${esc(n[0])}</div>
+        ${v.punto ? '<span class="punto junto"></span>' : ''}
+      </div>
+      <div class="renglon">
+        <span class="nombre">${esc(marca.avatar_nombre)}</span>
+        <span class="sigla">${esc(marca.avatar_sigla)}</span>
+      </div>
+    </div>`;
+  } else {
+    contenido = `<div class="letra">${esc(n[0])}</div>`;
+  }
 
   return `<div class="avatar f-${v.fondo}" id="${esc(v.id)}">
     ${contenido}
-    ${v.punto ? '<span class="punto"></span>' : ''}
+    ${v.punto && v.marca !== 'conjunto' ? '<span class="punto"></span>' : ''}
   </div>`;
 }
 
@@ -103,6 +128,30 @@ function estilos(marca) {
   }
   .f-tinta .letra{color:${c.tinta_texto};}
   .f-verde .letra{color:${c.tinta};}
+
+  /* La S con el nombre abajo. El bloque entero se centra como una sola pieza:
+     si se centrara la S sola, el nombre colgaría del círculo. */
+  .conjunto{
+    position:relative;z-index:2;display:flex;flex-direction:column;
+    align-items:center;gap:26px;
+  }
+  .letra-caja{position:relative;}
+  .letra.chica{font-size:460px;transform:none;}
+  /* Pegado al hombro de la S, con aire suficiente para que no se toquen. */
+  .punto.junto{
+    width:112px;height:112px;
+    top:-6px;left:auto;right:-96px;
+  }
+  .renglon{display:flex;align-items:center;gap:22px;}
+  .nombre{
+    font-size:112px;font-weight:500;letter-spacing:-.02em;line-height:1;
+    color:${c.tinta_texto};
+  }
+  .sigla{
+    font-size:64px;font-weight:700;letter-spacing:.04em;line-height:1;
+    padding:16px 22px;border-radius:16px;
+    background:rgba(47,224,174,.15);color:${c.verde_sobre_oscuro};
+  }
 
   .palabra{
     font-size:190px;font-weight:800;letter-spacing:-.035em;line-height:1;
