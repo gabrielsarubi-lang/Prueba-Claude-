@@ -1,0 +1,189 @@
+{
+  "_comentario": "Los textos de una semana. Para armar otra semana, copiá este archivo con otro nombre y cambiá los textos. El diseño no se toca.",
+  "_como_escribir": {
+    "salto de linea": "Usá \\n donde quieras que corte el renglón del título.",
+    "resaltado": "Poné *asteriscos* alrededor de la palabra que va en naranja.",
+    "fondo": "\"oscuro\" o \"claro\". Alterná entre posts para que la grilla del perfil quede en damero.",
+    "escala": "\"xl\" título corto, \"l\" medio, \"m\" largo, \"s\" placa con mucho contenido.",
+    "tipo": "declaracion | cifra | mito | veredicto | reclamo | pasos | lista | tabla | pregunta | punto",
+    "fuente": "La ley y el artículo de donde sale lo que dice la placa. Toda placa que afirma un derecho o un plazo la lleva.",
+    "pie_marca": "\"sitio\" o \"handle\": qué va abajo a la derecha en el post. \"handle\" solo funciona cuando marca.json tiene el usuario cargado."
+  },
+
+  "semana": "Semana 1",
+  "posts": [
+    {
+      "dia": "Lunes",
+      "archivo": "1-lunes-visible",
+      "tipo": "declaracion",
+      "fondo": "oscuro",
+      "eyebrow": "Reclame Acá",
+      "objetivo": "Presentación. Abre la semana diciendo qué es la plataforma en una frase.",
+      "post": {
+        "escala": "xl",
+        "titulo": "Tu reclamo,\n*visible* hasta\nque la empresa\nresponda.",
+        "sub": "Gratis, público y con fecha. Lo ve la empresa y lo ve quien está por comprarle.",
+        "sub_ancho": true
+      },
+      "historia": {
+        "escala": "xl",
+        "titulo": "Tu reclamo,\n*visible*\nhasta que\nla empresa\nresponda.",
+        "sub": "Gratis, público y con fecha.",
+        "cta": "Publicá tu reclamo"
+      },
+      "pie": "Llamaste, te dieron un número de gestión, te dijeron que en 48 horas te contactaban. No te contactó nadie.\n\nUn reclamo por teléfono no lo ve nadie más que vos. Un reclamo publicado, sí: queda con fecha, la empresa recibe el aviso y cualquiera que la busque ve si respondió o no.\n\nEso es Reclame Acá. Publicar es gratis.\n\n👉 reclameaca.com.ar",
+      "hashtags": "#DefensaDelConsumidor #DerechosDelConsumidor #Reclamos #Consumidores #Argentina #ReclameAca"
+    },
+
+    {
+      "dia": "Martes",
+      "archivo": "2-martes-arrepentimiento",
+      "tipo": "cifra",
+      "fondo": "claro",
+      "eyebrow": "Compras online",
+      "objetivo": "Guardable. Un solo dato, con la ley a la vista. Es el tipo de post que se comparte.",
+      "post": {
+        "etiqueta": "Compraste online y\nte arrepentiste. Tenés",
+        "monto": "10 días",
+        "nota": "corridos para devolverlo, sin explicar por qué. Desde que lo recibís.",
+        "fuente": "Ley 24.240, art. 34"
+      },
+      "historia": {
+        "etiqueta": "Compraste online\ny te arrepentiste.\nTenés",
+        "monto": "10\ndías",
+        "nota": "corridos para devolverlo, sin explicar por qué.",
+        "fuente": "Ley 24.240, art. 34"
+      },
+      "pie": "No hace falta que el producto venga fallado. No hace falta explicar nada.\n\nSi compraste por internet, por teléfono o por catálogo, tenés 10 días corridos para arrepentirte. Se cuentan desde que te entregan el producto o desde que firmaste el contrato, lo que pase último.\n\nY la devolución no la pagás vos.\n\nSi la empresa te pone trabas, contalo en Reclame Acá. En la guía del sitio está el paso a paso.",
+      "hashtags": "#BotonDeArrepentimiento #ComprasOnline #DerechosDelConsumidor #DefensaDelConsumidor #Argentina #ReclameAca"
+    },
+
+    {
+      "dia": "Miércoles",
+      "archivo": "3-miercoles-confirmas-vos",
+      "tipo": "reclamo",
+      "fondo": "oscuro",
+      "eyebrow": "Cómo funciona",
+      "objetivo": "Producto. Muestra la diferencia con cualquier otro canal: el cierre lo decide el consumidor.",
+      "post": {
+        "escala": "s",
+        "titulo": "Si la empresa dice\nque lo resolvió,\nlo *confirmás vos*.",
+        "empresa": "Tu proveedor de internet",
+        "estado": "a_confirmar",
+        "reclamo": "Di de baja el servicio y me lo siguen cobrando",
+        "categoria": "Telecomunicaciones"
+      },
+      "historia": {
+        "escala": "m",
+        "titulo": "Si la empresa\ndice que lo\nresolvió, lo\n*confirmás vos*.",
+        "empresa": "Tu proveedor de internet",
+        "estado": "a_confirmar",
+        "reclamo": "Di de baja el servicio y me lo siguen cobrando",
+        "extracto": "Pedí la baja el 3 de agosto. En septiembre me volvió a llegar la factura.",
+        "categoria": "Telecomunicaciones"
+      },
+      "pie": "En Reclame Acá la empresa responde en público. Y si dice que ya lo resolvió, el reclamo no se cierra solo: queda \"a confirmar\" hasta que vos digas que sí.\n\nPorque \"ya está solucionado\" y \"me dejaron de cobrar\" no siempre son lo mismo.\n\n(El reclamo de la imagen es un ejemplo.)",
+      "hashtags": "#DefensaDelConsumidor #Reclamos #AtencionAlCliente #Consumidores #Argentina #ReclameAca"
+    },
+
+    {
+      "dia": "Jueves",
+      "archivo": "4-jueves-boton-de-baja",
+      "tipo": "mito",
+      "fondo": "claro",
+      "eyebrow": "Dar de baja",
+      "objetivo": "Educación. Desarma la excusa más común para no dar de baja.",
+      "post": {
+        "mito": "\"Para la baja tenés que llamar al 0800.\"",
+        "realidad": "Si la empresa tiene web, tiene que tener un *botón de baja* a la vista en la página de inicio.",
+        "fuente": "Resolución 316/2018, Secretaría de Comercio"
+      },
+      "historia": {
+        "mito": "\"Para la baja\ntenés que llamar\nal 0800.\"",
+        "realidad": "Si la empresa tiene web, tiene que tener un *botón de baja* a la vista en la página de inicio.",
+        "fuente": "Res. 316/2018, Sec. de Comercio"
+      },
+      "pie": "Desde 2018 las empresas que te venden un servicio y tienen página web están obligadas a poner un \"botón de baja\" visible, en la página de inicio. Sin vueltas, sin llamados, sin retención.\n\n¿La tuya lo tiene escondido o directamente no lo tiene? Eso también es un reclamo.\n\nEn la guía \"Cómo dar de baja un servicio\" del sitio está qué hacer si igual te siguen cobrando.",
+      "hashtags": "#BotonDeBaja #DarDeBaja #DerechosDelConsumidor #DefensaDelConsumidor #Argentina #ReclameAca"
+    },
+
+    {
+      "dia": "Viernes",
+      "archivo": "5-viernes-sucursal",
+      "tipo": "veredicto",
+      "fondo": "oscuro",
+      "eyebrow": "¿Pueden o no pueden?",
+      "objetivo": "Serie. El formato \"pueden / no pueden\" se puede repetir todos los viernes.",
+      "post": {
+        "veredicto": "No pueden",
+        "titulo": "Obligarte a ir a una\nsucursal para dar de baja\nalgo que *contrataste online*.",
+        "sub": "La baja se pide por el mismo medio por el que contrataste.",
+        "sub_ancho": true,
+        "fuente": "Ley 24.240, art. 10 ter"
+      },
+      "historia": {
+        "veredicto": "No pueden",
+        "titulo": "Obligarte a ir\na una sucursal\npara dar de baja\nalgo que\n*contrataste\nonline*.",
+        "sub": "La baja se pide por el mismo medio.",
+        "fuente": "Ley 24.240, art. 10 ter"
+      },
+      "pie": "Lo contrataste por internet o por teléfono: lo das de baja por internet o por teléfono. Y la empresa te tiene que mandar la constancia de la baja.\n\nSi te dicen que \"tenés que acercarte a una sucursal\", guardá esa respuesta. Es la prueba de tu reclamo.",
+      "hashtags": "#DarDeBaja #DerechosDelConsumidor #DefensaDelConsumidor #Consumidores #Argentina #ReclameAca"
+    },
+
+    {
+      "dia": "Sábado",
+      "archivo": "6-sabado-pregunta",
+      "tipo": "pregunta",
+      "fondo": "claro",
+      "eyebrow": "Contanos",
+      "objetivo": "Conversación. El sábado se escucha: las respuestas son ideas para los próximos posts.",
+      "post": {
+        "escala": "l",
+        "titulo": "¿Qué empresa\nte hizo *renegar*\nesta semana?",
+        "sub": "Sin nombres de empleados. Contá qué pasó.",
+        "hint": "Te leemos en los comentarios →"
+      },
+      "historia": {
+        "escala": "l",
+        "titulo": "¿Qué empresa\nte hizo\n*renegar*\nesta semana?",
+        "hueco": true
+      },
+      "pie": "Sábado de catarsis. ¿Qué empresa te hizo renegar esta semana y por qué?\n\nLas respuestas las leemos todas: de acá salen las próximas guías.\n\nY si querés que tenga respuesta de verdad, publicalo en reclameaca.com.ar.",
+      "hashtags": "#Reclamos #Consumidores #AtencionAlCliente #Argentina #ReclameAca"
+    },
+
+    {
+      "dia": "Domingo",
+      "archivo": "7-domingo-plazos",
+      "tipo": "tabla",
+      "fondo": "oscuro",
+      "eyebrow": "Para guardar",
+      "objetivo": "Guardable. Resume la semana en una placa que se guarda y se vuelve a mirar.",
+      "post": {
+        "escala": "s",
+        "titulo": "Plazos que te\nconviene *saber*",
+        "filas": [
+          { "k": "Arrepentirte de una compra online", "v": "10 días" },
+          { "k": "Garantía legal de un producto nuevo", "v": "6 meses" },
+          { "k": "Impugnar un consumo de la tarjeta", "v": "30 días" },
+          { "k": "Constancia de la baja de un servicio", "v": "72 horas" }
+        ],
+        "nota": "Leyes 24.240 y 25.065. Informativo: no reemplaza el asesoramiento de un abogado ni de Defensa del Consumidor."
+      },
+      "historia": {
+        "escala": "m",
+        "titulo": "Plazos que te\nconviene *saber*",
+        "filas": [
+          { "k": "Arrepentirte de\nuna compra online", "v": "10 días" },
+          { "k": "Garantía legal de\nun producto nuevo", "v": "6 meses" },
+          { "k": "Impugnar un consumo\nde la tarjeta", "v": "30 días" },
+          { "k": "Constancia de la\nbaja de un servicio", "v": "72 hs" }
+        ],
+        "nota": "Leyes 24.240 y 25.065. Informativo."
+      },
+      "pie": "Cuatro plazos para tener a mano:\n\n📦 10 días corridos para arrepentirte de una compra online (Ley 24.240, art. 34).\n🔧 6 meses de garantía legal en productos nuevos (Ley 24.240, art. 11).\n💳 30 días para impugnar un consumo del resumen de la tarjeta (Ley 25.065, art. 26).\n📄 72 horas para que te manden la constancia de una baja (Ley 24.240, art. 10 ter).\n\nGuardalo. El día que lo necesites no vas a tener ganas de buscarlo.\n\nEs información general: no reemplaza el asesoramiento de un abogado ni de una oficina de Defensa del Consumidor.",
+      "hashtags": "#DerechosDelConsumidor #DefensaDelConsumidor #Garantia #ComprasOnline #Argentina #ReclameAca"
+    }
+  ]
+}

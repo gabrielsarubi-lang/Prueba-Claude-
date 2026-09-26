@@ -1,0 +1,59 @@
+{
+  "_comentario": "Identidad visual de Reclame Acá, tomada del sitio reclameaca.com.ar (assets/css/style.css y assets/img/logo.svg). Si cambiás la marca, cambiala acá y se actualiza en todas las placas.",
+
+  "nombre": "Reclame Acá",
+  "nombre_corte": 8,
+  "_nombre_corte": "A partir de qué letra se pinta de naranja. 8 = Reclame |Acá",
+
+  "sitio": "reclameaca.com.ar",
+  "_sitio": "Sin tilde a propósito: es como está publicado el sitio, y nadie tipea una tilde en la barra del navegador.",
+  "handle": "",
+  "_handle": "El usuario de Instagram (ej. @reclameaca). Mientras esté vacío, el pie lleva siempre el sitio.",
+
+  "colores": {
+    "tinta": "#0F2338",
+    "tinta_2": "#16324F",
+    "tinta_texto": "#FFFFFF",
+    "texto": "#1A2433",
+    "suave": "#F5F7FA",
+    "apagado": "#5B6B7C",
+    "apagado_oscuro": "#8FA3BA",
+    "linea": "#E2E8F0",
+    "linea_oscura": "#223A55",
+    "texto_sobre_oscuro": "#CFDCEA",
+
+    "acento": "#FF6B35",
+    "acento_fuerte": "#E85A2A",
+    "acento_claro": "#FFF1EB",
+    "acento_texto": "#C4471A",
+    "_acento_texto": "El naranja de la marca sobre blanco no alcanza contraste en letra chica. Este es el mismo tono, más oscuro, solo para textos chicos sobre fondo claro.",
+
+    "resuelto": "#1E9E62",
+    "resuelto_fondo": "#E7F7EF",
+    "en_proceso": "#B7791F",
+    "en_proceso_fondo": "#FDF3E0",
+    "pendiente": "#4A5C72",
+    "pendiente_fondo": "#EAEEF2",
+    "peligro": "#E0433B",
+    "peligro_fondo": "#FDECEB"
+  },
+
+  "tipografia": {
+    "familia": "Inter",
+    "pesos": "400;500;600;700;800",
+    "respaldo": "system-ui, -apple-system, sans-serif"
+  },
+
+  "medidas": {
+    "post": { "ancho": 1080, "alto": 1080, "margen": 84 },
+    "historia": {
+      "ancho": 1080,
+      "alto": 1920,
+      "margen": 84,
+      "margen_arriba": 290,
+      "margen_abajo": 300,
+      "_nota": "Instagram tapa ~250px arriba y ~250px abajo con su interfaz. Los margenes dejan el contenido siempre visible."
+    },
+    "radio": 10
+  }
+}

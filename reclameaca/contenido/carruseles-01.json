@@ -1,0 +1,126 @@
+{
+  "_comentario": "Carruseles. Cada lámina usa los mismos tipos que un post. Se generan con: node generar.js carruseles-01.json",
+
+  "carruseles": [
+    {
+      "archivo": "1-consumo-que-no-hiciste",
+      "eyebrow": "Tarjeta de crédito",
+      "objetivo": "Guardable y compartible. Un problema que le pasa a todos, con los plazos exactos.",
+      "pie": "Te aparece en el resumen un consumo que no hiciste. ¿Y ahora?\n\nDeslizá: están los plazos que marca la ley y qué hacer en cada paso.\n\nGuardalo para cuando lo necesites. La guía completa está en reclameaca.com.ar/guias",
+      "hashtags": "#TarjetaDeCredito #DerechosDelConsumidor #DefensaDelConsumidor #Bancos #Argentina #ReclameAca",
+      "laminas": [
+        {
+          "tipo": "declaracion",
+          "fondo": "oscuro",
+          "escala": "l",
+          "titulo": "Un consumo\nen tu tarjeta\nque *no hiciste*.",
+          "sub": "Qué hacer, con los plazos de la ley.",
+          "hint": "Deslizá →"
+        },
+        {
+          "tipo": "cifra",
+          "fondo": "claro",
+          "etiqueta": "Para impugnarlo tenés",
+          "monto": "30 días",
+          "nota": "desde que recibís el resumen.",
+          "fuente": "Ley 25.065, art. 26"
+        },
+        {
+          "tipo": "cifra",
+          "fondo": "oscuro",
+          "etiqueta": "El banco tiene que\nacusar recibo en",
+          "monto": "7 días",
+          "nota": "desde que presentás la impugnación.",
+          "fuente": "Ley 25.065, art. 27"
+        },
+        {
+          "tipo": "cifra",
+          "fondo": "claro",
+          "etiqueta": "Y corregirlo o\nexplicarte por qué no, en",
+          "monto": "15 días",
+          "nota": "Si no contesta a tiempo, eso también se reclama.",
+          "fuente": "Ley 25.065, art. 27"
+        },
+        {
+          "tipo": "pasos",
+          "fondo": "oscuro",
+          "titulo": "Paso a paso",
+          "pasos": [
+            "Impugnalo *por escrito*",
+            "Guardá el número de gestión",
+            "Si no responde, al *BCRA*",
+            "Y publicalo con fecha"
+          ]
+        },
+        {
+          "tipo": "declaracion",
+          "fondo": "claro",
+          "escala": "l",
+          "titulo": "¿Te pasó?\nContalo *con fecha*.",
+          "sub": "El banco recibe el aviso y su respuesta queda a la vista.",
+          "sub_ancho": true,
+          "cta": "Publicá tu reclamo"
+        }
+      ]
+    },
+
+    {
+      "archivo": "2-reclamo-que-se-responde",
+      "eyebrow": "Antes de reclamar",
+      "objetivo": "Producto. Enseña a publicar mejores reclamos, que es lo que hace que las empresas respondan.",
+      "pie": "Un reclamo con fechas, montos y un pedido claro se responde. Uno que dice \"son unos chantas\", no.\n\nEsto es lo que conviene tener a mano antes de publicar.",
+      "hashtags": "#Reclamos #DefensaDelConsumidor #Consumidores #Argentina #ReclameAca",
+      "laminas": [
+        {
+          "tipo": "declaracion",
+          "fondo": "claro",
+          "escala": "l",
+          "titulo": "Cómo escribir\nun reclamo que\n*se responde*.",
+          "hint": "Deslizá →"
+        },
+        {
+          "tipo": "lista",
+          "fondo": "oscuro",
+          "titulo": "Antes, *juntá*:",
+          "items": [
+            "Número de cliente o de pedido",
+            "Factura o comprobante",
+            "Fechas de cada contacto",
+            "Números de gestión",
+            "Mails y capturas",
+            "Qué solución pedís"
+          ]
+        },
+        {
+          "tipo": "punto",
+          "fondo": "claro",
+          "numero": "01",
+          "titulo": "Fechas y montos,\n*no adjetivos*.",
+          "sub": "\"Me cobraron $18.400 el 5/9\" se responde. \"Son unos chantas\", no."
+        },
+        {
+          "tipo": "punto",
+          "fondo": "oscuro",
+          "numero": "02",
+          "titulo": "Decí qué\n*solución* querés.",
+          "sub": "El reintegro, la baja, el cambio. Si no lo pedís, te pueden contestar cualquier cosa."
+        },
+        {
+          "tipo": "punto",
+          "fondo": "claro",
+          "numero": "03",
+          "titulo": "Sin datos\n*personales* a la vista.",
+          "sub": "Ni DNI, ni número de tarjeta, ni nombres de empleados. El reclamo es público."
+        },
+        {
+          "tipo": "declaracion",
+          "fondo": "oscuro",
+          "escala": "l",
+          "titulo": "Listo.\nAhora, *publicalo*.",
+          "sub": "Es gratis y queda visible hasta que la empresa responda.",
+          "cta": "Publicá tu reclamo"
+        }
+      ]
+    }
+  ]
+}

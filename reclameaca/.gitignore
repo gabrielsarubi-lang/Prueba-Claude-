@@ -1,0 +1,7 @@
+node_modules/
+
+# Archivos intermedios de cada corrida: se regeneran solos.
+salida/.html/
+
+# Las imágenes SÍ se guardan (salida/semana-*/, salida/carruseles-*/),
+# así se pueden descargar desde GitHub sin correr el generador.
