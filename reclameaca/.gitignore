@@ -5,3 +5,6 @@ salida/.html/
 
 # Las imágenes SÍ se guardan (salida/semana-*/, salida/carruseles-*/),
 # así se pueden descargar desde GitHub sin correr el generador.
+
+# Archivo suelto de una prueba, no forma parte del proyecto.
+.gitignore.marketing
