@@ -1,0 +1,12 @@
+{
+  "name": "reclameaca-video",
+  "private": true,
+  "description": "Generador de reels e historias de Instagram para Reclame Acá",
+  "scripts": {
+    "render": "node render.js"
+  },
+  "dependencies": {
+    "ffmpeg-static": "^5.2.0",
+    "playwright-core": "^1.49.0"
+  }
+}

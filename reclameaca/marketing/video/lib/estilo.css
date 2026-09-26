@@ -1,0 +1,161 @@
+/* Reclame Acá — sistema de motion para Reels e Historias
+   Tokens tomados de https://reclameaca.com.ar/assets/css/style.css */
+
+@font-face{font-family:'Inter';font-style:normal;font-weight:100 900;font-display:block;
+  src:url(../fonts/inter-latin-ext.woff2) format('woff2');
+  unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+@font-face{font-family:'Inter';font-style:normal;font-weight:100 900;font-display:block;
+  src:url(../fonts/inter-latin.woff2) format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+
+:root{
+  --navy-900:#0f2338; --navy-800:#16324f; --navy-700:#1f4166;
+  --orange-500:#ff6b35; --orange-600:#e85a2a; --orange-50:#fff1eb;
+  --bg:#f5f7fa; --surface:#ffffff; --border:#e2e8f0;
+  --text-primary:#1a2433; --text-secondary:#5b6b7c; --text-muted:#8a97a6;
+  --success:#1e9e62; --danger:#e0433b;
+  /* zona segura de Instagram: la UI tapa arriba ~240px y abajo ~380px */
+  --safe-top:300px; --safe-bottom:400px; --gutter:96px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:var(--W,1080px);height:var(--H,1920px);overflow:hidden;background:#000}
+body{font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased;text-rendering:geometricPrecision}
+
+#stage{position:relative;width:var(--W,1080px);height:var(--H,1920px);overflow:hidden}
+
+/* Formato de feed (carrusel 4:5): no hay UI de Instagram encima, así que los
+   márgenes se achican y la firma se sube. */
+body.feed{--safe-top:104px;--safe-bottom:150px;--gutter:88px}
+body.feed .bug{bottom:64px;justify-content:flex-start;left:var(--gutter);right:var(--gutter)}
+body.feed #prog{display:none}
+
+/* Indicador de lámina del carrusel */
+.pag{position:absolute;top:60px;right:var(--gutter);font-size:26px;font-weight:700;
+  letter-spacing:.04em;font-variant-numeric:tabular-nums}
+.on-dark .pag{color:#7f97b1}
+.on-light .pag{color:#8a97a6}
+.on-orange .pag{color:rgba(255,255,255,.7)}
+
+/* Flecha de "seguí deslizando" */
+.swipe{position:absolute;bottom:64px;right:var(--gutter);display:flex;align-items:center;gap:12px;
+  font-size:27px;font-weight:700;letter-spacing:-.01em}
+.on-dark .swipe{color:#fff}
+.on-light .swipe{color:var(--navy-900)}
+.on-orange .swipe{color:#fff}
+.swipe .arr{width:46px;height:46px;border-radius:50%;background:var(--orange-500);color:#fff;
+  display:flex;align-items:center;justify-content:center;font-size:25px;flex:none}
+/* sobre fondo naranja se invierte, si no la flecha desaparece */
+.on-orange .swipe .arr{background:#fff;color:var(--orange-500)}
+
+.scene{position:absolute;inset:0;display:none;overflow:hidden}
+.scene.on{display:block}
+
+/* ---------- fondos ---------- */
+.bg{position:absolute;inset:-4%;transform-origin:50% 50%}
+.bg-dark{background:radial-gradient(circle at 18% 22%,var(--navy-700),var(--navy-900) 62%)}
+.bg-navy{background:linear-gradient(150deg,var(--navy-800),var(--navy-900) 70%)}
+.bg-light{background:var(--bg)}
+.bg-orange{background:radial-gradient(circle at 25% 20%,#ff8257,var(--orange-500) 60%)}
+.glow{position:absolute;width:760px;height:760px;right:-240px;top:-200px;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,107,53,.30),rgba(255,107,53,0) 68%)}
+.glow-b{right:auto;left:-280px;top:auto;bottom:-240px;
+  background:radial-gradient(circle,rgba(255,107,53,.16),rgba(255,107,53,0) 68%)}
+
+/* ---------- layout ---------- */
+.wrap{position:absolute;left:var(--gutter);right:var(--gutter);top:var(--safe-top);bottom:var(--safe-bottom);
+  display:flex;flex-direction:column;justify-content:center;gap:34px}
+.wrap.top{justify-content:flex-start;padding-top:60px}
+
+/* ---------- tipografía ---------- */
+.eyebrow{display:inline-flex;align-items:center;gap:14px;align-self:flex-start;
+  padding:14px 26px;border-radius:999px;font-size:27px;font-weight:800;
+  text-transform:uppercase;letter-spacing:.10em;white-space:nowrap}
+.eyebrow.on-dark{background:rgba(255,255,255,.10);color:#cfdcea;border:1px solid rgba(255,255,255,.16)}
+.eyebrow.accent{background:var(--orange-500);color:#fff;border:1px solid transparent}
+.eyebrow.law{background:var(--navy-900);color:#fff}
+.eyebrow.solid{background:#fff;color:var(--navy-900);border:1px solid transparent}
+.eyebrow.solid .dot{background:var(--orange-500)}
+.eyebrow .dot{width:12px;height:12px;border-radius:50%;background:var(--orange-500);flex:none}
+.eyebrow.accent .dot,.eyebrow.law .dot{background:#fff}
+
+h1{font-size:104px;line-height:1.02;letter-spacing:-.035em;font-weight:800}
+h2{font-size:80px;line-height:1.07;letter-spacing:-.03em;font-weight:800}
+.huge{font-size:172px;line-height:.94;letter-spacing:-.05em;font-weight:900;text-transform:uppercase}
+.body{font-size:40px;line-height:1.38;font-weight:500;letter-spacing:-.01em}
+.kicker{font-size:46px;line-height:1.25;font-weight:700;letter-spacing:-.02em}
+
+.on-dark h1,.on-dark h2,.on-dark .huge{color:#fff}
+.on-dark .body{color:#c3d2e0}
+.on-light h1,.on-light h2{color:var(--text-primary)}
+.on-light .body{color:var(--text-secondary)}
+.on-orange h1,.on-orange h2,.on-orange .huge,.on-orange .body{color:#fff}
+.on-orange .body{color:rgba(255,255,255,.92)}
+
+.hl{color:var(--orange-500)}
+.on-orange .hl,.on-light .hl{color:var(--orange-500)}
+.on-light .hl{color:var(--orange-600)}
+
+/* subrayado que se "pinta" detrás de una palabra */
+.mark{position:relative;display:inline-block;padding:0 .08em;z-index:0}
+.mark > .bar{position:absolute;left:0;right:0;bottom:.06em;height:.42em;background:var(--orange-500);
+  z-index:-1;transform-origin:0 50%}
+.on-light .mark{color:#fff}
+
+/* cita */
+.quote{position:relative}
+.quote .qm{position:absolute;left:-18px;top:-96px;font-size:200px;line-height:1;font-weight:900;
+  color:var(--orange-500);opacity:.35}
+
+/* regla vertical naranja de las placas legales */
+.rule{position:absolute;left:0;top:0;bottom:0;width:8px;border-radius:8px;background:var(--orange-500);
+  transform-origin:50% 0}
+.ruled{position:relative;padding-left:44px}
+
+/* lista numerada */
+.li{display:flex;gap:26px;align-items:flex-start}
+.li .n{flex:none;width:64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-size:31px;font-weight:800;background:var(--orange-500);color:#fff;margin-top:4px}
+.li .tx{font-size:42px;line-height:1.28;font-weight:600;letter-spacing:-.015em}
+.on-dark .li .tx{color:#fff}
+.on-light .li .tx{color:var(--text-primary)}
+.li .tx small{display:block;font-size:32px;font-weight:500;margin-top:8px}
+.on-dark .li .tx small{color:#93a7bd}
+.on-light .li .tx small{color:var(--text-secondary)}
+
+/* tarjeta tipo UI del sitio */
+.card{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:38px;
+  box-shadow:0 18px 48px rgba(15,35,56,.14)}
+.badge{display:inline-flex;align-items:center;gap:10px;padding:10px 22px;border-radius:999px;
+  font-size:25px;font-weight:800;text-transform:uppercase;letter-spacing:.03em}
+.badge::before{content:"";width:11px;height:11px;border-radius:50%;background:currentColor}
+.badge-pendiente{background:#eaeef2;color:#4a5c72}
+.badge-resuelto{background:#e7f7ef;color:#1e9e62}
+
+/* ---------- marca ---------- */
+.bug{position:absolute;left:0;right:0;bottom:266px;display:flex;align-items:center;justify-content:center;gap:18px}
+.bug .mk{width:60px;height:60px;flex:none}
+.bug .tx{font-size:34px;font-weight:700;letter-spacing:-.01em}
+.on-dark .bug .tx,.on-orange .bug .tx{color:#fff}
+.on-light .bug .tx{color:var(--navy-900)}
+.bug .tx small{display:block;font-size:23px;font-weight:500;letter-spacing:.03em;margin-top:1px}
+.on-dark .bug .tx small{color:#8fa3ba}
+.on-orange .bug .tx small{color:rgba(255,255,255,.72)}
+.on-light .bug .tx small{color:var(--text-muted)}
+
+/* cierre */
+.cta-logo{width:188px;height:188px;align-self:center}
+.center{text-align:center;align-items:center}
+.center .eyebrow{align-self:center}
+.url{font-size:52px;font-weight:800;letter-spacing:-.01em;color:var(--orange-500)}
+.pill{align-self:center;padding:26px 56px;border-radius:999px;background:var(--orange-500);color:#fff;
+  font-size:42px;font-weight:800;letter-spacing:-.01em}
+
+/* barra de progreso del reel */
+#prog{position:absolute;left:var(--gutter);right:var(--gutter);bottom:190px;height:5px;border-radius:5px;
+  background:rgba(255,255,255,.18);overflow:hidden}
+#prog.dim{background:rgba(15,35,56,.12)}
+#prog i{display:block;height:100%;width:100%;background:var(--orange-500);transform-origin:0 50%}
+
+/* zona reservada para stickers de Historias (queda vacía a propósito) */
+.sticker-zone{position:absolute;left:var(--gutter);right:var(--gutter);height:300px;bottom:520px}

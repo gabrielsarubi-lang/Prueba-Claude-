@@ -7,7 +7,7 @@ Espacio de trabajo de Gabriel Sarubi.
 | Carpeta | Qué es |
 |---|---|
 | [`instagram/`](instagram/) | Generador de placas de Instagram con la identidad visual de SARUBIA |
-| [`reclameaca/`](reclameaca/) | El mismo generador, con la identidad visual de Reclame Acá |
+| [`reclameaca/marketing/`](reclameaca/marketing/) | Contenido de Instagram de Reclame Acá (tanda 2), con el sistema del proyecto |
 
 Este repositorio **no publica ningún sitio web**. La landing de SARUBIA vive en el
 repositorio `sarubisolutions.github.io`, que sí se publica automáticamente en

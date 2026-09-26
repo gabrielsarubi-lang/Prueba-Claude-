@@ -1,0 +1,6 @@
+node_modules
+.DS_Store
+video/salida/previa/
+video/salida/render.log
+video/.tmp-*.html
+video/.previa.html

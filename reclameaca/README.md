@@ -1,5 +1,11 @@
 # Placas de Instagram — Reclame Acá
 
+> **Ojo:** esta primera versión quedó reemplazada. El contenido que sigue la línea de
+> lo que ya se publica está en [`marketing/`](marketing/), hecho con el mismo sistema
+> del proyecto de Reclame Acá. Además, la placa del jueves de `semana-01` cita la
+> Resolución 316/2018, que ya no está vigente (la reemplazó la Disposición 954/2025):
+> no la publiques.
+
 Generador de placas para Instagram con la identidad visual de
 [reclameaca.com.ar](https://www.reclameaca.com.ar): el mismo azul, el mismo naranja,
 el megáfono del logo y la tipografía Inter del sitio.
