@@ -1,0 +1,328 @@
+{
+  "_comentario": "Semana 3 — mostrar el agente funcionando en vez de explicarlo. Dos reels, dos carruseles, tres imágenes y una historia por día.",
+
+  "_damero": "La semana 2 cerró en claro, así que esta arranca en oscuro y alterna: lunes oscuro, martes claro, miércoles oscuro, jueves claro, viernes oscuro, sábado claro, domingo oscuro. Los dos reels caen en días oscuros a propósito: su portada en la grilla es un cuadro del video, y los dos videos son oscuros. La semana cierra en oscuro, así que la que viene arranca en claro.",
+
+  "_reels": "Los dos reels no viven acá, porque tienen sus propios archivos:\n  node reel-agente.js reel-turnos.json      -> el del lunes\n  node reel-secuencia.js reel-mientras.json -> el del viernes",
+
+  "semana": "Semana 3",
+
+  "carruseles": [
+    {
+      "dia": "Martes",
+      "archivo": "2-martes-como-contesta",
+      "eyebrow": "Mirá cómo contesta",
+      "objetivo": "Alcance y prueba. Tres conversaciones de tres rubros. El que lo ve no tiene que imaginarse cómo contesta: lo lee.",
+      "laminas": [
+        {
+          "tipo": "declaracion",
+          "fondo": "claro",
+          "escala": "l",
+          "titulo": "Así contesta\ncuando vos\n*no estás*.",
+          "sub": "Tres consultas reales de tres rubros distintos.",
+          "sub_ancho": true,
+          "hint": "Deslizá →"
+        },
+        {
+          "tipo": "chat",
+          "fondo": "oscuro",
+          "eyebrow": "Peluquería · 23:41",
+          "titulo": "Un turno",
+          "mensajes": [
+            { "de": "cliente", "texto": "Hola! Tenés turno para mañana?", "hora": "23:41" },
+            { "de": "agente", "texto": "Hola! Mañana me queda 10:30 y 16:00. ¿Cuál te sirve?", "hora": "23:41" },
+            { "de": "cliente", "texto": "El de 16. Corte y color", "hora": "23:42" },
+            { "de": "agente", "texto": "Listo, te anoto. Corte y color lleva unas 2 horas, así que quedás hasta las 18.", "hora": "23:42" }
+          ],
+          "remate": "Turno tomado. Vos dormías."
+        },
+        {
+          "tipo": "chat",
+          "fondo": "claro",
+          "eyebrow": "Distribuidora · Domingo",
+          "titulo": "Un envío",
+          "mensajes": [
+            { "de": "cliente", "texto": "Hacen envíos a Rosario? Cuánto tardan?", "hora": "11:08" },
+            { "de": "agente", "texto": "Sí, a Rosario llegamos en 48 hs hábiles. El mínimo de compra es $80.000.", "hora": "11:08" },
+            { "de": "cliente", "texto": "Perfecto. El lunes les escribo", "hora": "11:09" }
+          ],
+          "remate": "Un domingo. Sin abrir el local."
+        },
+        {
+          "tipo": "chat",
+          "fondo": "oscuro",
+          "eyebrow": "Consultorio · 07:12",
+          "titulo": "Una obra social",
+          "mensajes": [
+            { "de": "cliente", "texto": "Buen día, atienden por OSDE?", "hora": "07:12" },
+            { "de": "agente", "texto": "Buen día. Sí, atendemos OSDE, Swiss Medical y Galeno. Particular también.", "hora": "07:12" },
+            { "de": "cliente", "texto": "Genial, quiero sacar turno", "hora": "07:13" },
+            { "de": "agente", "texto": "Te paso con la secretaria apenas abra, a las 9. Le dejo anotado que sos de OSDE.", "hora": "07:13" }
+          ],
+          "remate": "Y ahí sí, te lo pasa a vos."
+        },
+        {
+          "tipo": "declaracion",
+          "fondo": "claro",
+          "escala": "m",
+          "titulo": "Tres rubros.\nLa misma *tarea*:\ncontestar lo que\nse repite.",
+          "sub": "Lo que no se repite sigue siendo tuyo.",
+          "sub_ancho": true
+        },
+        {
+          "tipo": "declaracion",
+          "fondo": "oscuro",
+          "escala": "l",
+          "titulo": "¿Querés ver\nel tuyo *andando*?",
+          "sub": "Te lo armo con tus precios y tus horarios, y lo probás antes que un cliente.",
+          "sub_ancho": true,
+          "cta": "sarubi-ia.com/planes"
+        }
+      ],
+      "pie": "Explicar qué hace un agente de IA no sirve de mucho. Es más fácil mostrarlo.\n\nAcá van tres conversaciones de tres rubros distintos: una peluquería a las 23:41, una distribuidora un domingo, un consultorio a las 7 de la mañana. Tres momentos en que el local estaba cerrado.\n\nMirá la tercera con atención, porque es la más importante. El agente contesta lo que sabe — qué obras sociales se atienden — y cuando la persona quiere sacar turno, no improvisa: avisa que la secretaria abre a las 9 y deja anotado el dato.\n\nEso es lo que tiene que hacer un agente bien armado. No reemplazar a nadie: llegar hasta donde sabe, y de ahí pasártelo a vos con el contexto masticado.\n\nSi querés ver el tuyo funcionando con tus precios y tus horarios, escribime. Lo probás vos antes de que lo vea un cliente.",
+      "hashtags": "#AgenteDeIA #ChatbotWhatsApp #AutomatizacionWhatsApp #AtencionAlCliente #Pymes #Emprendedores #Argentina #Sarubia"
+    },
+
+    {
+      "dia": "Jueves",
+      "archivo": "4-jueves-cuando-no-sabe",
+      "eyebrow": "Cuando no sabe",
+      "objetivo": "Confianza. La objeción que frena a todos es que la IA invente. Esta es la respuesta, mostrada.",
+      "laminas": [
+        {
+          "tipo": "declaracion",
+          "fondo": "claro",
+          "escala": "m",
+          "titulo": "¿Y si le preguntan\nalgo que *no sabe*?",
+          "sub": "Es la pregunta que me hacen siempre. Esta es la respuesta.",
+          "sub_ancho": true,
+          "hint": "Deslizá →"
+        },
+        {
+          "tipo": "capacidad",
+          "fondo": "oscuro",
+          "veredicto": "No hace",
+          "titulo": "Inventar\nuna *respuesta*.",
+          "sub": "Es lo que todos temen, y es exactamente lo que hay que evitar al configurarlo.",
+          "sub_ancho": true
+        },
+        {
+          "tipo": "chat",
+          "fondo": "claro",
+          "eyebrow": "Lo que hace",
+          "titulo": "Lo dice",
+          "mensajes": [
+            { "de": "cliente", "texto": "Hacen factura A?" },
+            { "de": "agente", "texto": "Esa no la tengo cargada. Te la contesta Gabriel, que ya está viendo esta conversación." }
+          ],
+          "remate": "Ni sí, ni no, ni invento."
+        },
+        {
+          "tipo": "punto",
+          "fondo": "oscuro",
+          "numero": "01",
+          "titulo": "Te avisa *a vos*.",
+          "sub": "La consulta te llega marcada, no perdida entre otras veinte.",
+          "sub_ancho": true
+        },
+        {
+          "tipo": "punto",
+          "fondo": "claro",
+          "numero": "02",
+          "titulo": "Te deja el *contexto*.",
+          "sub": "Quién preguntó, qué preguntó y qué le contestó antes. Retomás sin leer todo.",
+          "sub_ancho": true
+        },
+        {
+          "tipo": "punto",
+          "fondo": "oscuro",
+          "numero": "03",
+          "titulo": "Y después lo\n*aprende*.",
+          "sub": "Lo que contestaste vos se carga, y la próxima vez ya la sabe.",
+          "sub_ancho": true
+        },
+        {
+          "tipo": "declaracion",
+          "fondo": "claro",
+          "escala": "m",
+          "titulo": "No sabe todo.\nSabe *hasta dónde*\nsabe.",
+          "sub": "Que es la única forma de que puedas dejarlo solo.",
+          "sub_ancho": true,
+          "cta": "sarubi-ia.com"
+        }
+      ],
+      "pie": "“¿Y si le preguntan algo que no sabe y contesta cualquier cosa?”\n\nEs la pregunta que me hacen todos, y tienen razón en hacerla: tu WhatsApp es tu cara.\n\nLa respuesta corta es que un agente bien armado no adivina. Cuando la consulta se sale de lo que tiene cargado, lo dice y te la pasa.\n\nLa respuesta larga son tres cosas que pasan en ese momento:\n\n1. Te llega marcada. No queda perdida entre otras veinte.\n2. Te llega con contexto: quién preguntó, qué preguntó, qué le contestó antes. Retomás sin leer toda la conversación.\n3. Y lo que contestás vos se carga, así que la próxima vez ya la sabe.\n\nEso último es lo que hace que el agente mejore con el uso en vez de envejecer. Pero pasa solo si alguien lo mantiene — no se hace mágicamente.\n\nUn agente no sabe todo. Sabe hasta dónde sabe. Y esa es la única forma de que puedas dejarlo contestando solo.",
+      "hashtags": "#AgenteDeIA #InteligenciaArtificial #ChatbotWhatsApp #AtencionAlCliente #IAaplicada #Pymes #Sarubia"
+    }
+  ],
+
+  "posts": [
+    {
+      "dia": "Lunes",
+      "archivo": "1-lunes-reel-turnos",
+      "tipo": "pregunta",
+      "fondo": "oscuro",
+      "eyebrow": "Mirá cómo contesta",
+      "objetivo": "El reel del lunes. Se genera aparte con reel-agente.js reel-turnos.json. Acá solo vive la historia que lo acompaña.",
+      "sticker": "Encuesta — \"¿Te pasa?\" / Todo el tiempo · No tanto",
+      "historia": {
+        "escala": "l",
+        "titulo": "23:41.\nPreguntan si hay\nturno para\n*mañana*.",
+        "sub": "Vos cerraste a las 8.",
+        "hueco": 620
+      },
+      "pie": "23:41. Alguien pregunta si hay turno para mañana.\n\nVos cerraste a las ocho. El mensaje queda ahí, con el visto, hasta que abras.\n\nEn el video está lo que pasa cuando del otro lado hay un agente: contesta qué horarios quedan, entiende que el servicio lleva dos horas y deja el turno anotado. Cuatro mensajes, dos minutos, nadie despierto.\n\nNo es un chatbot de menú con opciones del 1 al 5. Es una conversación, con tus horarios y tus tiempos cargados adentro.\n\nY lo que no sabe no lo inventa: te lo pasa a vos.\n\nLa implementación sale $99.000 y el abono $89.000 por mes. El primer abono recién a los 30 días. Todo publicado en la web, link en la bio.\n\n¿A qué hora te entran los mensajes a vos? 👇",
+      "hashtags": "#AgenteDeIA #ChatbotWhatsApp #AutomatizacionWhatsApp #Peluqueria #TurnosOnline #Pymes #Emprendedores #Argentina #Sarubia"
+    },
+
+    {
+      "dia": "Martes",
+      "archivo": "2-martes-como-contesta",
+      "tipo": "chat",
+      "fondo": "claro",
+      "eyebrow": "Peluquería · 23:41",
+      "objetivo": "La historia del carrusel: una sola conversación, la más fuerte de las tres.",
+      "sticker": "Ninguno. El hueco de abajo apunta al campo de respuesta.",
+      "historia": {
+        "titulo": "Un turno, a las 23:41",
+        "mensajes": [
+          { "de": "cliente", "texto": "Hola! Tenés turno para mañana?", "hora": "23:41" },
+          { "de": "agente", "texto": "Hola! Mañana me queda 10:30 y 16:00. ¿Cuál te sirve?", "hora": "23:41" },
+          { "de": "cliente", "texto": "El de 16. Corte y color", "hora": "23:42" }
+        ],
+        "remate": "Turno tomado. Vos dormías.",
+        "hueco": 380
+      }
+    },
+
+    {
+      "dia": "Miércoles",
+      "archivo": "3-miercoles-cerrado",
+      "tipo": "declaracion",
+      "fondo": "oscuro",
+      "eyebrow": "Enfoque",
+      "pie_marca": "sitio",
+      "objetivo": "Posicionamiento. Sin oferta: es el que se comparte.",
+      "sticker": "Enlace a sarubi-ia.com/integracion-ia-whatsapp",
+      "post": {
+        "escala": "l",
+        "titulo": "Tu local cierra.\nTu WhatsApp\n*no*.",
+        "sub": "La diferencia es si del otro lado contesta alguien o queda el visto hasta mañana.",
+        "sub_ancho": true
+      },
+      "historia": {
+        "escala": "l",
+        "titulo": "Tu local cierra.\nTu WhatsApp\n*no*.",
+        "sub": "La diferencia es si contesta alguien o queda el visto.",
+        "hueco": 420
+      },
+      "pie": "Bajás la persiana a las ocho. Tu WhatsApp sigue abierto igual.\n\nNo es una metáfora: los mensajes siguen entrando. Un sábado a la noche, un domingo al mediodía, un martes a las once. La gente pregunta cuando se acuerda, no cuando vos atendés.\n\nLa única diferencia entre un negocio y otro es qué pasa en ese momento. En uno queda el visto hasta la mañana siguiente. En el otro alguien contesta.\n\nY el que preguntó no se acuerda a la mañana de que te había escrito. Ya le preguntó a otro.\n\nNo hace falta que estés despierto. Hace falta que del otro lado haya algo que conteste lo de siempre y te deje anotado lo que no.",
+      "hashtags": "#AtencionAlCliente #AutomatizacionWhatsApp #AgenteDeIA #Pymes #Emprendedores #Argentina #Sarubia"
+    },
+
+    {
+      "dia": "Jueves",
+      "archivo": "4-jueves-cuando-no-sabe",
+      "tipo": "chat",
+      "fondo": "oscuro",
+      "eyebrow": "Cuando no sabe",
+      "objetivo": "La historia del carrusel del jueves: la lámina que más importa, sola.",
+      "sticker": "Caja de preguntas — \"¿Qué le preguntarías vos?\"",
+      "historia": {
+        "titulo": "Cuando no sabe",
+        "mensajes": [
+          { "de": "cliente", "texto": "Hacen factura A?" },
+          { "de": "agente", "texto": "Esa no la tengo cargada. Te la contesta Gabriel, que ya está viendo esta conversación." }
+        ],
+        "remate": "Ni sí, ni no, ni invento.",
+        "hueco": 620
+      }
+    },
+
+    {
+      "dia": "Viernes",
+      "archivo": "5-viernes-reel-mientras",
+      "tipo": "pregunta",
+      "fondo": "oscuro",
+      "eyebrow": "Mientras no estabas",
+      "objetivo": "El reel del viernes. Se genera aparte con reel-secuencia.js reel-mientras.json. Acá solo vive la historia.",
+      "sticker": "Enlace a sarubi-ia.com/planes",
+      "historia": {
+        "escala": "l",
+        "titulo": "¿Cuántos mensajes\nte entraron\n*anoche*?",
+        "sub": "Y cuántos seguían sin respuesta a la mañana.",
+        "hueco": 420
+      },
+      "pie": "Cerraste a las ocho. Lo que sigue es lo que pasa después, en una noche cualquiera.\n\nLos números del video son un ejemplo, no la medición de un cliente — lo aclaro antes de que me lo preguntes. Pero la proporción es la que veo siempre: de cada diez mensajes que entran fuera de hora, ocho son las preguntas de siempre.\n\nHorarios. Precios. Si hay stock. Si llegan a tal ciudad. Cuánto tarda.\n\nEsas se contestan solas. Las otras dos, las que necesitan que pienses, te esperan anotadas: quién preguntó, qué preguntó, y qué le contestó el agente antes de pasártela.\n\nO sea que a la mañana no abrís cuarenta mensajes sin leer. Abrís dos.\n\nImplementación $99.000, abono $89.000 por mes, y el primer abono recién a los 30 días. Link en la bio.",
+      "hashtags": "#AutomatizacionWhatsApp #AgenteDeIA #ChatbotWhatsApp #AtencionAlCliente #ProductividadPyme #Emprendedores #Argentina #Sarubia"
+    },
+
+    {
+      "dia": "Sábado",
+      "archivo": "6-sabado-precio",
+      "tipo": "tabla",
+      "fondo": "claro",
+      "eyebrow": "Precios a la vista",
+      "pie_marca": "handle",
+      "objetivo": "Conversión. El único posteo con precio de la semana.",
+      "sticker": "Enlace a sarubi-ia.com/planes",
+      "post": {
+        "escala": "m",
+        "titulo": "Lo que sale\ntenerlo *andando*.",
+        "filas": [
+          { "k": "Implementación", "v": "$99.000" },
+          { "k": "Abono mensual", "v": "$89.000" }
+        ],
+        "nota": "Incluye la API de WhatsApp, el consumo de IA y el hosting. El primer abono, recién a los 30 días.",
+        "cta": "sarubi-ia.com/planes"
+      },
+      "historia": {
+        "escala": "m",
+        "titulo": "Lo que sale\ntenerlo *andando*.",
+        "filas": [
+          { "k": "Implementación", "v": "$99.000" },
+          { "k": "Abono", "v": "$89.000/mes" }
+        ],
+        "nota": "El primer abono, recién a los 30 días.",
+        "hueco": 420
+      },
+      "pie": "Toda la semana mostré el agente contestando. Falta el número.\n\nImplementación: $99.000, una vez.\nAbono: $89.000 por mes.\n\nEl abono no es ganancia mía: ahí adentro están la API de WhatsApp que cobra Meta, el consumo de la IA y el servidor donde vive el agente. Son costos que existen todos los meses, funcione mucho o poco. Cualquiera que te diga un precio sin nombrarte el mensual te está contando la mitad.\n\nY el primer abono se cobra recién a los 30 días. O sea: pagás la implementación, lo ves funcionando un mes entero, y recién ahí arranca el mensual.\n\nEstán los tres planes publicados en la web, con lo que incluye cada uno. Link en la bio.",
+      "hashtags": "#ChatbotWhatsApp #IAparaPymes #PreciosTransparentes #AgenteDeIA #Emprendedores #Argentina #Sarubia"
+    },
+
+    {
+      "dia": "Domingo",
+      "archivo": "7-domingo-probalo",
+      "tipo": "pasos",
+      "fondo": "oscuro",
+      "eyebrow": "Cómo se arranca",
+      "pie_marca": "sitio",
+      "objetivo": "Fricción. Cierra la semana con el paso concreto: probarlo antes de que lo vea un cliente.",
+      "sticker": "Ninguno. El hueco de abajo apunta al campo de respuesta.",
+      "post": {
+        "escala": "m",
+        "titulo": "Lo probás vos\nantes que un\n*cliente*.",
+        "pasos": [
+          "Me contás qué te preguntan",
+          "Lo armo con tu información",
+          "Le preguntás lo que quieras",
+          "Recién ahí sale a la cancha"
+        ],
+        "cta": "Escribime →"
+      },
+      "historia": {
+        "escala": "m",
+        "titulo": "Lo probás vos\nantes que un\n*cliente*.",
+        "pasos": [
+          "Me contás qué te preguntan",
+          "Lo armo con tu información",
+          "Le preguntás lo que quieras",
+          "Recién ahí sale a la cancha"
+        ],
+        "hueco": 380
+      },
+      "pie": "El miedo de fondo no es el precio. Es que el agente le conteste mal a un cliente tuyo.\n\nPor eso el orden es este:\n\n1. Me contás qué te preguntan siempre. Una charla, veinte minutos.\n2. Armo el agente con tu información: tus precios, tus horarios, tus condiciones.\n3. Lo probás vos. Le preguntás lo que se te ocurra, lo tratás de romper, y corregimos lo que no suene como vos.\n4. Recién cuando estés conforme, sale a la cancha.\n\nNingún cliente tuyo habla con el agente hasta que vos digas que sí.\n\nEntre el paso 1 y el 4 pasan entre 24 y 48 horas. Si querés empezar la semana con esto resuelto, escribime hoy. 💬",
+      "hashtags": "#AgenteDeIA #ChatbotWhatsApp #AutomatizacionWhatsApp #IAparaNegocios #Emprendedores #Pymes #Argentina #Sarubia"
+    }
+  ]
+}

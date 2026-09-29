@@ -119,6 +119,25 @@ const bloques = {
     return h;
   },
 
+  // Una conversación de WhatsApp dentro de la placa.
+  //
+  // Es el bloque que muestra el producto en vez de explicarlo: el que lo ve no
+  // tiene que imaginarse cómo contesta el agente, lo lee. Las burbujas usan los
+  // mismos colores que el reel del agente para que las dos piezas se reconozcan
+  // como lo mismo.
+  chat(d) {
+    let h = '';
+    if (d.titulo) h += `<div class="chat-tit">${texto(d.titulo)}</div>`;
+    h += `<div class="chat">` + d.mensajes.map((m) => {
+      const mio = m.de === 'agente';
+      return `<div class="msj-fila ${mio ? 'mia' : 'suya'}">
+          <div class="burbuja"><span class="msj">${texto(m.texto)}</span>${m.hora ? `<span class="hora">${esc(m.hora)}</span>` : ''}</div>
+        </div>`;
+    }).join('') + `</div>`;
+    if (d.remate) h += `<div class="remate">${texto(d.remate)}</div>`;
+    return h;
+  },
+
   pregunta(d) {
     let h = `<div class="regla"></div>`;
     h += `<h1 class="e-${d.escala || 'l'}">${texto(d.titulo)}</h1>`;
@@ -502,6 +521,44 @@ function estilos(marca) {
   .f-historia.hueco .pie{margin-top:auto;}
   .f-historia.hueco{padding-bottom:620px;}
 
+  /* --- chat --- */
+  .chat-tit{font-weight:700;letter-spacing:-.02em;}
+  .f-post .chat-tit{font-size:38px;}
+  .f-historia .chat-tit{font-size:48px;}
+  .chat{display:flex;flex-direction:column;}
+  .f-post .chat{gap:15px;}
+  .f-historia .chat{gap:22px;}
+  .msj-fila{display:flex;}
+  .msj-fila.suya{justify-content:flex-start;}
+  .msj-fila.mia{justify-content:flex-end;}
+  .burbuja{display:block;max-width:80%;}
+  .f-post .burbuja{border-radius:20px;padding:19px 24px;}
+  .f-historia .burbuja{border-radius:24px;padding:26px 30px;}
+  .suya .burbuja{background:#181D24;border-bottom-left-radius:7px;}
+  .claro .suya .burbuja{background:var(--suave);}
+  .mia .burbuja{background:var(--verde-osc);border-bottom-right-radius:7px;}
+  .claro .mia .burbuja{background:var(--verde);}
+  .msj{display:block;font-weight:500;line-height:1.34;}
+  .f-post .msj{font-size:28px;}
+  .f-historia .msj{font-size:33px;}
+  .suya .msj{color:var(--tinta-texto);}
+  .claro .suya .msj{color:var(--texto);}
+  .mia .msj{color:#05231B;}
+  .claro .mia .msj{color:#FFFFFF;}
+  .hora{
+    display:block;font-weight:500;font-variant-numeric:tabular-nums;
+  }
+  .f-post .hora{font-size:19px;margin-top:6px;}
+  .f-historia .hora{font-size:23px;margin-top:10px;}
+  .suya .hora{color:var(--apagado-osc);}
+  .claro .suya .hora{color:var(--apagado);}
+  .mia .hora{color:rgba(5,35,27,.55);}
+  .claro .mia .hora{color:rgba(255,255,255,.7);}
+  .remate{font-weight:700;letter-spacing:-.015em;color:var(--verde-osc);}
+  .claro .remate{color:var(--verde-fuerte);}
+  .f-post .remate{font-size:32px;}
+  .f-historia .remate{font-size:38px;}
+
   /* --- pregunta --- */
   .regla{border-radius:3px;background:var(--verde);}
   .f-post .regla{width:76px;height:5px;}
@@ -517,7 +574,13 @@ function estilos(marca) {
 /** Documento completo con todas las placas de un formato. */
 function documento(contenido, marca, formato) {
   const t = marca.tipografia;
-  const placas = contenido.posts.map((item) => placa(item, marca, formato)).join('\n');
+  // Un día puede tener historia y no post — los días de carrusel o de reel son
+  // así — y al revés. Los que no tienen este formato no entran en la página:
+  // que falten es normal, no un error.
+  const placas = contenido.posts
+    .filter((item) => item[formato])
+    .map((item) => placa(item, marca, formato))
+    .join('\n');
 
   return `<!DOCTYPE html>
 <html lang="es">

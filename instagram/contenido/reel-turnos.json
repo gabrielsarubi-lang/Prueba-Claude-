@@ -1,0 +1,44 @@
+{
+  "_comentario": "Reel del lunes de la semana 3. Usa el mismo motor que reel-agente.json (lib/reel-agente.js): hook, demostración, cómo funciona y oferta.",
+
+  "_precios": "Tienen que coincidir con sarubi-ia.com/planes. Si cambian en la web, cambian acá y se vuelve a generar el video.",
+
+  "_importante": "La conversación es un EJEMPLO de una peluquería, no una charla real de un cliente. Si el reel es para un rubro puntual, cambiala por una consulta típica de ese rubro: cuanto más se parezca a lo que le preguntan todos los días, mejor funciona.",
+
+  "archivo": "turnos-peluqueria",
+  "duracion": 20,
+  "eyebrow": "Mirá cómo contesta",
+
+  "hook": {
+    "hora": "23:41",
+    "titulo": "Preguntan si\nhay turno para\n*mañana*.",
+    "sub": "Vos cerraste a las ocho."
+  },
+
+  "chat": {
+    "titulo": "Así contesta",
+    "mensajes": [
+      { "de": "cliente", "texto": "Hola! Tenés turno para mañana?", "hora": "23:41" },
+      { "de": "agente",  "texto": "Hola! Mañana me queda 10:30 y 16:00. ¿Cuál te sirve?", "hora": "23:41", "tipeo": 0.9 },
+      { "de": "cliente", "texto": "El de 16. Corte y color", "hora": "23:42" },
+      { "de": "agente",  "texto": "Listo, te anoto. Corte y color lleva unas 2 horas, así que quedás hasta las 18.", "hora": "23:42", "tipeo": 1.1 }
+    ],
+    "remate": "Turno tomado. Vos dormías."
+  },
+
+  "como": {
+    "titulo": "Cómo funciona",
+    "pasos": [
+      { "t": "Conectamos tu WhatsApp", "d": "El mismo número, el mismo teléfono." },
+      { "t": "Le cargamos tu información", "d": "Tus horarios, tus precios, tu forma de responder." },
+      { "t": "Lo probás vos primero", "d": "Ningún cliente lo ve hasta que estés conforme." }
+    ]
+  },
+
+  "oferta": {
+    "etiqueta": "Plan Esencial",
+    "precio": "AR$ 99.000",
+    "checks": ["Implementación, entrega en 24–48 hs", "Abono $89.000 por mes", "El primero, recién a los 30 días"],
+    "cta": "sarubi-ia.com/planes"
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "_comentario": "Reel del viernes de la semana 3. Escenas encadenadas (lib/reel-secuencia.js): cada una dice cuánto dura y la duración total es la suma.",
+
+  "_importante": "Los números de las escenas 2, 3 y 4 son un EJEMPLO, no una medición de un cliente. Por eso la escena 1 dice \"una noche cualquiera\" y la placa los rotula como ejemplo. Cuando tengas un caso real con permiso del cliente, cambialos por los de verdad: ahí el reel pasa a ser una prueba y no una ilustración.",
+
+  "_corte_a_los_15": "Las escenas están cortadas para que el segundo 15 caiga justo en el cambio. Si lo subís como historia, el corte que hace Instagram queda limpio.",
+
+  "archivo": "mientras-no-estabas",
+  "eyebrow": "Mientras no estabas",
+
+  "escenas": [
+    {
+      "tipo": "frase",
+      "dur": 3.2,
+      "etiqueta": "Una noche cualquiera",
+      "titulo": "Cerraste a\nlas ocho.",
+      "sub": "Esto pasó después."
+    },
+    {
+      "tipo": "cifra",
+      "dur": 2.9,
+      "etiqueta": "Ejemplo · entre las 20 y las 9",
+      "monto": "14",
+      "nota": "Mensajes que entraron"
+    },
+    {
+      "tipo": "cifra",
+      "dur": 2.9,
+      "etiqueta": "Ejemplo · de esos 14",
+      "monto": "11",
+      "nota": "Eran las preguntas de siempre"
+    },
+    {
+      "tipo": "cifra",
+      "dur": 2.9,
+      "etiqueta": "Ejemplo · contestados solos",
+      "monto": "11",
+      "nota": "Sin que nadie estuviera despierto"
+    },
+    {
+      "tipo": "frase",
+      "dur": 3.1,
+      "etiqueta": "Los otros 3",
+      "titulo": "Te esperaban\n*anotados*.",
+      "sub": "Con quién preguntó y qué preguntó."
+    },
+    {
+      "tipo": "cierre",
+      "dur": 4.2,
+      "etiqueta": "Lo que sale",
+      "filas": [
+        { "k": "Implementación", "v": "$99.000" },
+        { "k": "Abono", "v": "$89.000/mes" }
+      ],
+      "nota": "El primer abono, recién a los 30 días.",
+      "cta": "sarubi-ia.com/planes"
+    }
+  ]
+}

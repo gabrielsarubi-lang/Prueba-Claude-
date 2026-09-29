@@ -69,6 +69,13 @@ Las imágenes quedan en `salida/semana-02/`.
 | `punto` | Punto numerado de una serie | `numero`, `titulo`, `sub` |
 | `capacidad` | Puede / no puede, con cartel | `veredicto`, `titulo`, `sub` |
 | `tabla` | Concepto a la izquierda, importe a la derecha | `titulo`, `filas`, `nota` |
+| `chat` | Una conversación de WhatsApp | `titulo`, `mensajes`, `remate` |
+
+En `chat`, cada mensaje lleva `de` (`"cliente"` o `"agente"`), `texto` y un
+`hora` opcional. Es el bloque que muestra el producto en vez de explicarlo: el
+que lo ve no tiene que imaginarse cómo contesta el agente, lo lee. Usa los
+mismos colores que el reel del agente, así las dos piezas se reconocen como lo
+mismo.
 
 En una lámina `capacidad` cuyo `veredicto` empieza con "no", la palabra entre
 asteriscos **no sale verde**: el verde dice "esto suma" en todas las demás piezas y
