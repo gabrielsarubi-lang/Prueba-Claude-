@@ -415,6 +415,30 @@ Una encuesta o una caja de preguntas **se apagan cuando la historia sale de las
 funcionando es el de **enlace**, y por eso va siempre en la última historia de
 cada serie, que es la que convierte.
 
+### La foto de fondo
+
+Cada destacada lleva una foto en `fondos/<slug>.jpg`. No se pega tal cual: van
+tres capas, y el orden es lo que hace que funcione.
+
+1. La foto **en blanco y negro** y bajada de brillo. A todo color pelea con el
+   verde y la placa deja de parecer de la misma marca que las demás.
+2. Un **tinte verde** encima, en modo `color`, que la mete en la paleta.
+3. Un **velo** casi opaco arriba — donde está el texto — que se abre hacia abajo.
+
+Ese degradado resuelve las dos cosas a la vez: el texto se sigue leyendo sobre
+el mismo negro de siempre, así que la identidad no se negocia, y la foto aparece
+justo en la franja de abajo, que antes era un rectángulo negro vacío.
+
+Las fotos se guardan **enteras, en su proporción original**, y el encuadre lo
+decide el navegador con `object-fit: cover`. Recortarlas al bajarlas salía mal:
+el recorte automático elige la zona con más detalle, que en una foto de gimnasio
+es el piso. Si alguna necesita otro encuadre, se le pone `"encuadre"` en el JSON
+(por ejemplo `"center 30%"`).
+
+Para cambiar una foto se reemplaza el archivo con el mismo nombre y se vuelve a
+generar. Las que vienen son de Unsplash — ver `fondos/CREDITOS.md`.
+
+
 ### Los precios tienen que coincidir con la web
 
 Lo que dice cada plan en la placa sale de lo que está publicado en
