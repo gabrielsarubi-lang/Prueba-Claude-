@@ -9,7 +9,9 @@
 
   "_portadas": "La portada es un ícono y no una palabra: en el perfil se ve como un círculo de unos 64 px y ahí no se lee ningún texto. El nombre lo escribís vos en Instagram, abajo del círculo. Máximo 15 caracteres o lo corta.",
 
-  "_hueco": "700 px libres abajo. La placa es alta — título, tres checks y dos planes — así que la firma queda justo debajo del contenido y todo lo que sobra es la franja del sticker. Si le cambiás el largo al título, revisá que no quede aire muerto en el medio.",
+  "_que_es": "Cada placa lleva una línea que dice qué es el producto, no solo qué resuelve. Sin eso el que la mira lee el beneficio — \"sin abrir el depósito\" — y no tiene cómo saber que se habla de su WhatsApp. Termina en dos puntos para que los tres checks se lean como la continuación de la frase.",
+
+  "_hueco": "480 px libres abajo. La placa es alta — título, tres checks y dos planes — así que la firma queda justo debajo del contenido y todo lo que sobra es la franja del sticker. Si le cambiás el largo al título, revisá que no quede aire muerto en el medio.",
 
   "_sticker": "En la historia va el sticker de ENLACE a sarubi-ia.com/planes. Es el único que sigue funcionando cuando la historia pasa a destacada: la encuesta y la caja de preguntas se apagan a las 24 horas.",
 
@@ -32,6 +34,7 @@
           "historia": {
             "escala": "m",
             "titulo": "Un agente de IA\ncontestando tu\n*WhatsApp*.",
+            "sub": "Integrado a tu número actual, sin cambiar nada. Contesta solo:",
             "checks": [
               "Tu mismo número",
               "Entrenado con tu información",
@@ -52,7 +55,7 @@
                 "destacado": true
               }
             ],
-            "hueco": 700
+            "hueco": 480
           }
         }
       ]
@@ -74,6 +77,7 @@
           "historia": {
             "escala": "m",
             "titulo": "Consultas de\npropiedades, a las\n*once de la noche*.",
+            "sub": "Un agente de IA en tu WhatsApp. Contesta solo:",
             "checks": [
               "Si sigue disponible",
               "Expensas, garantía y requisitos",
@@ -94,7 +98,7 @@
                 "destacado": true
               }
             ],
-            "hueco": 700
+            "hueco": 480
           }
         }
       ]
@@ -116,6 +120,7 @@
           "historia": {
             "escala": "m",
             "titulo": "Turnos y obras\nsociales, a cualquier\n*hora*.",
+            "sub": "Un agente de IA en tu WhatsApp. Contesta solo:",
             "checks": [
               "Qué obras sociales atendés",
               "Si hay turno y para cuándo",
@@ -136,7 +141,7 @@
                 "destacado": true
               }
             ],
-            "hueco": 700
+            "hueco": 480
           }
         }
       ]
@@ -158,6 +163,7 @@
           "historia": {
             "escala": "m",
             "titulo": "Precios y turnos,\nsin perder al que\npregunta de *noche*.",
+            "sub": "Un agente de IA en tu WhatsApp. Contesta solo:",
             "checks": [
               "Precio de cada tratamiento",
               "Planes de pago y cuotas",
@@ -178,7 +184,7 @@
                 "destacado": true
               }
             ],
-            "hueco": 700
+            "hueco": 480
           }
         }
       ]
@@ -200,6 +206,7 @@
           "historia": {
             "escala": "m",
             "titulo": "Planes, horarios y\nclase de prueba,\n*sin mostrador*.",
+            "sub": "Un agente de IA en tu WhatsApp. Contesta solo:",
             "checks": [
               "Precios y planes",
               "Horarios de cada clase",
@@ -220,7 +227,7 @@
                 "destacado": true
               }
             ],
-            "hueco": 700
+            "hueco": 480
           }
         }
       ]
@@ -242,6 +249,7 @@
           "historia": {
             "escala": "m",
             "titulo": "Todas las consultas\nde unidades,\ncontestadas.",
+            "sub": "Un agente de IA en tu WhatsApp. Contesta solo:",
             "checks": [
               "Si la unidad sigue disponible",
               "Financiación y cuotas",
@@ -262,7 +270,7 @@
                 "destacado": true
               }
             ],
-            "hueco": 700
+            "hueco": 480
           }
         }
       ]
@@ -284,6 +292,7 @@
           "historia": {
             "escala": "m",
             "titulo": "Envíos, mínimos\ny stock, sin abrir\nel *depósito*.",
+            "sub": "Un agente de IA en tu WhatsApp. Contesta solo:",
             "checks": [
               "Zonas y tiempos de entrega",
               "Mínimo de compra",
@@ -304,7 +313,7 @@
                 "destacado": true
               }
             ],
-            "hueco": 700
+            "hueco": 480
           }
         }
       ]

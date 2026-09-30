@@ -147,6 +147,11 @@ const bloques = {
   // con tu sistema — que es exactamente la decisión que tiene que tomar.
   rubro(d) {
     let h = `<h1 class="e-${d.escala || 'm'}">${texto(d.titulo)}</h1>`;
+    // Sin esta línea, la placa dice el beneficio y nunca dice qué es. Un
+    // distribuidor lee "sin abrir el depósito" y no tiene forma de saber que
+    // se habla de su WhatsApp. Va antes de los checks y termina en dos puntos,
+    // así la lista de abajo se lee como la continuación de la frase.
+    if (d.sub) h += `<p class="sub producto">${texto(d.sub)}</p>`;
     if (d.checks && d.checks.length) {
       h += `<div class="checks">` + d.checks
         .map((c) => `<div class="check"><span class="tick">✓</span>${texto(c)}</div>`)
@@ -627,6 +632,13 @@ function estilos(marca) {
   .claro .remate{color:var(--verde-fuerte);}
   .f-post .remate{font-size:32px;}
   .f-historia .remate{font-size:38px;}
+
+  /* --- rubro --- */
+  /* El renglón que dice qué es el producto necesita más ancho que un subtítulo
+     común: en tres renglones cortos se lee como una lista y deja de sonar a
+     una frase. */
+  .f-historia .sub.producto{max-width:26ch;}
+  .f-post .sub.producto{max-width:30ch;}
 
   /* --- rubro: los dos planes, uno al lado del otro --- */
   .planes{display:grid;grid-template-columns:1fr 1fr;}
