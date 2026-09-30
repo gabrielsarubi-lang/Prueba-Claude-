@@ -317,6 +317,50 @@
           }
         }
       ]
+    },
+
+    {
+      "slug": "ecommerce",
+      "foto": "ecommerce.jpg",
+      "encuadre": "center 50%",
+      "nombre": "E-commerce y tiendas online",
+      "titulo_instagram": "E-commerce",
+      "icono": "bolsa",
+      "objetivo": "Volumen puro. La pregunta \u00ab\u00bfd\u00f3nde est\u00e1 mi pedido?\u00bb es la m\u00e1s repetida de todo el rubro, y es la \u00fanica de las seis que no se contesta sin mirar el sistema: por eso ac\u00e1 el salto al plan Profesional se explica solo.",
+      "historias": [
+        {
+          "tipo": "rubro",
+          "fondo": "oscuro",
+          "eyebrow": "E-commerce y tiendas online",
+          "sticker": "Enlace a sarubi-ia.com/planes",
+          "historia": {
+            "escala": "m",
+            "titulo": "Stock, env\u00edos y\n\u00ab\u00bfd\u00f3nde est\u00e1\nmi *pedido*?\u00bb.",
+            "sub": "Un agente de IA en tu WhatsApp. Contesta solo:",
+            "checks": [
+              "Stock, talles y colores",
+              "Precios y medios de pago",
+              "Costo y tiempo de env\u00edo"
+            ],
+            "planes": [
+              {
+                "nombre": "Esencial",
+                "precio": "$99.000",
+                "abono": "$89.000/mes",
+                "linea": "Contesta las consultas de productos y env\u00edos."
+              },
+              {
+                "nombre": "Profesional",
+                "precio": "$390.000",
+                "abono": "$169.000/mes",
+                "linea": "Adem\u00e1s busca el pedido en tu sistema: pago, env\u00edo y gu\u00eda.",
+                "destacado": true
+              }
+            ],
+            "hueco": 480
+          }
+        }
+      ]
     }
   ]
 }

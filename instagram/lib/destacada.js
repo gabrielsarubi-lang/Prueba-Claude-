@@ -30,7 +30,8 @@ const ICONOS = {
   // El auto necesita ruedas redondas de verdad: con dos rayitas debajo de una
   // caja, a 64 px parece un banco de plaza.
   auto: '<path d="M5 13.4 6.4 9.3A2 2 0 0 1 8.3 7.9h7.4a2 2 0 0 1 1.9 1.4l1.4 4.1"/><path d="M3.6 13.4h16.8v3.4H3.6z"/><circle cx="7.6" cy="17.6" r="1.6"/><circle cx="16.4" cy="17.6" r="1.6"/>',
-  caja: '<path d="M12 3.4 20.3 7.6v8.8L12 20.6 3.7 16.4V7.6z"/><path d="M3.7 7.6 12 11.8l8.3-4.2"/><path d="M12 11.8v8.8"/>'
+  caja: '<path d="M12 3.4 20.3 7.6v8.8L12 20.6 3.7 16.4V7.6z"/><path d="M3.7 7.6 12 11.8l8.3-4.2"/><path d="M12 11.8v8.8"/>',
+  bolsa: '<path d="M5.7 8.3h12.6l.85 10.9a1.4 1.4 0 0 1-1.4 1.5H6.25a1.4 1.4 0 0 1-1.4-1.5z"/><path d="M9.2 8.3V6.5a2.8 2.8 0 0 1 5.6 0v1.8"/>'
 };
 
 const LADO = { ancho: 1080, alto: 1920 };

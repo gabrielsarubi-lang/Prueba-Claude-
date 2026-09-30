@@ -377,7 +377,7 @@ node destacadas.js                 # las siete
 node destacadas.js inmobiliarias   # solo una
 ```
 
-Siete destacadas: una general de cómo funciona y seis por rubro. Cada una queda
+Ocho destacadas: una general de cómo funciona y siete por rubro. Cada una queda
 en `salida/destacadas/<slug>/`, con `portada.png` y `01.png`.
 
 ### Una sola imagen por destacada
@@ -436,7 +436,10 @@ es el piso. Si alguna necesita otro encuadre, se le pone `"encuadre"` en el JSON
 (por ejemplo `"center 30%"`).
 
 Para cambiar una foto se reemplaza el archivo con el mismo nombre y se vuelve a
-generar. Las que vienen son de Unsplash — ver `fondos/CREDITOS.md`.
+generar. Las que vienen son de Unsplash — ver `fondos/CREDITOS.md`, que además
+anota los dos filtros que hay que aplicarle a cualquier candidata: **que no
+tenga marcas de terceros legibles**, y **que tenga estructura y no solo color**,
+porque después del velo lo único que sobrevive es la forma.
 
 
 ### Los precios tienen que coincidir con la web
