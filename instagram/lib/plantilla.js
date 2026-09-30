@@ -138,6 +138,32 @@ const bloques = {
     return h;
   },
 
+  // La placa de un rubro: qué le resuelve y cuánto sale, en una sola pantalla.
+  //
+  // Es la única placa que lleva dos precios juntos, y es a propósito. El que
+  // entra a una destacada de su rubro no vuelve a mirar otra: si el precio no
+  // está acá, no lo ve. Y los dos planes juntos muestran lo que los separa —
+  // el Esencial contesta y deriva, el Profesional además agenda y se conecta
+  // con tu sistema — que es exactamente la decisión que tiene que tomar.
+  rubro(d) {
+    let h = `<h1 class="e-${d.escala || 'm'}">${texto(d.titulo)}</h1>`;
+    if (d.checks && d.checks.length) {
+      h += `<div class="checks">` + d.checks
+        .map((c) => `<div class="check"><span class="tick">✓</span>${texto(c)}</div>`)
+        .join('') + `</div>`;
+    }
+    h += `<div class="planes">` + d.planes.map((p) => `
+      <div class="plan${p.destacado ? ' destacado' : ''}">
+        <div class="plan-n">${esc(p.nombre)}</div>
+        <div>
+          <div class="plan-p">${esc(p.precio)}</div>
+          <div class="plan-a">+ ${esc(p.abono)}</div>
+        </div>
+        <div class="plan-l">${texto(p.linea)}</div>
+      </div>`).join('') + `</div>`;
+    return h;
+  },
+
   pregunta(d) {
     let h = `<div class="regla"></div>`;
     h += `<h1 class="e-${d.escala || 'l'}">${texto(d.titulo)}</h1>`;
@@ -558,6 +584,44 @@ function estilos(marca) {
   .claro .remate{color:var(--verde-fuerte);}
   .f-post .remate{font-size:32px;}
   .f-historia .remate{font-size:38px;}
+
+  /* --- rubro: los dos planes, uno al lado del otro --- */
+  .planes{display:grid;grid-template-columns:1fr 1fr;}
+  .f-post .planes{gap:14px;}
+  .f-historia .planes{gap:18px;}
+  .plan{
+    display:flex;flex-direction:column;justify-content:flex-start;
+    border-radius:14px;border:1px solid var(--linea-osc);background:#141A20;
+  }
+  .claro .plan{border-color:var(--linea);background:var(--suave);}
+  .f-post .plan{padding:22px 20px;gap:9px;}
+  .f-historia .plan{padding:26px 24px;gap:11px;}
+  /* El Profesional se marca con el verde del borde y nada más: dos cajas con
+     el mismo peso obligan a leer las dos enteras para decidir. */
+  .plan.destacado{border-color:var(--verde-osc);}
+  .claro .plan.destacado{border-color:var(--verde);}
+  .plan-n{font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--apagado-osc);}
+  .claro .plan-n{color:var(--apagado);}
+  .plan.destacado .plan-n{color:var(--verde-osc);}
+  .claro .plan.destacado .plan-n{color:var(--verde);}
+  .f-post .plan-n{font-size:19px;}
+  .f-historia .plan-n{font-size:22px;}
+  .plan-p{
+    font-weight:800;letter-spacing:-.03em;line-height:1;
+    font-variant-numeric:tabular-nums;white-space:nowrap;
+  }
+  .f-post .plan-p{font-size:40px;}
+  .f-historia .plan-p{font-size:46px;}
+  .plan-a{font-weight:500;white-space:nowrap;}
+  .f-post .plan-a{font-size:21px;margin-top:7px;}
+  .f-historia .plan-a{font-size:24px;margin-top:8px;}
+  .oscuro .plan-a{color:var(--apagado-osc);}
+  .claro .plan-a{color:var(--apagado);}
+  .plan-l{font-weight:500;line-height:1.34;}
+  .f-post .plan-l{font-size:21px;}
+  .f-historia .plan-l{font-size:24px;}
+  .oscuro .plan-l{color:var(--texto-osc);}
+  .claro .plan-l{color:var(--apagado);}
 
   /* --- pregunta --- */
   .regla{border-radius:3px;background:var(--verde);}

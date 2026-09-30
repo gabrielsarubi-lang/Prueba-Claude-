@@ -378,8 +378,21 @@ node destacadas.js inmobiliarias   # solo una
 ```
 
 Siete destacadas: una general de cómo funciona y seis por rubro. Cada una queda
-en `salida/destacadas/<slug>/`, con `portada.png` aparte y las historias
-numeradas `01`, `02`, `03…` — que es el orden en que hay que subirlas.
+en `salida/destacadas/<slug>/`, con `portada.png` y `01.png`.
+
+### Una sola imagen por destacada
+
+Una serie de cuatro historias la termina poca gente. Una sola la ve entera todo
+el mundo — y por eso lleva **el precio adentro**: el que entra a la destacada de
+su rubro no abre otra, así que si el precio no está ahí, no lo ve.
+
+Por eso existe el tipo de placa `rubro`, que es la única que muestra dos precios
+juntos: título, tres checks de lo que resuelve, y los planes Esencial y
+Profesional uno al lado del otro con la línea que los separa. Esa es
+exactamente la decisión que tiene que tomar el que mira.
+
+El Profesional se marca solo con el borde verde, no con más tamaño ni más
+color: dos cajas del mismo peso obligan a leer las dos antes de elegir.
 
 ### La portada es un ícono, no una palabra
 
@@ -401,6 +414,13 @@ Una encuesta o una caja de preguntas **se apagan cuando la historia sale de las
 24 horas**, así que en una destacada quedan de adorno. El único que sigue
 funcionando es el de **enlace**, y por eso va siempre en la última historia de
 cada serie, que es la que convierte.
+
+### Los precios tienen que coincidir con la web
+
+Lo que dice cada plan en la placa sale de lo que está publicado en
+[sarubi-ia.com/planes](https://sarubi-ia.com/planes): el Esencial contesta y
+deriva, el Profesional además califica y se conecta con tu planilla o sistema de
+gestión. Si cambian allá, cambian en el JSON y se vuelven a generar las siete.
 
 ### El orden de la fila
 
