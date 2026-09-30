@@ -367,3 +367,43 @@ de 98 px.
 El PNG viejo usa `#1DC89D`, que no está en `marca.json` — quedó de antes de que
 la paleta estuviera definida. Estas versiones salen de `marca.json`, así que el
 verde es `#2FE0AE`, el mismo de todas las placas y del sitio.
+
+---
+
+## Historias destacadas
+
+```bash
+node destacadas.js                 # las siete
+node destacadas.js inmobiliarias   # solo una
+```
+
+Siete destacadas: una general de cómo funciona y seis por rubro. Cada una queda
+en `salida/destacadas/<slug>/`, con `portada.png` aparte y las historias
+numeradas `01`, `02`, `03…` — que es el orden en que hay que subirlas.
+
+### La portada es un ícono, no una palabra
+
+En el perfil, una destacada se ve como un **círculo de unos 64 px**. A ese
+tamaño no se lee ningún texto, por corto que sea. El nombre del rubro lo escribe
+Instagram abajo del círculo, que es donde sí se lee — con un máximo de 15
+caracteres antes de cortarlo.
+
+Por eso las portadas son íconos de trazo, en el mismo lenguaje que los del
+sitio: trazo parejo, puntas redondeadas, sin relleno y sin detalles finos. A 64
+px lo único que sobrevive es la silueta.
+
+Los íconos viven en `lib/destacada.js`, en cajas de 24. Para agregar un rubro se
+suma uno ahí y se lo nombra desde el JSON.
+
+### Los stickers interactivos no sirven acá
+
+Una encuesta o una caja de preguntas **se apagan cuando la historia sale de las
+24 horas**, así que en una destacada quedan de adorno. El único que sigue
+funcionando es el de **enlace**, y por eso va siempre en la última historia de
+cada serie, que es la que convierte.
+
+### El orden de la fila
+
+Instagram ordena las destacadas por la última que tocaste. Para que queden en un
+orden concreto hay que **subirlas al revés**: primero la que va última en la
+fila, y al final la que querés primera.

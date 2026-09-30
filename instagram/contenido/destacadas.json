@@ -1,0 +1,499 @@
+{
+  "_comentario": "Las historias destacadas del perfil: una general de cómo funciona y seis por rubro. Cada una se fija arriba de todo y queda ahí, así que son la única parte del perfil que un desconocido puede mirar entera seis meses después de publicada.",
+
+  "_portadas": "La portada es un ícono y no una palabra a propósito: en el perfil se ve como un círculo de unos 64 px y ahí no se lee ningún texto. El nombre del rubro lo escribís vos en Instagram, abajo del círculo, que es donde sí se lee. Máximo 15 caracteres o lo corta.",
+
+  "_stickers": "Los stickers interactivos (encuesta, caja de preguntas) NO funcionan en una destacada: se apagan cuando la historia sale de las 24 horas. El único que sigue sirviendo es el de ENLACE, y por eso va en la última historia de cada serie, que es la que convierte.",
+
+  "_orden": "Instagram ordena las destacadas por la última vez que las tocaste, así que subilas en orden inverso: primero la última de la fila y al final \"Cómo funciona\", que es la que querés que quede primera.",
+
+  "destacadas": [
+    {
+      "slug": "como-funciona",
+      "nombre": "Cómo funciona",
+      "titulo_instagram": "Cómo funciona",
+      "icono": "chat",
+      "objetivo": "La destacada madre. La mira el que llegó de un posteo y quiere entender qué vendés antes de escribirte.",
+      "historias": [
+        {
+          "tipo": "declaracion",
+          "fondo": "oscuro",
+          "eyebrow": "Qué es",
+          "historia": {
+            "escala": "m",
+            "titulo": "Un agente de IA\nque contesta tu\n*WhatsApp*.",
+            "sub": "Con tu información, a cualquier hora, en tu mismo número."
+          }
+        },
+        {
+          "tipo": "pasos",
+          "fondo": "claro",
+          "eyebrow": "Cómo se arranca",
+          "historia": {
+            "escala": "m",
+            "titulo": "Cuatro pasos.\n24 a 48 *horas*.",
+            "pasos": [
+              "Me contás qué te preguntan",
+              "Lo armo con tu información",
+              "Lo probás antes que un cliente",
+              "Queda andando en tu WhatsApp"
+            ]
+          }
+        },
+        {
+          "tipo": "lista",
+          "fondo": "oscuro",
+          "eyebrow": "Qué contesta solo",
+          "historia": {
+            "escala": "m",
+            "titulo": "Lo que se\n*repite*.",
+            "columnas": 1,
+            "items": [
+              "Horarios y dirección",
+              "Precios y planes",
+              "Disponibilidad y stock",
+              "Zonas y tiempos de entrega",
+              "Las cinco de siempre"
+            ]
+          }
+        },
+        {
+          "tipo": "chat",
+          "fondo": "claro",
+          "eyebrow": "Cuando no sabe",
+          "historia": {
+            "titulo": "No inventa",
+            "mensajes": [
+              { "de": "cliente", "texto": "Hacen factura A?" },
+              { "de": "agente", "texto": "Esa no la tengo cargada. Te la contesta Gabriel, que ya está viendo esta conversación." }
+            ],
+            "remate": "Y te llega con el contexto."
+          }
+        },
+        {
+          "tipo": "tabla",
+          "fondo": "oscuro",
+          "eyebrow": "Precios a la vista",
+          "sticker": "Enlace a sarubi-ia.com/planes",
+          "historia": {
+            "escala": "m",
+            "titulo": "Lo que sale.",
+            "filas": [
+              { "k": "Implementación", "v": "$99.000" },
+              { "k": "Abono", "v": "$89.000/mes" }
+            ],
+            "nota": "Incluye la API de WhatsApp, el consumo de IA y el hosting. El primer abono, recién a los 30 días.",
+            "hueco": 420
+          }
+        }
+      ]
+    },
+
+    {
+      "slug": "inmobiliarias",
+      "nombre": "Inmobiliarias",
+      "titulo_instagram": "Inmobiliarias",
+      "icono": "casa",
+      "objetivo": "Rubro de ticket alto y consulta repetitiva. El que pregunta por una propiedad pregunta siempre lo mismo, y si no le contestás en el momento sigue scrolleando avisos.",
+      "historias": [
+        {
+          "tipo": "declaracion",
+          "fondo": "oscuro",
+          "eyebrow": "Inmobiliarias",
+          "historia": {
+            "escala": "l",
+            "titulo": "“¿Sigue\n*disponible*?”",
+            "sub": "Y las cuatro preguntas que vienen siempre después."
+          }
+        },
+        {
+          "tipo": "chat",
+          "fondo": "claro",
+          "eyebrow": "Inmobiliarias · 22:15",
+          "historia": {
+            "titulo": "Una consulta",
+            "mensajes": [
+              { "de": "cliente", "texto": "Hola, sigue disponible el 2 ambientes de Güemes?", "hora": "22:15" },
+              { "de": "agente", "texto": "Sí, sigue disponible. $480.000 + $95.000 de expensas. Acepta mascotas y pide garantía propietaria.", "hora": "22:15" },
+              { "de": "cliente", "texto": "Se puede ver el sábado?", "hora": "22:16" }
+            ],
+            "remate": "Y ahí te lo pasa, con todo dicho."
+          }
+        },
+        {
+          "tipo": "lista",
+          "fondo": "oscuro",
+          "eyebrow": "Y además",
+          "historia": {
+            "escala": "m",
+            "titulo": "Lo que te\n*ahorra*.",
+            "columnas": 1,
+            "items": [
+              "Separa al curioso del interesado",
+              "Avisa expensas y garantía antes",
+              "Pide los datos y coordina el día",
+              "No muestra lo que ya se alquiló"
+            ]
+          }
+        },
+        {
+          "tipo": "tabla",
+          "fondo": "claro",
+          "eyebrow": "Precios a la vista",
+          "sticker": "Enlace a sarubi-ia.com/planes",
+          "historia": {
+            "escala": "m",
+            "titulo": "Lo que sale\ntenerlo *andando*.",
+            "filas": [
+              { "k": "Implementación", "v": "$99.000" },
+              { "k": "Abono", "v": "$89.000/mes" }
+            ],
+            "nota": "El primer abono, recién a los 30 días.",
+            "hueco": 420
+          }
+        }
+      ]
+    },
+
+    {
+      "slug": "clinicas",
+      "nombre": "Clínicas y consultorios",
+      "titulo_instagram": "Clínicas",
+      "icono": "cruz",
+      "objetivo": "Volumen alto de consultas administrativas que no necesitan a un profesional. Ojo: es el rubro con más límites, y la tercera historia los dice de frente.",
+      "historias": [
+        {
+          "tipo": "declaracion",
+          "fondo": "oscuro",
+          "eyebrow": "Clínicas y consultorios",
+          "historia": {
+            "escala": "m",
+            "titulo": "“¿Atienden por\nmi *obra social*?”",
+            "sub": "Más el horario, la dirección y si hay turno esta semana."
+          }
+        },
+        {
+          "tipo": "chat",
+          "fondo": "claro",
+          "eyebrow": "Consultorio · 07:12",
+          "historia": {
+            "titulo": "Una consulta",
+            "mensajes": [
+              { "de": "cliente", "texto": "Buen día, atienden por OSDE?", "hora": "07:12" },
+              { "de": "agente", "texto": "Buen día. Sí, atendemos OSDE, Swiss Medical y Galeno. Particular también.", "hora": "07:12" },
+              { "de": "cliente", "texto": "Genial, quiero sacar turno", "hora": "07:13" }
+            ],
+            "remate": "Y ahí sí, pasa a la secretaría."
+          }
+        },
+        {
+          "tipo": "capacidad",
+          "fondo": "oscuro",
+          "eyebrow": "El límite",
+          "historia": {
+            "veredicto": "No hace",
+            "escala": "m",
+            "titulo": "Dar indicaciones\n*médicas*.",
+            "sub": "Contesta coberturas, horarios y turnos. Lo clínico es del profesional, siempre."
+          }
+        },
+        {
+          "tipo": "lista",
+          "fondo": "claro",
+          "eyebrow": "Y además",
+          "historia": {
+            "escala": "m",
+            "titulo": "Lo que te\n*ahorra*.",
+            "columnas": 1,
+            "items": [
+              "Contesta coberturas y aranceles",
+              "Dice si hay turno y para cuándo",
+              "Recuerda el turno el día antes",
+              "Deriva lo clínico a la secretaría"
+            ]
+          }
+        },
+        {
+          "tipo": "tabla",
+          "fondo": "oscuro",
+          "eyebrow": "Precios a la vista",
+          "sticker": "Enlace a sarubi-ia.com/planes",
+          "historia": {
+            "escala": "m",
+            "titulo": "Lo que sale\ntenerlo *andando*.",
+            "filas": [
+              { "k": "Implementación", "v": "$99.000" },
+              { "k": "Abono", "v": "$89.000/mes" }
+            ],
+            "nota": "El primer abono, recién a los 30 días.",
+            "hueco": 420
+          }
+        }
+      ]
+    },
+
+    {
+      "slug": "estetica",
+      "nombre": "Estética y odontología",
+      "titulo_instagram": "Estética",
+      "icono": "destello",
+      "objetivo": "Ticket alto por tratamiento y decisión emocional: el que pregunta el precio a las once de la noche se enfría si nadie contesta.",
+      "historias": [
+        {
+          "tipo": "declaracion",
+          "fondo": "oscuro",
+          "eyebrow": "Estética y odontología",
+          "historia": {
+            "escala": "m",
+            "titulo": "“¿Cuánto sale\nel *tratamiento*?”",
+            "sub": "Y si hacen cuotas. Y si hay turno el sábado."
+          }
+        },
+        {
+          "tipo": "chat",
+          "fondo": "claro",
+          "eyebrow": "Estética · 23:20",
+          "historia": {
+            "titulo": "Una consulta",
+            "mensajes": [
+              { "de": "cliente", "texto": "Hola! Cuánto sale el blanqueamiento?", "hora": "23:20" },
+              { "de": "agente", "texto": "La sesión sale $140.000 y se puede en 3 cuotas sin interés. Incluye la consulta previa.", "hora": "23:20" },
+              { "de": "cliente", "texto": "Tienen turno el sábado?", "hora": "23:21" }
+            ],
+            "remate": "El precio, a la hora que pregunten."
+          }
+        },
+        {
+          "tipo": "lista",
+          "fondo": "oscuro",
+          "eyebrow": "Y además",
+          "historia": {
+            "escala": "m",
+            "titulo": "Lo que te\n*ahorra*.",
+            "columnas": 1,
+            "items": [
+              "Pasa el precio de cada tratamiento",
+              "Explica los planes de pago",
+              "Recuerda el turno el día antes",
+              "Te deriva al que quiere reservar"
+            ]
+          }
+        },
+        {
+          "tipo": "tabla",
+          "fondo": "claro",
+          "eyebrow": "Precios a la vista",
+          "sticker": "Enlace a sarubi-ia.com/planes",
+          "historia": {
+            "escala": "m",
+            "titulo": "Lo que sale\ntenerlo *andando*.",
+            "filas": [
+              { "k": "Implementación", "v": "$99.000" },
+              { "k": "Abono", "v": "$89.000/mes" }
+            ],
+            "nota": "El primer abono, recién a los 30 días.",
+            "hueco": 420
+          }
+        }
+      ]
+    },
+
+    {
+      "slug": "gimnasios",
+      "nombre": "Gimnasios y estudios",
+      "titulo_instagram": "Gimnasios",
+      "icono": "pesa",
+      "objetivo": "Volumen alto y abono mensual: cada socio que entra vale doce meses, y la consulta llega siempre fuera del horario de mostrador.",
+      "historias": [
+        {
+          "tipo": "declaracion",
+          "fondo": "oscuro",
+          "eyebrow": "Gimnasios y estudios",
+          "historia": {
+            "escala": "l",
+            "titulo": "“¿Cuánto sale\nel *mensual*?”",
+            "sub": "Y si hay clase de prueba. Y a qué hora es funcional."
+          }
+        },
+        {
+          "tipo": "chat",
+          "fondo": "claro",
+          "eyebrow": "Gimnasio · 21:40",
+          "historia": {
+            "titulo": "Una consulta",
+            "mensajes": [
+              { "de": "cliente", "texto": "Hola, cuánto sale el mensual?", "hora": "21:40" },
+              { "de": "agente", "texto": "Libre $48.000, 3 veces por semana $38.000. La primera clase es de prueba y no se cobra.", "hora": "21:40" },
+              { "de": "cliente", "texto": "Buenísimo, voy mañana", "hora": "21:41" }
+            ],
+            "remate": "Un socio más, sin mostrador."
+          }
+        },
+        {
+          "tipo": "lista",
+          "fondo": "oscuro",
+          "eyebrow": "Y además",
+          "historia": {
+            "escala": "m",
+            "titulo": "Lo que te\n*ahorra*.",
+            "columnas": 1,
+            "items": [
+              "Pasa planes, precios y horarios",
+              "Ofrece la clase de prueba",
+              "Dice qué hay y a qué hora",
+              "Te avisa quién se quiere anotar"
+            ]
+          }
+        },
+        {
+          "tipo": "tabla",
+          "fondo": "claro",
+          "eyebrow": "Precios a la vista",
+          "sticker": "Enlace a sarubi-ia.com/planes",
+          "historia": {
+            "escala": "m",
+            "titulo": "Lo que sale\ntenerlo *andando*.",
+            "filas": [
+              { "k": "Implementación", "v": "$99.000" },
+              { "k": "Abono", "v": "$89.000/mes" }
+            ],
+            "nota": "El primer abono, recién a los 30 días.",
+            "hueco": 420
+          }
+        }
+      ]
+    },
+
+    {
+      "slug": "concesionarias",
+      "nombre": "Concesionarias y agencias",
+      "titulo_instagram": "Autos",
+      "icono": "auto",
+      "objetivo": "El ticket más alto de los seis. Una sola operación recuperada paga el año entero de abono, y eso hace la venta mucho más fácil.",
+      "historias": [
+        {
+          "tipo": "declaracion",
+          "fondo": "oscuro",
+          "eyebrow": "Concesionarias y agencias",
+          "historia": {
+            "escala": "m",
+            "titulo": "“¿Está\n*disponible*\ntodavía?”",
+            "sub": "Y si toman usado. Y si financian."
+          }
+        },
+        {
+          "tipo": "chat",
+          "fondo": "claro",
+          "eyebrow": "Agencia · Domingo",
+          "historia": {
+            "titulo": "Una consulta",
+            "mensajes": [
+              { "de": "cliente", "texto": "Sigue la Amarok del aviso? Toman usado?", "hora": "16:05" },
+              { "de": "agente", "texto": "Sí, sigue. Tomamos usado como parte de pago y financiamos hasta 24 cuotas. ¿Qué auto tenés?", "hora": "16:05" },
+              { "de": "cliente", "texto": "Una Hilux 2017, 140 mil km", "hora": "16:06" }
+            ],
+            "remate": "Te llega con el usado ya dicho."
+          }
+        },
+        {
+          "tipo": "lista",
+          "fondo": "oscuro",
+          "eyebrow": "Y además",
+          "historia": {
+            "escala": "m",
+            "titulo": "Lo que te\n*ahorra*.",
+            "columnas": 1,
+            "items": [
+              "Confirma si la unidad sigue",
+              "Pregunta el usado para tasar",
+              "Explica la financiación",
+              "Coordina el test drive"
+            ]
+          }
+        },
+        {
+          "tipo": "tabla",
+          "fondo": "claro",
+          "eyebrow": "Precios a la vista",
+          "sticker": "Enlace a sarubi-ia.com/planes",
+          "historia": {
+            "escala": "m",
+            "titulo": "Lo que sale\ntenerlo *andando*.",
+            "filas": [
+              { "k": "Implementación", "v": "$99.000" },
+              { "k": "Abono", "v": "$89.000/mes" }
+            ],
+            "nota": "El primer abono, recién a los 30 días.",
+            "hueco": 420
+          }
+        }
+      ]
+    },
+
+    {
+      "slug": "distribuidoras",
+      "nombre": "Distribuidoras y mayoristas",
+      "titulo_instagram": "Mayoristas",
+      "icono": "caja",
+      "objetivo": "B2B: el cliente compra todos los meses, así que el ahorro se repite. Y las preguntas son siempre las tres mismas.",
+      "historias": [
+        {
+          "tipo": "declaracion",
+          "fondo": "oscuro",
+          "eyebrow": "Distribuidoras y mayoristas",
+          "historia": {
+            "escala": "l",
+            "titulo": "“¿Hacen envíos\na *Rosario*?”",
+            "sub": "Y cuál es el mínimo. Y si hay stock."
+          }
+        },
+        {
+          "tipo": "chat",
+          "fondo": "claro",
+          "eyebrow": "Distribuidora · Domingo",
+          "historia": {
+            "titulo": "Una consulta",
+            "mensajes": [
+              { "de": "cliente", "texto": "Hacen envíos a Rosario? Cuánto tardan?", "hora": "11:08" },
+              { "de": "agente", "texto": "Sí, a Rosario llegamos en 48 hs hábiles. El mínimo de compra es $80.000.", "hora": "11:08" },
+              { "de": "cliente", "texto": "Perfecto. El lunes les escribo", "hora": "11:09" }
+            ],
+            "remate": "Un domingo. Sin abrir el depósito."
+          }
+        },
+        {
+          "tipo": "lista",
+          "fondo": "oscuro",
+          "eyebrow": "Y además",
+          "historia": {
+            "escala": "m",
+            "titulo": "Lo que te\n*ahorra*.",
+            "columnas": 1,
+            "items": [
+              "Zonas, tiempos y mínimo de compra",
+              "Pasa la lista de precios",
+              "Contesta el estado de un pedido",
+              "Deriva el pedido grande a vos"
+            ]
+          }
+        },
+        {
+          "tipo": "tabla",
+          "fondo": "claro",
+          "eyebrow": "Precios a la vista",
+          "sticker": "Enlace a sarubi-ia.com/planes",
+          "historia": {
+            "escala": "m",
+            "titulo": "Lo que sale\ntenerlo *andando*.",
+            "filas": [
+              { "k": "Implementación", "v": "$99.000" },
+              { "k": "Abono", "v": "$89.000/mes" }
+            ],
+            "nota": "El primer abono, recién a los 30 días.",
+            "hueco": 420
+          }
+        }
+      ]
+    }
+  ]
+}
