@@ -202,7 +202,19 @@ function placa(item, marca, formato, opciones) {
       : (item.pie_marca === 'handle' ? marca.handle : marca.sitio));
 
   const cta = d.cta ? `<span class="cta">${texto(d.cta)}</span>` : '';
-  const extra = [o.clase, d.hueco ? 'hueco' : ''].filter(Boolean).join(' ');
+
+  // Foto de fondo, solo en historia y solo sobre tinta.
+  //
+  // Van tres capas y el orden importa: la foto en blanco y negro, encima un
+  // tinte verde que la mete en la paleta, y arriba un velo que es casi opaco
+  // donde va el texto y se abre abajo. Así la identidad no se negocia — el
+  // texto se lee sobre el mismo negro de siempre — y la foto aparece justo en
+  // la franja de abajo, que hasta ahora era un rectángulo negro vacío.
+  const foto = (formato === 'historia' && item.foto && item.fondo !== 'claro')
+    ? `<div class="foto"><img src="../../fondos/${esc(item.foto)}" alt=""${item.encuadre ? ` style="object-position:${esc(item.encuadre)}"` : ''}><span class="tinte"></span><span class="velo"></span></div>`
+    : '';
+
+  const extra = [o.clase, d.hueco ? 'hueco' : '', foto ? 'con-foto' : ''].filter(Boolean).join(' ');
 
   // El hueco del sticker no mide siempre lo mismo: una encuesta o una caja de
   // preguntas ocupan el doble que un sticker de enlace. "hueco": true usa la
@@ -212,6 +224,7 @@ function placa(item, marca, formato, opciones) {
     : '';
 
   return `<div class="placa f-${formato} ${fondo}${extra ? ' ' + extra : ''}" id="${esc(id)}" data-archivo="${esc(item.archivo)}"${alto}>
+${foto}
   <div class="cabeza"><span class="eyebrow">${esc(item.eyebrow)}</span><span class="raya"></span></div>
   <div class="cuerpo">${armar(d)}${cta}</div>
   <div class="pie">${firma(marca)}<span class="handle">${esc(pieDerecha)}</span></div>
@@ -462,6 +475,36 @@ function estilos(marca) {
   .celda-t{font-weight:600;letter-spacing:-.01em;line-height:1.22;}
   .lista.col-2 .celda-t{font-size:28px;}
   .lista.col-1 .celda-t{font-size:42px;letter-spacing:-.015em;line-height:1.15;}
+
+  /* --- foto de fondo --- */
+  .foto{position:absolute;inset:0;z-index:0;overflow:hidden;}
+  .foto img{
+    width:100%;height:100%;object-fit:cover;display:block;
+    /* En blanco y negro y bajada: una foto a todo color pelea con el verde y
+       la placa deja de parecer de la misma marca que las demás. */
+    filter:grayscale(1) contrast(1.08) brightness(.66);
+    /* Las fotos se guardan enteras, en su proporción original, y el encuadre
+       lo decide acá el navegador. Recortarlas al bajarlas dejaba afuera al
+       sujeto: el recorte automático elegía la zona con más detalle, que en una
+       foto de gimnasio es el piso. */
+    object-position:center 58%;
+  }
+  .foto span{position:absolute;inset:0;display:block;}
+  .tinte{background:var(--verde-prof);mix-blend-mode:color;opacity:.55;}
+  /* Las paradas siguen la placa: opaco hasta donde termina el contenido,
+     abierto en la franja del sticker, y un poco más oscuro en el borde de
+     abajo para que la imagen no se corte de golpe. */
+  .velo{
+    background:linear-gradient(180deg,
+      rgba(11,13,16,.97) 0%,
+      rgba(11,13,16,.95) 32%,
+      rgba(11,13,16,.86) 52%,
+      rgba(11,13,16,.46) 72%,
+      rgba(11,13,16,.38) 86%,
+      rgba(11,13,16,.68) 100%);
+  }
+  /* Con foto, el halo verde sobraría: ya hay textura abajo. */
+  .f-historia.con-foto.oscuro::after{display:none;}
 
   /* --- cifra --- */
   .cifra-et{font-weight:600;letter-spacing:.14em;text-transform:uppercase;}

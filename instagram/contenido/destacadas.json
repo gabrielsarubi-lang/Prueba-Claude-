@@ -5,6 +5,8 @@
 
   "_los_dos_planes": "Cada placa muestra Esencial y Profesional juntos, porque es la decisión que tiene que tomar el que mira. La diferencia es real y está publicada en sarubi-ia.com/planes: el Esencial contesta y deriva, el Profesional además califica y se conecta con tu planilla o sistema de gestión. Si los precios cambian en la web, cambian acá y se vuelve a generar.",
 
+  "_fotos": "Cada destacada lleva una foto de fondo, en fondos/<slug>.jpg. Van en blanco y negro, con un tinte verde y un velo que es casi opaco arriba — donde está el texto — y se abre abajo, en la franja del sticker. Para cambiar una se reemplaza el archivo con el mismo nombre y se vuelve a generar. Las que vienen son de Unsplash: ver fondos/CREDITOS.md.",
+
   "_portadas": "La portada es un ícono y no una palabra: en el perfil se ve como un círculo de unos 64 px y ahí no se lee ningún texto. El nombre lo escribís vos en Instagram, abajo del círculo. Máximo 15 caracteres o lo corta.",
 
   "_hueco": "700 px libres abajo. La placa es alta — título, tres checks y dos planes — así que la firma queda justo debajo del contenido y todo lo que sobra es la franja del sticker. Si le cambiás el largo al título, revisá que no quede aire muerto en el medio.",
@@ -16,6 +18,7 @@
   "destacadas": [
     {
       "slug": "como-funciona",
+      "foto": "como-funciona.jpg",
       "nombre": "Cómo funciona",
       "titulo_instagram": "Cómo funciona",
       "icono": "chat",
@@ -57,6 +60,7 @@
 
     {
       "slug": "inmobiliarias",
+      "foto": "inmobiliarias.jpg",
       "nombre": "Inmobiliarias",
       "titulo_instagram": "Inmobiliarias",
       "icono": "casa",
@@ -98,6 +102,7 @@
 
     {
       "slug": "clinicas",
+      "foto": "clinicas.jpg",
       "nombre": "Clínicas y consultorios",
       "titulo_instagram": "Clínicas",
       "icono": "cruz",
@@ -139,6 +144,7 @@
 
     {
       "slug": "estetica",
+      "foto": "estetica.jpg",
       "nombre": "Estética y odontología",
       "titulo_instagram": "Estética",
       "icono": "destello",
@@ -180,6 +186,7 @@
 
     {
       "slug": "gimnasios",
+      "foto": "gimnasios.jpg",
       "nombre": "Gimnasios y estudios",
       "titulo_instagram": "Gimnasios",
       "icono": "pesa",
@@ -221,6 +228,7 @@
 
     {
       "slug": "concesionarias",
+      "foto": "concesionarias.jpg",
       "nombre": "Concesionarias y agencias",
       "titulo_instagram": "Autos",
       "icono": "auto",
@@ -262,6 +270,7 @@
 
     {
       "slug": "distribuidoras",
+      "foto": "distribuidoras.jpg",
       "nombre": "Distribuidoras y mayoristas",
       "titulo_instagram": "Mayoristas",
       "icono": "caja",

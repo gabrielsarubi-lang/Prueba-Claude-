@@ -80,7 +80,9 @@ function documento(contenido, marca) {
         archivo: `${d.slug}-${String(i + 1).padStart(2, '0')}`,
         tipo: h.tipo,
         fondo: h.fondo,
-        eyebrow: h.eyebrow || d.nombre
+        eyebrow: h.eyebrow || d.nombre,
+        foto: h.foto || d.foto,
+        encuadre: h.encuadre || d.encuadre
       };
       item.historia = h.historia;
       return plantilla.placa(item, marca, 'historia');
