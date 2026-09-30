@@ -66,8 +66,12 @@ async function main() {
     executablePath: chrome,
     args: ['--no-sandbox', '--font-render-hinting=none', '--force-color-profile=srgb']
   });
+  // El viewport va más grande que la pieza a propósito. Con uno del tamaño
+  // exacto, la captura de un elemento que mide justo la pantalla sale a veces
+  // con una franja del fondo de la página: el navegador todavía está
+  // acomodando el scroll cuando se dispara la foto.
   const p = await navegador.newPage({
-    viewport: { width: destacada.LADO.ancho, height: destacada.LADO.alto },
+    viewport: { width: destacada.LADO.ancho + 120, height: destacada.LADO.alto + 120 },
     deviceScaleFactor: 1
   });
   await p.goto('file://' + pagina, { waitUntil: 'networkidle' });
