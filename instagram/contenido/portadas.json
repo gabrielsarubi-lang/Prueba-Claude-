@@ -1,0 +1,17 @@
+{
+  "_comentario": "Portadas de reel. Una por archivo. El texto tiene que leerse en la pestaña de reels; en la grilla del perfil sólo se va a percibir la mancha verde y la vía de cuatro pasos, y con eso alcanza para que se reconozca la marca.",
+
+  "_la_hora": "Es la misma hora con la que abre el video. Portada y primer cuadro muestran el mismo dato: al tocar el reel no hay corte.",
+
+  "portadas": [
+    {
+      "archivo": "recorrido-de-un-mensaje",
+      "eyebrow": "Cómo funciona",
+      "hora": "23:41",
+      "hora_pie": "Un cliente escribe",
+      "titulo": "De la pregunta\na la respuesta,\n*sin que estés*.",
+      "bajada": "El agente entiende, busca en tu sistema y contesta. Por WhatsApp.",
+      "pasos": ["Llega", "Entiende", "Busca", "Contesta"]
+    }
+  ]
+}
