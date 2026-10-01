@@ -1,0 +1,46 @@
+{
+  "_comentario": "Reel de motion graphics sobre mapa real de la Ciudad de Buenos Aires. La idea es mostrar lo único que no se puede contar con burbujas de chat: volumen y dispersión. Los mensajes no llegan de a uno ni en horario comercial, llegan de todos lados y a cualquier hora.",
+
+  "_el_mapa": "La geometría sale de lib/caba.json, que lo genera herramientas/mapa-caba.py desde los datos abiertos del Gobierno de la Ciudad. Los barrios se nombran acá y el código busca sus centros en ese archivo: si cambiás un barrio, el pin se reubica solo.",
+
+  "_los_horarios": "Elegidos para que ninguno caiga entre las 9 y las 18. Ese es el argumento: el negocio está cerrado y la gente escribe igual.",
+
+  "_desvio": "Corrimiento del cartel en píxeles cuando dos pines quedan muy juntos. El punto no se mueve, sólo la etiqueta.",
+
+  "archivo": "buenos-aires-escribe",
+  "eyebrow": "Buenos Aires · un día cualquiera",
+
+  "pines": [
+    { "barrio": "Villa Urquiza", "hora": "06:20", "desvio": [-6, 0] },
+    { "barrio": "Belgrano",      "hora": "23:41", "desvio": [10, -6] },
+    { "barrio": "Palermo",       "hora": "21:05", "desvio": [22, 0] },
+    { "barrio": "San Telmo",     "hora": "02:30", "desvio": [26, 4] },
+    { "barrio": "La Boca",       "hora": "00:17", "desvio": [16, 30] },
+    { "barrio": "Barracas",      "hora": "19:33", "desvio": [4, 16] },
+    { "barrio": "Mataderos",     "hora": "05:48", "desvio": [-10, 6] },
+    { "barrio": "Flores",        "hora": "22:54", "desvio": [-46, 2] }
+  ],
+
+  "titulares": [
+    "Nadie pregunta\n*en horario de oficina*.",
+    "Te escriben a toda hora,\n*desde todos lados*.",
+    "Todos caen\n*en tu WhatsApp*."
+  ],
+
+  "contador": {
+    "problema": "Mensajes fuera de horario",
+    "solucion": "Contestados por el agente",
+    "total": 47
+  },
+
+  "hub": {
+    "tag": "WhatsApp",
+    "nombre": "Tu número de siempre",
+    "estado": "Agente activo"
+  },
+
+  "cierre": {
+    "titulo": "Y salen todos\n*contestados*.",
+    "cta": "sarubi-ia.com/como-funciona"
+  }
+}

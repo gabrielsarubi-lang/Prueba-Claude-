@@ -30,6 +30,17 @@ function documento(marca, opciones) {
   const tp = marca.tipografia;
   const m = o.formato === 'post' ? marca.medidas.post : marca.medidas.historia;
 
+  // Las piezas claras necesitan su propio sello: cortar de 20 segundos de
+  // blanco a un cuadro negro es un golpe, no un cierre de marca.
+  const claro = o.tono === 'claro';
+  const t = claro ? {
+    fondo: '#FAFBFC', letra: c.texto, acento: c.verde,
+    sigla_fondo: 'rgba(14,158,122,.13)', apagado: c.apagado
+  } : {
+    fondo: c.tinta, letra: c.tinta_texto, acento: c.verde_sobre_oscuro,
+    sigla_fondo: 'rgba(47,224,174,.15)', apagado: c.apagado_oscuro
+  };
+
   return `<!DOCTYPE html>
 <html lang="es">
 <head>
@@ -44,7 +55,7 @@ function documento(marca, opciones) {
   .placa{
     width:${m.ancho}px;height:${m.alto}px;position:relative;overflow:hidden;
     display:flex;flex-direction:column;align-items:center;justify-content:center;gap:46px;
-    background:${c.tinta};
+    background:${t.fondo};
     font-family:'${tp.familia}',${tp.respaldo};
     -webkit-font-smoothing:antialiased;
   }
@@ -56,11 +67,11 @@ function documento(marca, opciones) {
   }
   .caja{position:relative;z-index:2;}
   .ese{display:block;height:430px;width:auto;overflow:visible;}
-  .relleno{fill:${c.tinta_texto};}
-  .contorno{fill:none;stroke:${c.verde_sobre_oscuro};stroke-width:1.6;stroke-linejoin:round;}
+  .relleno{fill:${t.letra};}
+  .contorno{fill:none;stroke:${t.acento};stroke-width:1.6;stroke-linejoin:round;}
   .punto{
     position:absolute;z-index:3;width:104px;height:104px;border-radius:50%;
-    background:${c.verde_sobre_oscuro};
+    background:${t.acento};
     top:-26px;right:-118px;will-change:transform,opacity;
   }
   .nombre{
@@ -68,16 +79,16 @@ function documento(marca, opciones) {
   }
   .mascara{overflow:hidden;padding-bottom:.12em;margin-bottom:-.12em;}
   .mascara > span{display:inline-block;will-change:transform,opacity;}
-  .raiz{font-size:112px;font-weight:500;letter-spacing:-.02em;line-height:1;color:${c.tinta_texto};}
+  .raiz{font-size:112px;font-weight:500;letter-spacing:-.02em;line-height:1;color:${t.letra};}
   .sigla{
     font-size:62px;font-weight:700;letter-spacing:.04em;line-height:1;
     padding:16px 22px;border-radius:16px;
-    background:rgba(47,224,174,.15);color:${c.verde_sobre_oscuro};
+    background:${t.sigla_fondo};color:${t.acento};
     will-change:transform,opacity;
   }
   .sitio{
     position:relative;z-index:2;font-size:30px;font-weight:500;letter-spacing:.06em;
-    color:${c.apagado_oscuro};will-change:opacity,transform;
+    color:${t.apagado};will-change:opacity,transform;
   }
 </style>
 </head>

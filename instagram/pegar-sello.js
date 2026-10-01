@@ -5,6 +5,7 @@
  * Pega el sello de marca al final de un reel.
  *
  *   node pegar-sello.js sarubia-reel-recorrido-de-un-mensaje.mp4
+ *   node pegar-sello.js sarubia-reel-buenos-aires-escribe.mp4 claro
  *   node pegar-sello.js                     -> lista los reels disponibles
  *
  * Deja el original intacto y escribe uno nuevo terminado en -con-sello.mp4.
@@ -19,7 +20,9 @@ const { execFileSync } = require('child_process');
 
 const RAIZ = __dirname;
 const REELS = path.join(RAIZ, 'salida', 'reels');
-const SELLO = path.join(REELS, 'sarubia-sello.mp4');
+// Hay dos sellos: el oscuro y el claro. El claro es para las piezas de
+// fondo claro, donde cortar a negro al final se siente un golpe.
+const SELLO = (tono) => path.join(REELS, tono === 'claro' ? 'sarubia-sello-claro.mp4' : 'sarubia-sello.mp4');
 
 function ffmpeg() {
   try { return require('ffmpeg-static'); }
@@ -37,9 +40,10 @@ function listar() {
 
 function main() {
   const arg = process.argv[2];
+  const tono = process.argv[3] === 'claro' ? 'claro' : 'oscuro';
   if (!arg) return listar();
 
-  if (!fs.existsSync(SELLO)) {
+  if (!fs.existsSync(SELLO(tono))) {
     console.error('\n✗ Falta el sello. Generalo con:  node sello.js\n');
     process.exit(1);
   }
@@ -52,7 +56,7 @@ function main() {
   const destino = origen.replace(/\.mp4$/, '-con-sello.mp4');
   const lista = path.join(RAIZ, 'salida', '.html', 'pegar.txt');
   fs.mkdirSync(path.dirname(lista), { recursive: true });
-  fs.writeFileSync(lista, `file '${origen}'\nfile '${SELLO}'\n`, 'utf8');
+  fs.writeFileSync(lista, `file '${origen}'\nfile '${SELLO(tono)}'\n`, 'utf8');
 
   execFileSync(ffmpeg(), [
     '-y', '-f', 'concat', '-safe', '0', '-i', lista,

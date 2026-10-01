@@ -2,22 +2,24 @@
 'use strict';
 
 /**
- * Genera el sello de marca, para pegar al final de los reels.
+ * Genera el reel de motion graphics de la ciudad.
  *
- *   node sello.js            -> vertical, 1080 x 1920
- *   node sello.js post       -> cuadrado, 1080 x 1080
+ *   node reel-ciudad.js
  *
- * Son dos segundos y medio y el último medio segundo queda quieto: un sello
- * que termina en movimiento se corta mal cuando lo pegás atrás de otro video.
+ * A diferencia de los otros, acá los elementos no se reemplazan entre escenas:
+ * la misma burbuja que llega se achica, se convierte en consulta y vuelve como
+ * respuesta. Los tiempos viven en lib/reel-ciudad.js, no en el JSON, porque
+ * están atados unos a otros.
  */
 
 const fs = require('fs');
 const path = require('path');
 const { execFileSync } = require('child_process');
-const sello = require('./lib/sello');
+const ciudad = require('./lib/reel-ciudad');
 
 const RAIZ = __dirname;
 const FPS = 30;
+
 const CHROME = [
   process.env.CHROME_PATH,
   '/opt/pw-browsers/chromium-1194/chrome-linux/chrome',
@@ -33,23 +35,29 @@ function buscarFfmpeg() {
   catch (e) { return existe([process.env.FFMPEG_PATH, '/usr/bin/ffmpeg', '/usr/local/bin/ffmpeg']); }
 }
 
+function leerJson(p) {
+  try { return JSON.parse(fs.readFileSync(p, 'utf8')); }
+  catch (e) {
+    console.error(`\n✗ No se pudo leer ${path.relative(RAIZ, p)}:\n  ${e.message}\n`);
+    process.exit(1);
+  }
+}
+
 async function main() {
-  const args = process.argv.slice(2);
-  const formato = args.includes('post') ? 'post' : 'historia';
-  const tono = args.includes('claro') ? 'claro' : 'oscuro';
-  const marca = JSON.parse(fs.readFileSync(path.join(RAIZ, 'marca.json'), 'utf8'));
-  const med = formato === 'post' ? marca.medidas.post : marca.medidas.historia;
+  const archivo = process.argv[2] || 'reel-ciudad.json';
+  const marca = leerJson(path.join(RAIZ, 'marca.json'));
+  const g = leerJson(path.join(RAIZ, 'contenido', archivo));
 
   const salida = path.join(RAIZ, 'salida', 'reels');
   const trabajo = path.join(RAIZ, 'salida', '.html');
-  const cuadros = path.join(RAIZ, 'salida', '.cuadros', 'sello');
+  const cuadros = path.join(RAIZ, 'salida', '.cuadros', g.archivo);
   fs.mkdirSync(salida, { recursive: true });
   fs.mkdirSync(trabajo, { recursive: true });
   fs.rmSync(cuadros, { recursive: true, force: true });
   fs.mkdirSync(cuadros, { recursive: true });
 
-  const pagina = path.join(trabajo, `sello-${formato}-${tono}.html`);
-  fs.writeFileSync(pagina, sello.documento(marca, { formato, tono }), 'utf8');
+  const pagina = path.join(trabajo, `reel-${g.archivo}.html`);
+  fs.writeFileSync(pagina, ciudad.documento(g, marca), 'utf8');
 
   const chrome = existe(CHROME);
   if (!chrome) { console.error('\n✗ No encontré Chromium.\n'); process.exit(1); }
@@ -62,23 +70,25 @@ async function main() {
     args: ['--no-sandbox', '--font-render-hinting=none', '--force-color-profile=srgb']
   });
   const p = await navegador.newPage({
-    viewport: { width: med.ancho + 120, height: med.alto + 120 },
+    viewport: { width: marca.medidas.historia.ancho, height: marca.medidas.historia.alto },
     deviceScaleFactor: 1
   });
   await p.goto('file://' + pagina, { waitUntil: 'networkidle' });
   await p.evaluate(() => document.fonts.ready);
   await p.waitForTimeout(800);
 
-  const total = Math.round(sello.DURACION * FPS);
+  const dur = ciudad.DURACION;
+  const total = Math.round(dur * FPS);
+  const escena = p.locator('.placa');
   process.stdout.write(`  ${total} cuadros `);
   for (let i = 0; i < total; i++) {
     await p.evaluate((t) => window.__cuadro(t), i / FPS);
-    await p.locator('.placa').screenshot({ path: path.join(cuadros, String(i).padStart(4, '0') + '.png') });
-    if (i % 20 === 0) process.stdout.write('.');
+    await escena.screenshot({ path: path.join(cuadros, String(i).padStart(4, '0') + '.png') });
+    if (i % 60 === 0) process.stdout.write('.');
   }
   await navegador.close();
 
-  const destino = path.join(salida, `sarubia-sello${formato === 'post' ? '-cuadrado' : ''}${tono === 'claro' ? '-claro' : ''}.mp4`);
+  const destino = path.join(salida, `sarubia-reel-${g.archivo}.mp4`);
   execFileSync(ffmpeg, [
     '-y', '-framerate', String(FPS), '-i', path.join(cuadros, '%04d.png'),
     '-c:v', 'libx264', '-profile:v', 'high', '-pix_fmt', 'yuv420p',
@@ -87,7 +97,7 @@ async function main() {
 
   fs.rmSync(cuadros, { recursive: true, force: true });
   const mb = (fs.statSync(destino).size / 1048576).toFixed(1);
-  console.log(`\n\n  ✓ ${path.relative(RAIZ, destino)}  —  ${sello.DURACION}s, ${mb} MB, sin audio\n`);
+  console.log(`\n\n  ✓ ${path.relative(RAIZ, destino)}  —  ${dur}s, ${mb} MB, sin audio\n`);
 }
 
 main().catch((e) => { console.error('\n✗', e.message, '\n'); process.exit(1); });
