@@ -505,3 +505,36 @@ consulta, lo que devuelve y el remate.
 
 El paso 3 termina exactamente en el segundo 15. Si lo subís como historia, el
 corte de Instagram cae entre el 3 y el 4 y los dos tramos se entienden solos.
+
+---
+
+## El sello de marca
+
+```bash
+node sello.js                 # vertical, 1080 × 1920
+node sello.js post            # cuadrado, 1080 × 1080
+```
+
+Dos segundos y medio para pegar al final de cualquier reel.
+
+**La S se dibuja antes de llenarse**, que es el recurso clásico del logo
+animado. Acá sale casi gratis: el contorno que trazamos del PNG original es un
+path cerrado, así que el mismo que se usa como relleno sirve como trazo y se
+dibuja con `stroke-dashoffset`. Primero la silueta en verde, después se llena de
+blanco y el trazo se apaga. Después cae el punto, entra el nombre tapado por su
+máscara y queda el sitio.
+
+**El último medio segundo queda quieto a propósito.** Un sello que termina en
+movimiento se corta mal cuando lo pegás atrás de otro video.
+
+### Pegarlo a un reel
+
+```bash
+node pegar-sello.js                                   # lista los reels
+node pegar-sello.js sarubia-reel-recorrido.mp4        # pega y guarda aparte
+```
+
+Deja el original intacto y escribe uno nuevo terminado en `-con-sello.mp4`.
+Los dos videos salen del mismo generador, así que comparten medida, cuadros por
+segundo y codec: **se pegan sin recodificar**, en un segundo y sin perder
+calidad.
