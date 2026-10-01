@@ -148,6 +148,17 @@ function documento(g, marca) {
   .b-sale .hora{color:rgba(5,35,27,.55);display:flex;align-items:center;gap:9px;justify-content:flex-end;}
   .tildes{letter-spacing:-5px;font-weight:700;}
 
+  /* El gancho. Es la misma hora que después lleva la burbuja: arranca enorme en
+     el centro y viaja hasta su lugar definitivo achicándose. No es un título
+     que se va y una hora que llega — es el mismo dato que se acomoda, que es
+     lo que hace que el primer segundo no se sienta pegado. */
+  .gancho{
+    position:absolute;left:32px;top:150px;z-index:4;
+    font-size:22px;font-weight:500;line-height:1;letter-spacing:.02em;
+    font-variant-numeric:tabular-nums;transform-origin:left top;
+    white-space:nowrap;opacity:0;will-change:transform,opacity,color;
+  }
+
   .puntos{display:flex;gap:12px;align-items:center;padding:7px 2px;}
   .puntos i{width:16px;height:16px;border-radius:50%;background:#05231B;opacity:.35;display:block;}
 
@@ -243,6 +254,7 @@ function documento(g, marca) {
       <span class="msj">${esc(g.llega.texto)}</span>
       <span class="hora">${esc(g.llega.hora)}</span>
     </div>
+    <span class="gancho">${esc(g.llega.hora)}</span>
 
     <div class="chips">${chips}</div>
 
@@ -302,6 +314,8 @@ const nodos   = $$('.nodo');
 const cable   = $('.cable');
 const onda    = $('.onda');
 const bEntra  = $('.b-entra');
+const gancho  = $('.gancho');
+const horaB   = $('.b-entra .hora');
 const chips   = $$('.chip');
 const sistema = $('.sistema');
 const viajero = $('.viajero');
@@ -380,8 +394,23 @@ window.__cuadro = function (t) {
     ro.style.color = activo ? '${c.tinta_texto}' : '${c.apagado_oscuro}';
   });
 
+  /* ---- el gancho ---- */
+  // Aparece enorme en el centro, y cuando la burbuja empieza a entrar viaja
+  // hasta su lugar: el sello de hora del mensaje. Los números van de 7,2 a 1 de
+  // escala y de +195/+211 px a cero, que es donde queda el .hora de la burbuja.
+  const pg = paso(t, .14, .58);
+  const pv = suaveIO(paso(t, .78, 1.42));
+  const escG = 7.2 - 6.2 * pv;
+  gancho.style.transform = 'translate(' + (195 * (1 - pv)).toFixed(2) + 'px,'
+    + (211 * (1 - pv)).toFixed(2) + 'px) scale(' + escG.toFixed(4) + ')';
+  gancho.style.color = pv < .55 ? '${c.verde_sobre_oscuro}' : '${c.apagado_oscuro}';
+  op(gancho, Math.min(1, pg * 1.6) * (1 - paso(t, 1.30, 1.50)));
+  // La hora propia de la burbuja recién aparece cuando el gancho terminó de
+  // llegar, así no se ven las dos juntas.
+  op(horaB, paso(t, 1.32, 1.52));
+
   /* ---- 01 · LLEGA ---- */
-  const pe = paso(t, .75, 1.55);
+  const pe = paso(t, .95, 1.75);
   op(bEntra, Math.min(1, pe * 2));
   // Entra desde abajo con rebote y se va achicando cuando empieza a entender.
   const achica = paso(t, 4.9, 5.7);
@@ -390,7 +419,7 @@ window.__cuadro = function (t) {
   bEntra.style.transformOrigin = 'left top';
 
   // El anillo sale dos veces desde la burbuja, como un pulso de llegada.
-  const po = Math.max(paso(t, 1.45, 2.45), paso(t, 2.05, 3.05));
+  const po = Math.max(paso(t, 1.65, 2.65), paso(t, 2.25, 3.25));
   onda.style.transform = 'translate(-50%,-50%) scale(' + (.2 + 1.5 * suave(po)).toFixed(3) + ')';
   op(onda, po > 0 && po < 1 ? (1 - po) * .5 : 0);
 
