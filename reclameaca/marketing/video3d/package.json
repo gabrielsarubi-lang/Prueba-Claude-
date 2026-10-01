@@ -1,0 +1,13 @@
+{
+  "name": "reclameaca-video3d",
+  "private": true,
+  "description": "Reel explicativo en 3D de Reclame Acá (Three.js renderizado cuadro a cuadro)",
+  "scripts": {
+    "render": "node render.js"
+  },
+  "dependencies": {
+    "ffmpeg-static": "^5.2.0",
+    "playwright-core": "^1.49.0",
+    "three": "^0.170.0"
+  }
+}
