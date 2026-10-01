@@ -1,6 +1,7 @@
 /* Renderiza el reel 3D a MP4 (H.264, 1080x1920, 30 fps), igual que ../video/render.js.
    Uso:
      node render.js                      -> salida/reel-3d-como-funciona.mp4
+     node render.js --tanda 300          -> solo 300 cuadros nuevos (se retoma después)
      node render.js --previa 2.5 6 11    -> un PNG por segundo pedido, en salida/previa/
 
    La página usa módulos ES (three.js), que el navegador no carga desde file://.
@@ -75,33 +76,52 @@ async function abrir(browser, puerto) {
       console.log(`  ${path.relative(DIR, f)}  (${Date.now() - t0} ms)`);
     }
   } else {
-    fs.mkdirSync(SALIDA, { recursive: true });
-    const mp4 = path.join(SALIDA, `${NOMBRE}.mp4`);
+    // Cada cuadro se guarda en salida/.cuadros/ y una corrida nueva saltea los que
+    // ya existen: si el render se corta, se retoma donde quedó. "--tanda N" corta
+    // después de N cuadros nuevos, para correrlo en tramos.
+    const CUADROS = path.join(SALIDA, '.cuadros');
+    fs.mkdirSync(CUADROS, { recursive: true });
+    const i = args.indexOf('--tanda');
+    const tanda = i >= 0 ? Number(args[i + 1]) : Infinity;
     const total = Math.round(dur * FPS);
-    const ff = spawn(ffmpeg, [
-      '-y', '-f', 'image2pipe', '-framerate', String(FPS), '-i', 'pipe:0',
-      '-c:v', 'libx264', '-preset', 'slow', '-crf', '17',
-      '-pix_fmt', 'yuv420p', '-profile:v', 'high', '-level', '4.2',
-      '-movflags', '+faststart', '-r', String(FPS), mp4,
-    ], { stdio: ['pipe', 'ignore', 'pipe'] });
-    let err = '';
-    ff.stderr.on('data', (d) => { err += d; });
-    const fin = new Promise((ok, mal) => ff.on('close', (c) => (c === 0 ? ok() : mal(new Error('ffmpeg ' + c + '\n' + err.slice(-1500))))));
+    const archivo = (f) => path.join(CUADROS, `${String(f).padStart(5, '0')}.png`);
 
     const t0 = Date.now();
+    let hechos = 0;
     process.stdout.write(`${NOMBRE}  ${dur.toFixed(1)}s  ${total} cuadros\n`);
-    for (let f = 0; f < total; f++) {
+    for (let f = 0; f < total && hechos < tanda; f++) {
+      if (fs.existsSync(archivo(f))) continue;
       await page.evaluate((x) => window.seek(x), f / FPS);
-      const buf = await page.screenshot({ type: 'png' });
-      if (!ff.stdin.write(buf)) await new Promise((r) => ff.stdin.once('drain', r));
-      if (f % 30 === 0) {
-        const seg = (Date.now() - t0) / 1000, resta = (seg / (f + 1)) * (total - f - 1);
-        process.stdout.write(`  ${String(f).padStart(4)}/${total}  ~${Math.round(resta / 60)} min restantes\n`);
+      const tmp = archivo(f) + '.tmp';
+      await page.screenshot({ path: tmp, type: 'png' });
+      fs.renameSync(tmp, archivo(f));          // nunca queda un cuadro a medio escribir
+      hechos++;
+      if (hechos % 30 === 0) {
+        const faltan = total - fs.readdirSync(CUADROS).filter((n) => n.endsWith('.png')).length;
+        const seg = (Date.now() - t0) / 1000 / hechos;
+        process.stdout.write(`  cuadro ${f}  faltan ${faltan}  ~${Math.round((faltan * seg) / 60)} min\n`);
       }
     }
-    ff.stdin.end();
-    await fin;
-    console.log(`\nListo: ${path.relative(DIR, mp4)}  (${(fs.statSync(mp4).size / 1048576).toFixed(1)} MB)`);
+
+    const listos = fs.readdirSync(CUADROS).filter((n) => n.endsWith('.png')).length;
+    if (listos < total) {
+      console.log(`\nTramo listo: ${listos}/${total} cuadros. Volvé a correr el mismo comando para seguir.`);
+    } else {
+      const mp4 = path.join(SALIDA, `${NOMBRE}.mp4`);
+      await new Promise((ok, mal) => {
+        const ff = spawn(ffmpeg, [
+          '-y', '-framerate', String(FPS), '-i', path.join(CUADROS, '%05d.png'),
+          '-c:v', 'libx264', '-preset', 'slow', '-crf', '17',
+          '-pix_fmt', 'yuv420p', '-profile:v', 'high', '-level', '4.2',
+          '-movflags', '+faststart', '-r', String(FPS), mp4,
+        ], { stdio: ['ignore', 'ignore', 'pipe'] });
+        let err = '';
+        ff.stderr.on('data', (d) => { err += d; });
+        ff.on('close', (c) => (c === 0 ? ok() : mal(new Error('ffmpeg ' + c + '\n' + err.slice(-1500)))));
+      });
+      console.log(`\nListo: ${path.relative(DIR, mp4)}  (${(fs.statSync(mp4).size / 1048576).toFixed(1)} MB)`);
+      console.log('Los cuadros sueltos de salida/.cuadros/ ya se pueden borrar.');
+    }
   }
 
   await browser.close();

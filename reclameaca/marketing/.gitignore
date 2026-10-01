@@ -6,3 +6,4 @@ video/.tmp-*.html
 video/.previa.html
 video3d/salida/previa/
 video3d/salida/render.log
+video3d/salida/.cuadros/

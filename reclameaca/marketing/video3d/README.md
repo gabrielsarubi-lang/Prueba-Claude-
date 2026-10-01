@@ -53,6 +53,7 @@ la marca ("Gratis, público y sin vueltas").
 ```bash
 npm install                                  # three, playwright-core, ffmpeg-static
 node render.js                               # el video completo → salida/
+node render.js --tanda 300                   # solo 300 cuadros nuevos; se retoma con el mismo comando
 node render.js --previa 2.4 11 21 25.6       # cuadros sueltos → salida/previa/
 ```
 
@@ -66,6 +67,10 @@ pasa a ffmpeg.
 
 En una máquina sin placa de video renderiza por software (SwiftShader), a unos
 4 segundos por cuadro, o sea alrededor de una hora. Con GPU es mucho más rápido.
+
+Cada cuadro se guarda en `salida/.cuadros/` antes de armar el video. Si el render
+se corta, al volver a correrlo saltea los cuadros que ya existen y sigue desde ahí.
+Cuando están los 912, arma el MP4 solo.
 
 ## Cambiar algo
 
