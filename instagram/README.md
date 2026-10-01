@@ -454,3 +454,54 @@ gestión. Si cambian allá, cambian en el JSON y se vuelven a generar las siete.
 Instagram ordena las destacadas por la última que tocaste. Para que queden en un
 orden concreto hay que **subirlas al revés**: primero la que va última en la
 fila, y al final la que querés primera.
+
+---
+
+## El recorrido de un mensaje — motion graphics
+
+```bash
+node reel-recorrido.js
+```
+
+22 segundos. Es la versión en video de la sección que está en
+[sarubi-ia.com/como-funciona](https://sarubi-ia.com/como-funciona): llega,
+entiende, busca en tu sistema y contesta.
+
+### Por qué es distinta de los otros reels
+
+Los demás son **escenas que se cruzan**: una se va, otra llega. Eso lee como un
+pase de diapositivas. Acá los elementos **no se reemplazan**: la misma burbuja
+que llega en el paso 1 se achica en el 2, se convierte en consulta que viaja por
+el cable en el 3, y vuelve como respuesta en el 4. Esa continuidad es la
+diferencia entre un pase de placas y motion graphics.
+
+Tres cosas sostienen el video de punta a punta:
+
+| | |
+|---|---|
+| **La vía de progreso** | Cuatro nodos que se encienden en orden y una barra que avanza. Dice en qué paso estamos sin narrarlo. |
+| **El fondo que respira** | Una grilla de puntos que deriva despacio y el halo verde que late. Sin eso, cada pausa parece un cuelgue. |
+| **La firma desde el cuadro 1** | En un feed casi nadie llega al final. |
+
+### El cable
+
+El momento que vende es el paso 3, y está hecho con las herramientas de siempre
+del motion graphics vectorial: el trazo se dibuja con `stroke-dashoffset`, y el
+punto que lo recorre se posiciona con `getPointAtLength` sobre el mismo `path`.
+Va con la consulta y vuelve con el dato — por eso el viaje es de ida y de
+vuelta, no una animación suelta.
+
+### Los tiempos no están en el JSON
+
+A diferencia de `reel-secuencia.js`, acá los tiempos viven en el módulo. Están
+atados unos a otros: la burbuja se achica **porque** empiezan a salir los chips,
+y los chips se juntan **porque** la consulta se va por el cable. Moverlos de a
+uno desde afuera rompería la cadena.
+
+El JSON sí define todo lo que se dice: el mensaje, los chips, el sistema que se
+consulta, lo que devuelve y el remate.
+
+### El corte de los 15 segundos
+
+El paso 3 termina exactamente en el segundo 15. Si lo subís como historia, el
+corte de Instagram cae entre el 3 y el 4 y los dos tramos se entienden solos.

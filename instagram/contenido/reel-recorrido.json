@@ -1,0 +1,36 @@
+{
+  "_comentario": "El recorrido de un mensaje, en motion graphics. Es la versión en video de la sección que está en sarubi-ia.com/como-funciona: llega, entiende, busca en tu sistema y contesta.",
+
+  "_corte_a_los_15": "El paso 3 termina exactamente en el segundo 15. Si lo subís como historia, el corte de Instagram cae entre el 3 y el 4 y los dos tramos se entienden solos.",
+
+  "_la_conversacion": "La consulta es un EJEMPLO de peluquería, la misma del reel de turnos para que las dos piezas se reconozcan. Si lo usás para un rubro puntual, cambiá el texto, los chips y lo que devuelve el sistema.",
+
+  "archivo": "recorrido-de-un-mensaje",
+  "eyebrow": "Cómo funciona",
+
+  "llega": {
+    "texto": "Hola! Tenés turno para mañana?",
+    "hora": "23:41"
+  },
+
+  "entiende": {
+    "chips": ["Turno", "Mañana", "Disponibilidad"]
+  },
+
+  "busca": {
+    "tag": "Tu sistema",
+    "nombre": "Agenda",
+    "via": "Por API",
+    "devuelve": ["10:30", "16:00"]
+  },
+
+  "contesta": {
+    "texto": "Mañana me queda 10:30 y 16:00. ¿Cuál te sirve?",
+    "hora": "23:41"
+  },
+
+  "cierre": {
+    "titulo": "De la pregunta\na la respuesta.\nSin que *estés*.",
+    "cta": "sarubi-ia.com/como-funciona"
+  }
+}
