@@ -1,0 +1,51 @@
+{
+  "_comentario": "Propuesta de taller para mandar a una institución: cámara de comercio, asociación de inmobiliarias, colegio profesional, centro comercial. Se cambia 'institucion' y se vuelve a generar. El PDF sale en salida/comercial/.",
+
+  "_por_que_a_una_institucion": "Vender 30 entradas sueltas necesita una audiencia propia que todavía no tenemos. Una institución ya tiene los 30 socios juntos y un solo interlocutor que decide. Es el mismo taller con una venta mucho más corta.",
+
+  "_el_honorario": "Dejalo en null si querés mandar la propuesta sin precio y cerrarlo por teléfono. Para las primeras ediciones puede convenir: entrás más fácil y lo que buscás son los prospectos, no el honorario.",
+
+  "institucion": "Cámara de Comercio de ———",
+  "destinatario": "",
+
+  "titulo": "Atención al cliente con IA: qué se puede automatizar en un negocio y qué no",
+  "bajada": "Taller práctico de dos horas y media para dueños y responsables de negocios, con una demostración en vivo sobre WhatsApp.",
+
+  "para_quien": "Dueños, gerentes y encargados de atención de comercios, inmobiliarias, consultorios, distribuidoras y negocios con venta online. No hace falta ningún conocimiento técnico.",
+
+  "se_lleva": [
+    "Un número propio: cuánto le cuesta a su negocio, por mes, no contestar fuera de horario.",
+    "Un criterio claro para separar lo que conviene automatizar de lo que tiene que atender una persona.",
+    "Un checklist de qué necesita tener listo un negocio para poner esto en marcha.",
+    "Las respuestas a las dudas de su rubro puntual, en el momento."
+  ],
+
+  "programa": [
+    { "min": 15, "titulo": "Lo que cuesta no contestar", "detalle": "Cada asistente calcula, con los números de su propio negocio, cuántas consultas pierde por mes fuera de horario." },
+    { "min": 20, "titulo": "Qué es un agente de IA y qué no es", "detalle": "La diferencia con un bot de menú y con usar ChatGPT suelto. Por qué uno sirve para atender clientes y el otro no." },
+    { "min": 30, "titulo": "Demostración en vivo", "detalle": "Los asistentes le escriben desde su propio celular a un número de WhatsApp real y ven las respuestas proyectadas en pantalla.", "destacado": true },
+    { "min": 20, "titulo": "Dónde contesta una máquina y dónde una persona", "detalle": "Los casos en los que derivar a un humano no es una falla del sistema sino la decisión correcta." },
+    { "min": 25, "titulo": "Cómo se conecta con lo que ya usan", "detalle": "Integración por API con agenda, stock y sistema de pedidos: consultar un turno disponible o el estado de un pedido sin intervención." },
+    { "min": 20, "titulo": "Qué hace falta para arrancar", "detalle": "El número, los datos, los flujos, los plazos y los costos reales de una implementación." },
+    { "min": 20, "titulo": "Preguntas", "detalle": "Abierto, sobre casos concretos que traigan los asistentes." }
+  ],
+
+  "formato": {
+    "duracion": "2 horas 30 minutos",
+    "modalidad": "Presencial en la sede de la institución, o por videollamada.",
+    "cupo": "Hasta 40 asistentes.",
+    "aporta_institucion": "Sala, proyector o pantalla, y conexión a internet.",
+    "aporta_sarubia": "Contenido, material de apoyo para cada asistente y el agente de demostración funcionando."
+  },
+
+  "quien": "SARUBIA implementa agentes de inteligencia artificial sobre WhatsApp para negocios en Argentina. El taller lo da quien hace las implementaciones, no un capacitador externo: por eso la demostración es sobre un sistema propio en funcionamiento y las preguntas técnicas se contestan en el momento.",
+
+  "honorario": null,
+  "nota_honorario": "A convenir según modalidad y cantidad de asistentes.",
+
+  "contacto": {
+    "nombre": "Gabriel Sarubi",
+    "sitio": "sarubi-ia.com",
+    "mail": "gabriel.sarubi@outlook.com"
+  }
+}
