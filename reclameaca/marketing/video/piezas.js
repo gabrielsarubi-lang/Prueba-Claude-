@@ -7,7 +7,7 @@
      /guias/aumento-prepaga
    Cada escena es HTML plano; el motor la anima según data-anim / data-at / data-d. */
 
-const { LOGO, esc, ceja, titular, cuerpo, placaLey, li, cierre } = require('./lib/bloques.js');
+const { LOGO, bug, esc, ceja, titular, cuerpo, placaLey, li, cierre } = require('./lib/bloques.js');
 
 /* ====================================================================== */
 /*  REELS                                                                  */
@@ -196,4 +196,29 @@ const R10 = {
   ],
 };
 
-module.exports = [R7, R8, R9, H10, H12, H14, R10];
+/* Versión con la captura del show de drones. La imagen la aportó el
+   cliente: es de la transmisión y muestra la marca del sponsor, así que
+   usarla es decisión suya. La versión sin imágenes de terceros es R10. */
+const FOTO = 'assets/drones-monumental.webp';
+const escenaFoto = `<section class="scene on-dark" data-dur="2.8">
+  <div class="bg bg-dark"></div>
+  <div style="position:absolute;inset:-80px;background:url(${FOTO}) center/cover;filter:blur(40px) brightness(.32) saturate(1.2)"></div>
+  <div class="glow"></div>
+  <div class="wrap" style="gap:40px">
+    ${ceja('Anoche, en el Monumental', 'on-dark', 0)}
+    <div data-anim="pop" data-at="0.15" data-d="0.6" style="border-radius:26px;overflow:hidden;box-shadow:0 30px 90px rgba(0,0,0,.55);border:1px solid rgba(255,255,255,.12)">
+      <img src="${FOTO}" data-anim="deriva" data-at="0" data-d="2.8" style="display:block;width:100%;transform-origin:50% 50%">
+    </div>
+    <p class="kicker" data-anim="sube" data-at="0.7" data-d="0.6" data-dist="30" style="color:#fff">Y antes del homenaje…</p>
+  </div>
+  ${bug()}
+</section>`;
+
+const R10F = {
+  id: 'reel-10-sin-publicidad-con-foto',
+  titulo: 'Momentos en los que nadie quiere publicidad (con la captura de los drones)',
+  formato: 'reel',
+  escenas: [R10.escenas[0], escenaFoto, ...R10.escenas.slice(1)],
+};
+
+module.exports = [R7, R8, R9, H10, H12, H14, R10, R10F];
