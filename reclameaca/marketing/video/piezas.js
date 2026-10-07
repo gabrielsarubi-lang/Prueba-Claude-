@@ -152,4 +152,48 @@ const H14 = historia('historia-14-encuesta-prepaga', 'Encuesta: aviso del aument
      ${cuerpo('Te lo tienen que informar claro, con la cuota nueva.', 0.7)}` }),
 ]);
 
-module.exports = [R7, R8, R9, H10, H12, H14];
+/* ====================================================================== */
+/*  TENDENCIA — la publicidad antes del homenaje a Messi (6/10/2026)       */
+/* ====================================================================== */
+
+/* Se sube a la conversación sin nombrar al sponsor ni usar imágenes del
+   partido: el chiste es la sensación que todos conocemos, no la empresa. */
+
+const momento = (n, lineas, sub) => esc({ dur: 2.6, tema: 'light', html:
+  `${ceja(n, 'law', 0)}
+   <div class="ruled">
+     <i class="rule" data-anim="regla" data-at="0.08" data-d="0.6"></i>
+     ${titular(lineas, 'h2', 0.14, 0.08)}
+   </div>
+   ${sub ? cuerpo(sub, 0.55) : ''}` });
+
+const R10 = {
+  id: 'reel-10-sin-publicidad',
+  titulo: 'Momentos en los que nadie quiere publicidad',
+  formato: 'reel',
+  escenas: [
+    esc({ dur: 2.6, tema: 'dark', html:
+      `${ceja('Lo que vimos anoche', 'on-dark', 0)}
+       ${titular(['Esperábamos', 'un homenaje.'], 'h1', 0.2, 0.1)}` }),
+
+    esc({ dur: 1.9, tema: 'orange', marca: false, wrap: 'center', html:
+      `<div class="huge" data-anim="pop" data-at="0" data-d="0.5">Primero<br>el sponsor</div>` }),
+
+    esc({ dur: 2.3, tema: 'dark', html:
+      `${titular(['Momentos en los que', 'nadie quiere', 'publicidad:'], 'h2', 0.05, 0.09)}` }),
+
+    momento('01', ['Esperás el homenaje', 'a Messi.'], ''),
+    momento('02', ['Llevás 40 minutos', 'en el 0800.'], '“Su llamada es muy importante para nosotros.”'),
+    momento('03', ['Querés darte de baja', 'y te ofrecen', '“un plan mejor”.'], ''),
+    momento('04', ['Pedís la devolución', 'y te mandan', 'un cupón.'], ''),
+
+    esc({ dur: 3.2, tema: 'dark', html:
+      `${ceja('Reclame Acá', 'on-dark', 0)}
+       ${titular(['Acá la empresa', 'responde en público.'], 'h2', 0.18, 0.09)}
+       ${cuerpo('Sin musiquita de espera. Sin publicidad antes.', 0.6)}` }),
+
+    cierre(3.0, ['Tu reclamo,', 'sin cortes comerciales.'], 'Gratis, público y sin vueltas.'),
+  ],
+};
+
+module.exports = [R7, R8, R9, H10, H12, H14, R10];
