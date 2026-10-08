@@ -1,0 +1,306 @@
+{
+  "_comentario": "Semana 4 — las objeciones. Las tres primeras semanas dijeron por qué conviene. Esta contesta por qué la gente no compra. Es el movimiento que corresponde con una audiencia que ya vio el producto tres semanas: lo que falta no es explicar, es sacar el freno.",
+
+  "_que_no_repetir": "La semana 2 ya usó la objeción 'la IA le va a contestar cualquier cosa' y ya hizo la cuenta del costo con una tabla. Ninguna de las dos vuelve acá. Las siete objeciones de esta semana son nuevas.",
+
+  "_damero": "La semana 3 cerró en oscuro, así que esta arranca en claro y alterna: lunes claro, martes oscuro, miércoles claro, jueves oscuro, viernes claro, sábado oscuro, domingo claro. El reel del lunes es la pieza clara nueva, así que entra justo donde el damero lo pide. La semana cierra en claro: la que viene arranca en oscuro.",
+
+  "_el_reel": "El reel del lunes ya está hecho y no vive acá:\n  node reel-ciudad.js            -> el video\n  node portada.js ciudad         -> la portada clara\n  node pegar-sello.js sarubia-reel-buenos-aires-escribe.mp4 claro",
+
+  "_fechas": "Lunes 12 a domingo 18 de octubre. El contenido no está atado a la fecha: si arrancás otro día, se corren los días y el damero se mantiene igual.",
+
+  "_como_escribir": {
+    "salto de linea": "Usá \\n donde quieras que corte el renglón del título.",
+    "resaltado": "Poné *asteriscos* alrededor de la palabra que va en verde.",
+    "hueco": "Los píxeles que se reservan abajo en la historia para el sticker."
+  },
+
+  "semana": "Semana 4",
+
+  "carruseles": [
+    {
+      "dia": "Martes",
+      "archivo": "2-martes-objeciones",
+      "eyebrow": "Antes de decir que sí",
+      "objetivo": "Conversión. Las cinco dudas que frenan la compra, contestadas sin vueltas. El que lo termina de pasar ya no tiene excusa para no escribir.",
+      "laminas": [
+        {
+          "tipo": "declaracion",
+          "fondo": "oscuro",
+          "escala": "l",
+          "titulo": "Cinco cosas que\nme preguntan antes\nde decir *que sí*.",
+          "sub": "Las dudas reales. Contestadas como se las contesto por teléfono.",
+          "sub_ancho": true,
+          "hint": "Deslizá →"
+        },
+        {
+          "tipo": "mito",
+          "fondo": "claro",
+          "mito": "Ya probé un bot\nuna vez y fue peor\nque no tener nada.",
+          "realidad": "Un bot te hace apretar 1, 2 o 3.\nUn agente lee la pregunta como\nla escribió el cliente."
+        },
+        {
+          "tipo": "mito",
+          "fondo": "oscuro",
+          "mito": "Eso lo hago yo\ncon ChatGPT y\nno pago nada.",
+          "realidad": "ChatGPT no está en tu WhatsApp,\nno sabe tus precios y no te avisa\ncuando no sabe algo."
+        },
+        {
+          "tipo": "mito",
+          "fondo": "claro",
+          "mito": "Mi negocio es muy\nparticular. No le\nva a servir.",
+          "realidad": "No se compra hecho. Lo particular\nde tu negocio es justamente\nlo que se carga adentro."
+        },
+        {
+          "tipo": "mito",
+          "fondo": "oscuro",
+          "mito": "No tengo sistema.\nTengo todo en una\nplanilla.",
+          "realidad": "Con una planilla alcanza para\narrancar. El sistema se conecta\ndespués, si hace falta."
+        },
+        {
+          "tipo": "mito",
+          "fondo": "claro",
+          "mito": "No tengo tiempo\npara ponerme con\nesto ahora.",
+          "realidad": "Lo armo yo. Vos contestás una vez\nqué te preguntan y lo probás\nantes que un cliente."
+        },
+        {
+          "tipo": "declaracion",
+          "fondo": "oscuro",
+          "escala": "l",
+          "titulo": "¿Te quedó\notra *duda*?",
+          "sub": "Escribime y te la contesto. No hace falta que compres nada para preguntar.",
+          "sub_ancho": true,
+          "cta": "sarubi-ia.com"
+        }
+      ]
+    },
+    {
+      "dia": "Viernes",
+      "archivo": "5-viernes-una-persona",
+      "eyebrow": "Máquina y persona",
+      "objetivo": "Conversión. La objeción que más frena en clínicas e inmobiliarias: que atender con una máquina es despersonalizar. La respuesta no es negarlo, es mostrar dónde va cada uno.",
+      "laminas": [
+        {
+          "tipo": "declaracion",
+          "fondo": "claro",
+          "escala": "l",
+          "titulo": "«Prefiero que\natienda una\n*persona*.»",
+          "sub": "Yo también. El tema es para qué.",
+          "hint": "Deslizá →"
+        },
+        {
+          "tipo": "cifra",
+          "fondo": "oscuro",
+          "etiqueta": "Ejemplo · consultas de un día",
+          "monto": "16 de 20",
+          "nota": "Son la misma pregunta de siempre"
+        },
+        {
+          "tipo": "capacidad",
+          "fondo": "claro",
+          "veredicto": "Puede",
+          "titulo": "Lo que se\nrepite *todos\nlos días*.",
+          "sub": "Horarios, precios, si hay lugar, si hacen envíos, cómo llegar. Eso no necesita criterio.",
+          "sub_ancho": true
+        },
+        {
+          "tipo": "capacidad",
+          "fondo": "oscuro",
+          "veredicto": "No puede",
+          "titulo": "Lo que necesita\nque alguien\n*decida*.",
+          "sub": "Un reclamo, una excepción, un precio especial, alguien que está enojado. Eso es tuyo.",
+          "sub_ancho": true
+        },
+        {
+          "tipo": "chat",
+          "fondo": "claro",
+          "eyebrow": "Cuando te la pasa",
+          "titulo": "Y te lo pasa",
+          "mensajes": [
+            { "de": "cliente", "texto": "Me lo podés dejar en 150 si llevo tres?", "hora": "20:14" },
+            { "de": "agente", "texto": "Eso lo define Gabriel. Le paso tu consulta y te escribe él.", "hora": "20:14" }
+          ],
+          "remate": "No negocia por vos. Te lo deja servido."
+        },
+        {
+          "tipo": "declaracion",
+          "fondo": "oscuro",
+          "escala": "l",
+          "titulo": "No reemplaza\na *nadie*.",
+          "sub": "Le saca de encima lo que no debería estar haciendo, para que atienda lo que sí.",
+          "sub_ancho": true
+        },
+        {
+          "tipo": "declaracion",
+          "fondo": "claro",
+          "escala": "l",
+          "titulo": "La persona atiende\nmejor cuando no\ncontesta *lo mismo*.",
+          "sub": "Dieciséis veces por día.",
+          "cta": "sarubi-ia.com/como-funciona"
+        }
+      ]
+    }
+  ],
+
+  "_historias": "Una historia por día. Los días de carrusel y de reel, la historia no repite la pieza: adelanta una lámina o aporta el dato que el feed no tiene.",
+
+  "posts": [
+    {
+      "dia": "Lunes",
+      "archivo": "1-lunes-reel-ciudad",
+      "tipo": "cifra",
+      "fondo": "claro",
+      "eyebrow": "Un día cualquiera",
+      "objetivo": "El reel del lunes. Se genera aparte con reel-ciudad.js. Acá solo vive la historia que lo acompaña.",
+      "sticker": "Encuesta — \"¿A qué hora te escriben más?\" / De noche · De día",
+      "historia": {
+        "etiqueta": "Ejemplo · un día en Buenos Aires",
+        "monto": "47",
+        "nota": "Mensajes fuera de horario",
+        "hueco": 620
+      },
+      "pie": "Palermo a las 21:05. Belgrano a las 23:41. San Telmo a las 02:30. Mataderos a las 05:48.\n\nNinguno de esos horarios cae entre las nueve y las seis. Y sin embargo son los horarios en los que la gente se acuerda de preguntar.\n\nEl video es un mapa real de la ciudad. Cada punto que se enciende es alguien escribiendo cuando tu negocio está cerrado. Todos terminan en el mismo lugar: tu WhatsApp.\n\nLa diferencia entre un negocio y otro no es cuántos mensajes recibe. Es qué pasa con los que entran a las dos de la mañana.\n\nEn sarubi-ia.com/como-funciona está el recorrido completo de uno de esos mensajes.",
+      "hashtags": "#BuenosAires #AtencionAlCliente #AutomatizacionWhatsApp #AgenteDeIA #Pymes #Emprendedores #Argentina #Sarubia"
+    },
+    {
+      "dia": "Martes",
+      "archivo": "2-martes-objeciones",
+      "tipo": "mito",
+      "fondo": "oscuro",
+      "eyebrow": "Antes de decir que sí",
+      "objetivo": "La historia del carrusel del martes: la objeción más repetida de las cinco, sola.",
+      "sticker": "Caja de preguntas — \"¿Cuál es tu duda?\"",
+      "historia": {
+        "mito": "Eso lo hago yo con\nChatGPT y no pago\nnada.",
+        "realidad": "ChatGPT no está en tu\nWhatsApp, no sabe tus precios\ny no te avisa cuando no sabe.",
+        "hueco": 620
+      },
+      "pie": "Hoy subí un carrusel con las cinco cosas que me preguntan antes de contratar.\n\nEsta es la que más se repite desde que ChatGPT se volvió popular, y es una pregunta justa. La respuesta corta es que son dos cosas distintas.\n\nChatGPT es una ventana donde vos entrás a preguntar. Un agente es algo que vive en el WhatsApp de tu negocio, contesta solo, sabe tus precios y tus horarios porque se los cargaste, y cuando le preguntan algo que no tiene cargado no improvisa: te avisa.\n\nLa parte que nadie cuenta es esa última. Un modelo suelto contesta siempre, aunque no sepa. Eso con un cliente tuyo del otro lado es un problema, no una función.\n\nLas otras cuatro dudas están en el carrusel.",
+      "hashtags": "#ChatGPT #InteligenciaArtificial #AutomatizacionWhatsApp #AgenteDeIA #Pymes #Argentina #Sarubia"
+    },
+    {
+      "dia": "Miércoles",
+      "archivo": "3-miercoles-chatgpt",
+      "tipo": "declaracion",
+      "fondo": "claro",
+      "eyebrow": "La diferencia",
+      "pie_marca": "sitio",
+      "objetivo": "Posicionamiento y objeción. Es la duda más actual que existe y la que más barato te saca de la consideración si no la contestás bien.",
+      "sticker": "Enlace a sarubi-ia.com/como-funciona",
+      "post": {
+        "escala": "l",
+        "titulo": "ChatGPT contesta\nsiempre. Aunque\n*no sepa*.",
+        "sub": "Un agente de tu negocio sabe cuándo callarse y pasarte la consulta.",
+        "sub_ancho": true
+      },
+      "historia": {
+        "escala": "l",
+        "titulo": "ChatGPT contesta\nsiempre.\nAunque *no sepa*.",
+        "sub": "Un agente sabe cuándo pasártela a vos.",
+        "hueco": 440
+      },
+      "pie": "«¿Y esto no lo hago yo con ChatGPT?»\n\nMe lo preguntan todas las semanas, y está bien que lo pregunten.\n\nUn modelo de lenguaje suelto tiene una característica que es excelente para escribir un mail y pésima para atender clientes: siempre contesta. Le preguntás algo que no sabe y te arma una respuesta igual, bien escrita y convincente.\n\nEn tu WhatsApp eso no es una ventaja. Si alguien pregunta si hacés factura A y la respuesta sale inventada, el problema lo tenés vos, no el modelo.\n\nUn agente de negocio está armado al revés. Tiene cargado lo que vos cargaste: precios, horarios, servicios, condiciones de envío. Y tiene un límite escrito. Cuando la consulta se sale de ahí, no improvisa: dice que eso lo contesta una persona y te deja la conversación marcada.\n\nLa otra mitad es más aburrida pero igual de importante. ChatGPT no está adentro de tu número. No contesta a las tres de la mañana en el WhatsApp de tu negocio, no se acuerda de lo que te preguntó ese mismo cliente la semana pasada, y no se conecta con tu agenda.\n\nEl recorrido completo está en sarubi-ia.com/como-funciona.",
+      "hashtags": "#ChatGPT #InteligenciaArtificial #AtencionAlCliente #AutomatizacionWhatsApp #Pymes #Emprendedores #Argentina #Sarubia"
+    },
+    {
+      "dia": "Jueves",
+      "archivo": "4-jueves-se-nota",
+      "tipo": "declaracion",
+      "fondo": "oscuro",
+      "eyebrow": "Sin vueltas",
+      "pie_marca": "handle",
+      "objetivo": "Confianza. Es el posteo que se comparte: dice lo contrario de lo que dice todo el rubro. Y es verdad, que es lo que lo hace defendible.",
+      "sticker": "Encuesta — \"¿Preferís que te avisen?\" / Sí, mejor · Me da igual",
+      "post": {
+        "escala": "xl",
+        "titulo": "¿Se nota que\nes un bot?\n*Sí*.",
+        "sub": "Y conviene que se note.",
+        "sub_ancho": true
+      },
+      "historia": {
+        "escala": "xl",
+        "titulo": "¿Se nota\nque es un bot?\n*Sí*.",
+        "sub": "Y conviene que se note.",
+        "hueco": 480
+      },
+      "pie": "Hay gente que me pide que el agente se haga pasar por una persona. No lo hago, y no es por una cuestión moral solamente.\n\nEs que funciona peor.\n\nCuando el cliente no sabe con qué está hablando, prueba. Tira una frase rara a ver qué pasa, pregunta cosas de costado, se pone a charlar. Cuando sabe que es el asistente del negocio, pregunta lo que quiere saber y listo. Las conversaciones son más cortas y se resuelven más.\n\nY está lo otro: el que se da cuenta solo de que lo atendió una máquina haciéndose pasar por humano no se enoja con la máquina. Se enoja con el negocio.\n\nEl agente arranca diciendo qué es. «Hola, soy el asistente de tal lugar.» Nadie se ofendió nunca por eso. Lo que molesta no es hablar con un sistema: es que no te resuelva nada y que encima no te deje llegar a una persona.\n\nPor eso también avisa cuándo te pasa con alguien. Las dos cosas van juntas.",
+      "hashtags": "#AtencionAlCliente #InteligenciaArtificial #AutomatizacionWhatsApp #AgenteDeIA #Pymes #Argentina #Sarubia"
+    },
+    {
+      "dia": "Viernes",
+      "archivo": "5-viernes-una-persona",
+      "tipo": "capacidad",
+      "fondo": "claro",
+      "eyebrow": "Máquina y persona",
+      "objetivo": "La historia del carrusel del viernes: la lámina que define el límite, sola.",
+      "sticker": "Caja de preguntas — \"¿Qué no delegarías nunca?\"",
+      "historia": {
+        "veredicto": "No puede",
+        "titulo": "Lo que necesita\nque alguien\n*decida*.",
+        "sub": "Un reclamo, una excepción, un precio especial. Eso sigue siendo tuyo.",
+        "sub_ancho": true,
+        "hueco": 560
+      },
+      "pie": "«Prefiero que atienda una persona.»\n\nYo también. El tema es para qué.\n\nEn el carrusel de hoy está la cuenta: de veinte consultas que entran en un día, dieciséis son la misma pregunta de siempre. Horarios, precios, si hay lugar, si hacen envíos.\n\nEsas dieciséis no necesitan criterio. Las otras cuatro sí, y son justamente las que se contestan mal cuando la persona viene de contestar las dieciséis.\n\nNo reemplaza a nadie. Le saca de encima lo que no debería estar haciendo.",
+      "hashtags": "#AtencionAlCliente #AutomatizacionWhatsApp #AgenteDeIA #Pymes #Emprendedores #Argentina #Sarubia"
+    },
+    {
+      "dia": "Sábado",
+      "archivo": "6-sabado-sin-sistema",
+      "tipo": "pasos",
+      "fondo": "oscuro",
+      "eyebrow": "Sin sistema también",
+      "pie_marca": "sitio",
+      "objetivo": "Fricción. Saca de encima la excusa técnica. El que cree que necesita tener algo montado antes de empezar, no empieza nunca.",
+      "sticker": "Enlace a sarubi-ia.com/planes",
+      "post": {
+        "escala": "m",
+        "titulo": "No hace falta\nque tengas *sistema*.",
+        "pasos": [
+          "Sin nada: contesta lo de siempre",
+          "Con una planilla: consulta tus datos",
+          "Con un sistema: se conecta por API",
+          "Se sube un escalón cuando hace falta"
+        ],
+        "cta": "Escribime →"
+      },
+      "historia": {
+        "escala": "m",
+        "titulo": "No hace falta\nque tengas\n*sistema*.",
+        "pasos": [
+          "Sin nada: contesta lo de siempre",
+          "Con planilla: consulta tus datos",
+          "Con sistema: se conecta por API"
+        ],
+        "hueco": 440
+      },
+      "pie": "«Primero tengo que ordenar todo y después te escribo.»\n\nEsa frase la escucho seguido y casi siempre significa que no me va a escribir nunca.\n\nNo hace falta tener nada montado para arrancar. Son tres escalones y se sube el que corresponde.\n\nSin sistema: el agente contesta lo que se repite. Horarios, precios, servicios, cómo llegar, si hay stock de lo de siempre. Eso es el plan Esencial y no necesita que tengas absolutamente nada además de tu WhatsApp.\n\nCon una planilla: ya puede mirar tus datos. Una lista de precios, un listado de propiedades, un calendario de turnos cargado a mano.\n\nCon un sistema: se conecta por API y consulta en vivo. El estado de un pedido, un turno disponible, el stock real.\n\nLo importante es que no se arranca por el último escalón. Se arranca contestando, y el día que tengas el sistema, se conecta.\n\nLos planes están en sarubi-ia.com/planes.",
+      "hashtags": "#AutomatizacionWhatsApp #AgenteDeIA #Pymes #Emprendedores #Comercio #Argentina #Sarubia"
+    },
+    {
+      "dia": "Domingo",
+      "archivo": "7-domingo-te-digo",
+      "tipo": "declaracion",
+      "fondo": "claro",
+      "eyebrow": "Sin compromiso",
+      "pie_marca": "sitio",
+      "objetivo": "Conversión directa. Domingo a la tarde el que tiene un negocio piensa la semana. La oferta es la más barata que existe: diez minutos y una respuesta honesta, incluida la que no me conviene.",
+      "sticker": "Enlace a wa.me — el número de contacto",
+      "post": {
+        "escala": "l",
+        "titulo": "Contame qué te\npreguntan y te digo\nsi te *sirve*.",
+        "sub": "O si no te sirve. Las dos respuestas salen lo mismo: nada.",
+        "sub_ancho": true,
+        "cta": "Escribime →"
+      },
+      "historia": {
+        "escala": "l",
+        "titulo": "Contame qué\nte preguntan y\nte digo si te *sirve*.",
+        "sub": "O si no. Las dos respuestas son gratis.",
+        "hueco": 520
+      },
+      "pie": "Esta semana contesté las siete cosas que más me preguntan antes de contratar. Cierro con la que no es una duda sino una invitación.\n\nEscribime y contame qué te preguntan todos los días en tu negocio. Con eso solo te puedo decir bastante: si un agente te sirve, qué parte te resolvería, qué parte no, y cuánto saldría.\n\nY si te digo que no te conviene, te lo digo igual. Hay negocios donde esto no mueve la aguja: los que reciben tres consultas por semana, los que venden algo que se define siempre en una reunión, los que ya tienen a alguien atendiendo bien las veinticuatro horas.\n\nPrefiero perder esa venta que armar algo que no vas a usar y me lo des de baja a los dos meses.\n\nDiez minutos. No hace falta que tengas nada preparado.",
+      "hashtags": "#AtencionAlCliente #AutomatizacionWhatsApp #AgenteDeIA #Pymes #Emprendedores #Argentina #Sarubia"
+    }
+  ]
+}

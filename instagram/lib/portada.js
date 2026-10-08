@@ -48,6 +48,16 @@ function documento(p, marca) {
   const tp = marca.tipografia;
   const m = marca.medidas.historia;
 
+  // La portada tiene que ser del mismo tono que el video: es su primer cuadro.
+  // Un reel claro con portada oscura se siente como dos piezas pegadas.
+  const t = p.tono === 'claro' ? {
+    fondo: '#FAFBFC', texto: c.texto, acento: c.verde, apagado: c.apagado,
+    linea: c.linea, trama: 'rgba(16,20,28,.05)', halo: 'rgba(14,158,122,.13)'
+  } : {
+    fondo: c.tinta, texto: c.tinta_texto, acento: c.verde_sobre_oscuro, apagado: c.apagado_oscuro,
+    linea: c.linea_oscura, trama: 'rgba(255,255,255,.055)', halo: 'rgba(47,224,174,.19)'
+  };
+
   const firma = `${esc(marca.nombre.slice(0, marca.nombre_corte))}<span>${esc(marca.nombre.slice(marca.nombre_corte))}</span>`;
 
   // La vía va entera encendida: en la portada no es una animación en curso,
@@ -77,29 +87,29 @@ function documento(p, marca) {
     display:flex;flex-direction:column;
     font-family:'${tp.familia}',${tp.respaldo};
     -webkit-font-smoothing:antialiased;
-    background:${c.tinta};color:${c.tinta_texto};
+    background:${t.fondo};color:${t.texto};
   }
 
   /* El mismo fondo que el reel: la portada y el primer cuadro del video
      tienen que ser la misma pieza, no dos cosas parecidas. */
   .grilla{
     position:absolute;left:-80px;top:-80px;width:calc(100% + 160px);height:calc(100% + 160px);
-    background-image:radial-gradient(rgba(255,255,255,.055) 1.6px, transparent 1.6px);
+    background-image:radial-gradient(${t.trama} 1.6px, transparent 1.6px);
     background-size:46px 46px;
   }
   .halo{
     position:absolute;left:50%;top:50%;width:1240px;height:1240px;
     transform:translate(-50%,-50%);pointer-events:none;
-    background:radial-gradient(circle,rgba(47,224,174,.20) 0%,rgba(47,224,174,0) 60%);
+    background:radial-gradient(circle,${t.halo} 0%,rgba(14,158,122,0) 62%);
   }
 
   .cabeza,.pie,.via,.centro{position:relative;z-index:3;}
   .cabeza{display:flex;align-items:center;gap:18px;}
   .eyebrow{
     font-size:24px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
-    color:${c.verde_sobre_oscuro};white-space:nowrap;
+    color:${t.acento};white-space:nowrap;
   }
-  .raya{flex:1;height:1px;background:${c.linea_oscura};}
+  .raya{flex:1;height:1px;background:${t.linea};}
 
   /* ------------------------------------------------------------ el centro */
   .centro{flex:1;display:flex;flex-direction:column;justify-content:center;}
@@ -108,12 +118,12 @@ function documento(p, marca) {
      muestren el mismo dato hace que al tocar el reel no haya corte. */
   .hora{
     font-size:128px;font-weight:700;line-height:1;letter-spacing:-.02em;
-    font-variant-numeric:tabular-nums;color:${c.verde_sobre_oscuro};
+    font-variant-numeric:tabular-nums;color:${t.acento};
   }
   .hora small{
     display:block;margin-top:18px;
     font-size:26px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
-    color:${c.apagado_oscuro};
+    color:${t.apagado};
   }
 
   h1{
@@ -121,35 +131,35 @@ function documento(p, marca) {
     font-size:84px;font-weight:700;line-height:1.08;letter-spacing:-.025em;
     text-wrap:balance;
   }
-  h1 .ac{color:${c.verde_sobre_oscuro};}
+  h1 .ac{color:${t.acento};}
 
   .bajada{
     margin-top:34px;max-width:860px;
-    font-size:40px;font-weight:400;line-height:1.38;color:${c.texto_sobre_oscuro};
+    font-size:40px;font-weight:400;line-height:1.38;color:${t.apagado};
   }
 
   /* -------------------------------------------------------------- la vía */
   .via{margin-top:56px;height:124px;position:relative;}
   .riel{
     position:absolute;left:9px;right:9px;top:17px;height:3px;border-radius:2px;
-    background:${c.verde_sobre_oscuro};opacity:.75;
+    background:${t.acento};opacity:.75;
   }
   .nodos{position:absolute;left:0;right:0;top:0;display:flex;justify-content:space-between;}
   .nodo{display:flex;flex-direction:column;align-items:center;gap:15px;width:160px;}
   .punto{
     width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;
-    background:${c.tinta};border:3px solid ${c.verde_sobre_oscuro};
+    background:${t.fondo};border:3px solid ${t.acento};
   }
-  .punto i{display:block;width:14px;height:14px;border-radius:50%;background:${c.verde_sobre_oscuro};}
+  .punto i{display:block;width:14px;height:14px;border-radius:50%;background:${t.acento};}
   .rotulo{
     font-size:21px;font-weight:600;letter-spacing:.11em;text-transform:uppercase;
-    color:${c.tinta_texto};white-space:nowrap;
+    color:${t.texto};white-space:nowrap;
   }
 
   .pie{display:flex;align-items:center;justify-content:space-between;gap:24px;}
-  .mark{font-size:34px;font-weight:700;color:${c.tinta_texto};}
-  .mark span{color:${c.verde_sobre_oscuro};}
-  .sitio{font-size:26px;font-weight:500;letter-spacing:.02em;color:${c.apagado_oscuro};}
+  .mark{font-size:34px;font-weight:700;color:${t.texto};}
+  .mark span{color:${t.acento};}
+  .sitio{font-size:26px;font-weight:500;letter-spacing:.02em;color:${t.apagado};}
 </style>
 </head>
 <body>
