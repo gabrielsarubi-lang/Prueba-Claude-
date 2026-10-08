@@ -177,4 +177,144 @@ const H13 = img('historia-13-prepaga-reglas', 'Prepaga: tres números',
    ${li('3x', 'Tope entre franjas de edad', 'De la más barata a la más cara', 0)}
    ${li('30', 'Días de aviso para irte', 'Sin multa', 0)}`, 'dark', true);
 
-module.exports = [C4, C5, C6, H9, H11, H13];
+/* ====================================================================== */
+/*  TANDA 3 — días 16 a 22                                                 */
+/* ====================================================================== */
+
+const C7 = {
+  id: 'carrusel-07-cobros-no-pedidos',
+  titulo: 'Lo que te cobran sin que lo hayas pedido',
+  formato: 'carrusel',
+  tamano: [1080, 1350],
+  laminas: [
+    lam({ n: 1, total: 6, tema: 'dark', marca: true, html:
+      `${ceja('Revisá tu factura', 'on-dark')}
+       ${titular(['Lo que te cobran', 'sin que lo', 'hayas pedido.'], 'h1')}
+       ${cuerpo('Seguros, asistencias, “packs”. Qué dice la ley.')}` }),
+
+    lam({ n: 2, total: 6, html:
+      `${ceja('Uno · Ley 24.240, art. 35', 'law')}
+       <div class="ruled"><i class="rule"></i>${titular(['No te pueden cobrar', 'lo que no pediste.'], 'h2')}</div>
+       ${cuerpo('Está prohibido ofrecerte algo que genere un cargo automático y te obligue a decir que no para no pagarlo.')}` }),
+
+    lam({ n: 3, total: 6, html:
+      `${ceja('Dos · Tu silencio no es un sí', 'law')}
+       <div class="ruled"><i class="rule"></i>${titular(['No contestar', 'no es aceptar.'], 'h2')}</div>
+       ${cuerpo('Si nunca dijiste que sí, no lo contrataste. Que no te hayas negado no lo convierte en un servicio tuyo.')}` }),
+
+    lam({ n: 4, total: 6, html:
+      `${ceja('Tres · Art. 35', 'law')}
+       <div class="ruled"><i class="rule"></i>${titular(['Si te mandan algo', 'que no pediste,', 'no lo devolvés.'], 'h2')}</div>
+       ${cuerpo('No estás obligado a guardarlo ni a devolverlo, aunque devolverlo no te cueste nada.')}` }),
+
+    lam({ n: 5, total: 6, tema: 'orange', marca: false, html:
+      `${ceja('Qué hacer', 'solid')}
+       ${titular(['Pedí la baja', 'y el reintegro.'], 'h2')}
+       ${cuerpo('Por escrito, con número de reclamo. Si te lo cobran en la tarjeta, impugnalo: tenés 30 días desde que recibís el resumen.')}` }),
+
+    final(6, 6, ['¿Te lo siguen', 'cobrando?', 'Publicá el reclamo.'],
+      'Queda con fecha, la empresa recibe el aviso y lo ve el próximo cliente.'),
+  ],
+};
+
+const C8 = {
+  id: 'carrusel-08-precio-publicado',
+  titulo: 'El precio publicado es el que pagás',
+  formato: 'carrusel',
+  tamano: [1080, 1350],
+  laminas: [
+    lam({ n: 1, total: 6, tema: 'dark', marca: true, html:
+      `${ceja('Precios', 'on-dark')}
+       ${titular(['El precio', 'publicado es', 'el que pagás.'], 'h1')}
+       ${cuerpo('En la góndola, en la vidriera y en la web.')}` }),
+
+    lam({ n: 2, total: 6, html:
+      `${ceja('Uno · Ley 24.240, art. 7', 'law')}
+       <div class="ruled"><i class="rule"></i>${titular(['La oferta obliga', 'a quien la hace.'], 'h2')}</div>
+       ${cuerpo('Mientras esté vigente. Si no la cumplen, la ley lo trata como una negativa injustificada de venta.')}` }),
+
+    lam({ n: 3, total: 6, html:
+      `${ceja('Dos · Art. 8', 'law')}
+       <div class="ruled"><i class="rule"></i>${titular(['La publicidad es', 'parte del contrato.'], 'h2')}</div>
+       ${cuerpo('Las cuotas, el descuento y las condiciones que te mostraron, te los tienen que respetar.')}` }),
+
+    lam({ n: 4, total: 6, html:
+      `${ceja('Tres · Las promos', 'law')}
+       <div class="ruled"><i class="rule"></i>${titular(['Toda oferta tiene', 'que decir cuándo', 'empieza y termina.'], 'h2')}</div>
+       ${cuerpo('Con la fecha precisa de inicio y de fin, y sus condiciones o limitaciones.')}` }),
+
+    lam({ n: 5, total: 6, tema: 'orange', marca: false, html:
+      `${ceja('Qué hacer', 'solid')}
+       ${titular(['Foto al precio,', 'antes de pagar.'], 'h2')}
+       ${cuerpo('Si en caja te cobran otro, mostrala y pedí el publicado. Y guardá el ticket.')}` }),
+
+    final(6, 6, ['¿No te lo respetaron?', 'Publicá el reclamo.'],
+      'Queda con fecha, la empresa recibe el aviso y lo ve el próximo cliente.'),
+  ],
+};
+
+const C9 = {
+  id: 'carrusel-09-como-reclamar',
+  titulo: 'Cómo reclamar sin abogado, paso a paso',
+  formato: 'carrusel',
+  tamano: [1080, 1350],
+  laminas: [
+    lam({ n: 1, total: 7, tema: 'dark', marca: true, html:
+      `${ceja('Guardalo', 'on-dark')}
+       ${titular(['Cómo reclamar', 'sin abogado,', 'paso a paso.'], 'h1')}
+       ${cuerpo('Vale para cualquier empresa y cualquier rubro.')}` }),
+
+    lam({ n: 2, total: 7, html:
+      `${ceja('Antes', 'law')}
+       <div class="ruled"><i class="rule"></i>${titular(['Juntá las pruebas.'], 'h2')}</div>
+       ${li('1', 'Factura o comprobante', '', 0)}
+       ${li('2', 'Fechas y números de gestión', '', 0)}
+       ${li('3', 'Mails, chats y capturas', '', 0)}` }),
+
+    lam({ n: 3, total: 7, html:
+      `${ceja('Paso 1', 'law')}
+       <div class="ruled"><i class="rule"></i>${titular(['Reclamale a la', 'empresa por escrito.'], 'h2')}</div>
+       ${cuerpo('Qué pasó, qué solución pedís y hasta cuándo. Pedí número de reclamo y guardalo.')}` }),
+
+    lam({ n: 4, total: 7, html:
+      `${ceja('Paso 2 · Consumo Protegido', 'law')}
+       <div class="ruled"><i class="rule"></i>${titular(['Conciliación', 'gratis y en línea.'], 'h2')}</div>
+       ${cuerpo('Una audiencia con la empresa y un conciliador, sin costo y sin necesidad de abogado (Ley 26.993).')}` }),
+
+    lam({ n: 5, total: 7, html:
+      `${ceja('Paso 3', 'law')}
+       <div class="ruled"><i class="rule"></i>${titular(['Defensa del', 'Consumidor local.'], 'h2')}</div>
+       ${cuerpo('La oficina de tu municipio o de tu provincia también recibe el reclamo, gratis.')}` }),
+
+    lam({ n: 6, total: 7, tema: 'orange', marca: false, html:
+      `${ceja('En paralelo', 'solid')}
+       ${titular(['Dejalo público.'], 'h2')}
+       ${cuerpo('Publicar en Reclame Acá no reemplaza esos pasos. Pero deja registro con fecha y la empresa recibe el aviso.')}` }),
+
+    final(7, 7, ['Tu reclamo, visible', 'hasta que la empresa', 'responda.'],
+      'Informativo: no reemplaza el asesoramiento de un abogado.'),
+  ],
+};
+
+const H15 = img('historia-15-caja-cobros', 'Caja de preguntas: cobros',
+  `${ceja('Contanos', 'on-dark')}
+   ${titular(['¿Qué te cobraron', 'sin que lo', 'pidieras?'], 'h2')}
+   ${cuerpo('Seguros, asistencias, “packs”. Las leemos todas.')}`, 'navy', true);
+
+const H17 = img('historia-17-precio-publicado', 'Dato: precio publicado',
+  `${ceja('En la góndola', 'solid')}
+   <div class="huge" style="font-size:150px">Ese precio</div>
+   ${titular(['es el que', 'tenés que pagar.'], 'h2')}
+   ${cuerpo('Si en caja te cobran otro, pedí el publicado. Ley 24.240, art. 7.')}`, 'orange', true);
+
+const H19 = img('historia-19-trato-digno', 'Dato: cobranzas',
+  `${ceja('Cobranzas', 'on-dark')}
+   ${titular(['Una carta de', 'cobranza no puede', 'parecer de un juzgado.'], 'h2')}
+   ${cuerpo('Ley 24.240, artículo 8 bis. Y te tienen que tratar con dignidad.')}`, 'dark', true);
+
+const H21 = img('historia-21-caja-guias', 'Caja de preguntas: próxima guía',
+  `${ceja('Contanos', 'on-dark')}
+   ${titular(['¿Sobre qué', 'querés la', 'próxima guía?'], 'h2')}
+   ${cuerpo('Decinos el rubro o el problema. Las leemos todas.')}`, 'navy', true);
+
+module.exports = [C4, C5, C6, H9, H11, H13, C7, C8, C9, H15, H17, H19, H21];

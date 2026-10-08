@@ -223,4 +223,160 @@ const R10F = {
   escenas: [escenaFoto, ...R10.escenas.slice(1)],
 };
 
-module.exports = [R7, R8, R9, H10, H12, H14, R10, R10F];
+/* ====================================================================== */
+/*  TANDA 3 — días 16 a 22                                                 */
+/*  Ley 24.240: arts. 7, 8, 8 bis y 35. Ley 26.951 (No Llame).            */
+/*  Ley 26.993 (Consumo Protegido / COPREC).                              */
+/* ====================================================================== */
+
+const R11 = {
+  id: 'reel-11-cobros-no-pedidos',
+  titulo: 'Cobros que no pediste',
+  formato: 'reel',
+  escenas: [
+    esc({ dur: 2.8, tema: 'dark', html:
+      `${ceja('Revisá tu factura', 'on-dark', 0)}
+       ${titular(['Un seguro, una', 'asistencia, un', '“servicio extra”.'], 'h2', 0.2, 0.09)}
+       ${cuerpo('Que nunca pediste.', 0.6)}` }),
+
+    esc({ dur: 1.8, tema: 'orange', marca: false, wrap: 'center', html:
+      `<div class="huge" data-anim="pop" data-at="0" data-d="0.5">No lo<br>pediste</div>
+       ${cuerpo('Entonces no lo pagás.', 0.45)}` }),
+
+    placaLey({ dur: 3.6, articulo: 'Ley 24.240 · Art. 35',
+      lineas: ['No te pueden cobrar', 'algo que no pediste.'],
+      texto: 'Aunque no hayas dicho que no. No pueden obligarte a negarte para que no te lo cobren.' }),
+
+    placaLey({ dur: 3.4, articulo: 'Si te lo mandan igual',
+      lineas: ['No tenés que', 'devolverlo', 'ni guardarlo.'],
+      texto: 'Si te enviaron algo que no pediste, la ley no te obliga a conservarlo ni a restituirlo.' }),
+
+    esc({ dur: 3.6, tema: 'dark', html:
+      `${ceja('Qué hacer', 'on-dark', 0)}
+       ${li('1', 'Revisá cada renglón de la factura', 'Celular, tarjeta, cable, banco', 0.3)}
+       ${li('2', 'Pedí la baja y el reintegro por escrito', 'Con número de reclamo', 0.52)}
+       ${li('3', 'Si es en la tarjeta, impugnalo', 'Tenés 30 días desde el resumen', 0.74)}` }),
+
+    cierre(3.2, ['¿Te lo siguen', 'cobrando?', 'Publicá el reclamo.'], 'Gratis, público y sin vueltas.'),
+  ],
+};
+
+const R12 = {
+  id: 'reel-12-precio-publicado',
+  titulo: 'El precio publicado es el que pagás',
+  formato: 'reel',
+  escenas: [
+    esc({ dur: 2.8, tema: 'dark', html:
+      `${ceja('En la caja', 'on-dark', 0)}
+       ${titular(['En la góndola', 'decía otro', 'precio.'], 'h1', 0.2, 0.09)}
+       ${cuerpo('“Es que no lo actualizaron.”', 0.6)}` }),
+
+    esc({ dur: 1.8, tema: 'orange', marca: false, wrap: 'center', html:
+      `<div class="huge" data-anim="pop" data-at="0" data-d="0.5">Pagás el<br>publicado</div>` }),
+
+    placaLey({ dur: 3.6, articulo: 'Ley 24.240 · Art. 7',
+      lineas: ['La oferta publicada', 'obliga a quien', 'la publica.'],
+      texto: 'Mientras esté vigente. Y si no la cumplen, la ley lo trata como una negativa injustificada de venta.' }),
+
+    placaLey({ dur: 3.5, articulo: 'Ley 24.240 · Art. 8',
+      lineas: ['Lo que dice la', 'publicidad, es parte', 'del contrato.'],
+      texto: 'Las cuotas, el descuento y las condiciones que te mostraron, te los tienen que respetar.' }),
+
+    esc({ dur: 3.6, tema: 'dark', html:
+      `${ceja('Qué hacer', 'on-dark', 0)}
+       ${li('1', 'Sacale una foto al precio', 'Góndola, vidriera o pantalla', 0.3)}
+       ${li('2', 'Pedí que te cobren el publicado', 'Antes de pagar', 0.52)}
+       ${li('3', 'Guardá el ticket', 'Es la prueba de lo que te cobraron', 0.74)}` }),
+
+    cierre(3.2, ['¿No te lo respetaron?', 'Publicá el reclamo.'], 'Gratis, público y sin vueltas.'),
+  ],
+};
+
+const R13 = {
+  id: 'reel-13-trato-digno',
+  titulo: 'Cobranzas: trato digno',
+  formato: 'reel',
+  escenas: [
+    esc({ dur: 3.0, tema: 'dark', html:
+      `${ceja('Te llegó una carta', 'on-dark', 0)}
+       ${titular(['Con sello, número', 'de expediente y', 'tono de juzgado.'], 'h2', 0.2, 0.09)}
+       ${cuerpo('Pero era de la empresa de cobranzas.', 0.65)}` }),
+
+    esc({ dur: 1.7, tema: 'orange', marca: false, wrap: 'center', html:
+      `<div class="huge" data-anim="pop" data-at="0" data-d="0.5">No vale</div>
+       ${cuerpo('Y la ley lo dice con todas las letras.', 0.45)}` }),
+
+    placaLey({ dur: 3.6, articulo: 'Ley 24.240 · Art. 8 bis',
+      lineas: ['Un reclamo de deuda', 'no puede parecer', 'judicial.'],
+      texto: 'Si no es de un juzgado, no pueden darle apariencia de reclamo judicial.' }),
+
+    placaLey({ dur: 3.5, articulo: 'Trato digno · Art. 8 bis',
+      lineas: ['Nada de situaciones', 'vergonzantes ni', 'intimidatorias.'],
+      texto: 'Te tienen que tratar con dignidad. También cuando te reclaman una deuda.' }),
+
+    esc({ dur: 3.4, tema: 'dark', html:
+      `${titular(['¿Te llaman', 'para venderte algo?'], 'h2', 0.05, 0.09)}
+       ${cuerpo('Anotate gratis en el Registro Nacional No Llame (Ley 26.951). No pueden llamar a los números anotados para ofrecerte productos o servicios.', 0.4)}` }),
+
+    cierre(3.2, ['¿Te trataron mal?', 'Dejalo público.'], 'Con fecha, y a la vista del próximo cliente.'),
+  ],
+};
+
+const R14 = {
+  id: 'reel-14-sin-abogado',
+  titulo: 'Reclamar sin abogado',
+  formato: 'reel',
+  escenas: [
+    esc({ dur: 2.8, tema: 'dark', html:
+      `${ceja('Lo que muchos creen', 'on-dark', 0)}
+       ${titular(['“Para reclamar', 'necesito', 'un abogado.”'], 'h1', 0.22, 0.1)}` }),
+
+    esc({ dur: 1.7, tema: 'orange', marca: false, wrap: 'center', html:
+      `<div class="huge" data-anim="pop" data-at="0" data-d="0.5">No</div>
+       ${cuerpo('Hay un camino gratis antes de un juicio.', 0.45)}` }),
+
+    placaLey({ dur: 3.3, articulo: 'Paso 1',
+      lineas: ['Reclamale a la', 'empresa por escrito.'],
+      texto: 'Contá qué pasó, qué solución pedís, y guardá el número de reclamo.' }),
+
+    placaLey({ dur: 3.6, articulo: 'Paso 2 · Consumo Protegido',
+      lineas: ['Conciliación', 'gratis y en línea.'],
+      texto: 'Una audiencia con la empresa y un conciliador, sin costo y sin necesidad de abogado (Ley 26.993).' }),
+
+    placaLey({ dur: 3.3, articulo: 'Paso 3',
+      lineas: ['O andá a Defensa', 'del Consumidor.'],
+      texto: 'La oficina de tu municipio o de tu provincia también recibe el reclamo, gratis.' }),
+
+    esc({ dur: 3.3, tema: 'dark', html:
+      `${titular(['Y en paralelo,', 'dejalo público.'], 'h2', 0.05, 0.09)}
+       ${cuerpo('Publicar en Reclame Acá no reemplaza esos pasos. Pero deja registro con fecha y la empresa recibe el aviso.', 0.4)}` }),
+
+    cierre(3.2, ['Tu reclamo, visible', 'hasta que la empresa', 'responda.'], 'Gratis, público y sin vueltas.'),
+  ],
+};
+
+const H16 = historia('historia-16-encuesta-cobros', 'Encuesta: cobros no pedidos', [
+  esc({ dur: 6.0, tema: 'dark', wrap: 'top', html:
+    `<style>.wrap{bottom:760px}</style>
+     ${ceja('Contanos', 'on-dark', 0)}
+     ${titular(['¿Revisaste tu', 'factura este mes?'], 'h2', 0.2, 0.1)}
+     ${cuerpo('Buscá cargos que no pediste: seguros, asistencias, “packs”.', 0.7)}` }),
+]);
+
+const H18 = historia('historia-18-encuesta-precio', 'Encuesta: precio en caja', [
+  esc({ dur: 6.0, tema: 'navy', wrap: 'top', html:
+    `<style>.wrap{bottom:760px}</style>
+     ${ceja('Contanos', 'on-dark', 0)}
+     ${titular(['¿Te cobraron en', 'caja más que en', 'la góndola?'], 'h2', 0.2, 0.1)}
+     ${cuerpo('El precio publicado es el que tenés que pagar.', 0.7)}` }),
+]);
+
+const H20 = historia('historia-20-encuesta-abogado', 'Encuesta: reclamar sin abogado', [
+  esc({ dur: 6.0, tema: 'dark', wrap: 'top', html:
+    `<style>.wrap{bottom:760px}</style>
+     ${ceja('Contanos', 'on-dark', 0)}
+     ${titular(['¿Sabías que podés', 'reclamar sin', 'abogado?'], 'h2', 0.2, 0.1)}
+     ${cuerpo('La conciliación en Consumo Protegido es gratis.', 0.7)}` }),
+]);
+
+module.exports = [R7, R8, R9, H10, H12, H14, R10, R10F, R11, R12, R13, R14, H16, H18, H20];
